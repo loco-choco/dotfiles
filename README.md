@@ -5,7 +5,7 @@ https://www.youtube.com/watch?v=mJbQ--iBc1U -> To turn my config into a flake co
 
 Wil T my beloved
 
-## How to use it
+### How to use it
 
 Once cloned run:
 
