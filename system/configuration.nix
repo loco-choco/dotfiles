@@ -2,18 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-let
-  nixpkg-23-05 = import
-    (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/23.05-pre)
-    # reuse the current configuration
-    { config = config.nixpkgs.config; };
-in
-{
+{ config, pkgs, ... }: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
     ];
 
   # Bootloader
@@ -135,7 +127,7 @@ in
      peek
      inkscape
      openscad
-     #nixpkg-23-05.freecad
+     #freecad
      gimp
      godot_4
      wine
@@ -165,18 +157,18 @@ in
      #building pkgs
      nix-prefetch-github
      #vr
-     #nixpkg-23-05.monado
+     #monado
      #modding
      jetbrains.rider
      dotnet-sdk_7
      msbuild
-     #nixpkg-23-05.unityhub
+     #unityhub
      #avalonia-ilspy
      #music creation
      famistudio
      #sdr
-     (nixpkg-23-05.gnuradio3_8.override {
-       extraPackages = with nixpkg-23-05.gnuradio3_8Packages; [
+     (gnuradio3_8.override {
+       extraPackages = with gnuradio3_8Packages; [
          osmosdr
        ];
      })
@@ -198,9 +190,6 @@ in
      };
      kdeconnect.enable = true;
   };
-
-  #Home Manager
-  home-manager.users.locochoco = (import ./home.nix);
 
   #change default shell to zsh
   users.defaultUserShell = pkgs.zsh;
