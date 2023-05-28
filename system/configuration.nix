@@ -16,7 +16,6 @@
     timeout = 1;
     grub = {
       enable = true;
-      version = 2;
       devices = ["nodev"];
       efiSupport = true;
       useOSProber = true;
@@ -135,7 +134,6 @@
      p7zip
      lutris
      mono
-     rtw89-firmware # driver for intelbras wifi dongle
      #video editing
      shotcut
      obs-studio
@@ -178,17 +176,20 @@
   environment.localBinInPath = true;
   environment.variables.EDITOR = "nvim";
   programs = {
-     steam = with pkgs; {
-  	enable = true;
-  	remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  	dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	package = steam.override { # steam beta fix
+    zsh.enable = true;
+
+    steam = with pkgs; {
+  	  enable = true;
+  	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+	    package = steam.override { # steam beta fix
           extraProfile = ''
             export GSETTINGS_SCHEMA_DIR="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}/glib-2.0/schemas/"
           '';
-        };
-     };
-     kdeconnect.enable = true;
+      };
+    };
+    
+    kdeconnect.enable = true;
   };
 
   #change default shell to zsh
