@@ -118,9 +118,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
      #terminal utils
+     neofetch
      wget
      xclip
-     mpv
      ranger
      termpdfpy
      mdcat

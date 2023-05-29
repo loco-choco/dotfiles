@@ -4,9 +4,13 @@
   home.homeDirectory = "/home/locochoco";
 
   home.packages = with pkgs; [
+    #keys stuff
     gnupg
     git-crypt
     pinentry-qt
+    #terminal utils
+    onefetch
+    mpv
   ];
 
   home.stateVersion = "23.05";
@@ -47,6 +51,7 @@
       gruvbox-material
       mini-nvim
       openscad-nvim #on nixpkgs 23.05
+      hologram-nvim
     ];
   };
 
