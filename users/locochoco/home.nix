@@ -46,7 +46,7 @@
       plenary-nvim
       gruvbox-material
       mini-nvim
-      #openscad-nvim #on nixpkgs 23.05
+      openscad-nvim #on nixpkgs 23.05
     ];
   };
 
