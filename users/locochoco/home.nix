@@ -74,7 +74,7 @@
     shellAliases = {
       "icat" = "kitty +kitten icat";
       "d" = "kitty +kitten diff";
-      "nix"="noglob nix" #so we can use the # char in flakes
+      "nix"="noglob nix"; #so we can use the # char in flakes
     };
     plugins = [
       #{
