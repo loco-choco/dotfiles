@@ -13,6 +13,7 @@
     mpv
     f3d
     bat
+    xdragon
   ];
 
   home.stateVersion = "23.05";
@@ -35,6 +36,9 @@
     theme = "Space Gray Eighties";
     keybindings = {
       "ctrl+k" = "kitten mykitten.py";
+    };
+    settings = {
+      enabled_layouts = "*";
     };
   };
 
@@ -66,19 +70,11 @@
     autocd = true;
     localVariables = {
       VISUAL = "nvim";#for ranger default editor
-      PAGER = "nvim";
     };
     shellAliases = {
       "icat" = "kitty +kitten icat";
       "d" = "kitty +kitten diff";
-      "edconf" = "nvim /etc/nixos/configuration.nix";
-      "edhome" = "nvim /etc/nixos/home.nix";
-      "nixrebuild" = "nixos-rebuild switch";
-      "nixclean" = "nix-collect-garbage";
-      "sedconf" = "sudo nvim /etc/nixos/configuration.nix";
-      "sedhome" = "sudo nvim /etc/nixos/home.nix";
-      "snixrebuild" = "sudo nixos-rebuild switch";
-      "snixclean" = "sudo nix-collect-garbage";
+      "nix"="noglob nix" #so we can use the # char in flakes
     };
     plugins = [
       #{
