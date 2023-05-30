@@ -11,6 +11,7 @@
     #terminal utils
     onefetch
     mpv
+    f3d
   ];
 
   home.stateVersion = "23.05";
@@ -96,7 +97,7 @@
         "directory"
         "spectrum"
         "utility"
-	"git"
+	      "git"
         "completion"
         "prompt"
       ];
