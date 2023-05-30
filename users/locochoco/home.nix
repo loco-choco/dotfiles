@@ -46,6 +46,7 @@
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
@@ -63,6 +64,10 @@
     enableSyntaxHighlighting = true;
     enableVteIntegration = true;
     autocd = true;
+    localVariables = {
+      VISUAL = "nvim";#for ranger default editor
+      PAGER = "nvim";
+    };
     shellAliases = {
       "icat" = "kitty +kitten icat";
       "d" = "kitty +kitten diff";
