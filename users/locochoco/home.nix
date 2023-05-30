@@ -12,6 +12,7 @@
     onefetch
     mpv
     f3d
+    bat
   ];
 
   home.stateVersion = "23.05";
