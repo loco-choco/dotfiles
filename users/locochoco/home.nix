@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.username = "locochoco";
   home.homeDirectory = "/home/locochoco";
@@ -14,6 +14,8 @@
     f3d
     bat
     xdragon
+    #owmods
+    inputs.ow-mod-man.packages.${system}.owmods-cli
   ];
 
   home.stateVersion = "23.05";
