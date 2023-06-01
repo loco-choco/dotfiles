@@ -2,7 +2,7 @@
 {
   home.username = "locochoco";
   home.homeDirectory = "/home/locochoco";
-
+ 
   home.packages = with pkgs; [
     #keys stuff
     gnupg
@@ -16,6 +16,9 @@
     xdragon
     #owmods
     inputs.ow-mod-man.packages.${system}.owmods-cli
+    inputs.ow-mod-man.packages.${system}.owmods-gui
+    #circuit tools
+    kicad
   ];
 
   home.stateVersion = "23.05";

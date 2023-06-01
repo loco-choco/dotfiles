@@ -40,7 +40,6 @@
     nixosConfigurations = {
       locochoco = lib.nixosSystem {
         inherit system;
-
         modules = [
           ./system/configuration.nix
         ];
