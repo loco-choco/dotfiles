@@ -19,6 +19,9 @@
     #inputs.ow-mod-man.packages.${system}.owmods-gui
     #circuit tools
     kicad
+    #rust
+    cargo
+    rustc
   ];
 
   home.stateVersion = "23.05";
