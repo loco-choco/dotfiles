@@ -16,7 +16,7 @@
     xdragon
     #owmods
     inputs.ow-mod-man.packages.${system}.owmods-cli
-    inputs.ow-mod-man.packages.${system}.owmods-gui
+    #inputs.ow-mod-man.packages.${system}.owmods-gui
     #circuit tools
     kicad
   ];
