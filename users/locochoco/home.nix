@@ -19,9 +19,8 @@
     #inputs.ow-mod-man.packages.${system}.owmods-gui
     #circuit tools
     kicad
-    #rust
-    cargo
-    rustc
+    #website making
+    zola
   ];
 
   home.stateVersion = "23.05";
