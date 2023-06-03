@@ -14,6 +14,7 @@
     f3d
     bat
     xdragon
+    ascii-image-converter
     #owmods
     inputs.ow-mod-man.packages.${system}.owmods-cli
     #inputs.ow-mod-man.packages.${system}.owmods-gui
