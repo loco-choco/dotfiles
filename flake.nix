@@ -22,9 +22,9 @@
   in {
     homeConfigurations = {
       locochoco = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
-        extraSpecialArgs.inputs = inputs;
-
+        #pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
         modules = [
           ./users/locochoco/home.nix
           {
@@ -40,6 +40,8 @@
     nixosConfigurations = {
       locochoco = lib.nixosSystem {
         inherit system;
+        inherit pkgs;
+        specialArgs = { inherit inputs; };
         modules = [
           ./system/configuration.nix
         ];
