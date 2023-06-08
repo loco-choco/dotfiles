@@ -39,6 +39,12 @@
       {
         url = "https://xeiaso.net/blog.rss";
       }
+      {
+        url = "https://www.tamberlanecomic.com/feed.xml";
+      }
+      {
+        url = "https://weekly.nixos.org/feeds/all.rss.xml";
+      }
     ];
   };
   programs.gpg = {
