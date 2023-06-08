@@ -164,7 +164,6 @@
      jetbrains.rider
      dotnet-sdk_7
      msbuild
-     #unityhub
      #avalonia-ilspy
      #music creation
      famistudio

@@ -12,9 +12,16 @@
   let
     system = "x86_64-linux";
     
+    ow-mod-man-overlay = final: prev: {
+      owmods-cli = ow-mod-man.packages.${system}.owmods-cli;
+      owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
+    };
     pkgs = import nixpkgs {
       inherit system;
-      config = { allowUnfree = true; };
+      config = { 
+        allowUnfree = true;
+      };
+      overlays = [ ow-mod-man-overlay ];
     };
     
     lib = nixpkgs.lib;
