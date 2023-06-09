@@ -45,6 +45,9 @@
       {
         url = "https://weekly.nixos.org/feeds/all.rss.xml";
       }
+      {
+        url = "https://rainworldanthroau.thecomicseries.com/rss/";
+      }
     ];
   };
   programs.gpg = {
