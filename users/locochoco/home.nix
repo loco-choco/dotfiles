@@ -17,6 +17,7 @@
     bat
     xdragon
     ascii-image-converter
+    ffmpeg
     #owmods
     unityhub
     owmods-cli
