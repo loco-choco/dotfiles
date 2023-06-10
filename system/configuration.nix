@@ -127,7 +127,6 @@
      w3m
      #random stuff
      discord
-     peek
      inkscape
      openscad
      #freecad

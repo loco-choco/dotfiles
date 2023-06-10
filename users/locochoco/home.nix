@@ -28,6 +28,8 @@
     zola
     #video editing
     libsForQt5.kdenlive
+    #screen recording
+    peek
   ];
 
   home.stateVersion = "23.05";
