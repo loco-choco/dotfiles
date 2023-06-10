@@ -26,6 +26,8 @@
     kicad
     #website making
     zola
+    #video editing
+    libsForQt5.kdenlive
   ];
 
   home.stateVersion = "23.05";

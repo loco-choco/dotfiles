@@ -139,7 +139,6 @@
      lutris
      mono
      #video editing
-     shotcut
      obs-studio
      vlc
      #facul
