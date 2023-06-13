@@ -26,7 +26,7 @@
       ];
     })
     owmods-cli
-    #owmods-gui
+    owmods-gui
     #circuit tools
     kicad
     #website making
