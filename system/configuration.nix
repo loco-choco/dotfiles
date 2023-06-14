@@ -127,10 +127,8 @@
      w3m
      #random stuff
      discord
-     inkscape
      openscad
      #freecad
-     gimp
      godot_4
      wine
      unzip

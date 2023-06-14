@@ -36,6 +36,10 @@
     libsForQt5.kdenlive
     #screen recording
     peek
+    #drawing
+    inkscape
+    krita
+    gimp
   ];
 
   home.stateVersion = "23.05";
