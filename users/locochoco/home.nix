@@ -27,6 +27,7 @@
     })
     owmods-cli
     owmods-gui
+    avalonia-ilspy
     #circuit tools
     kicad
     #website making

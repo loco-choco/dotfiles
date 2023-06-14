@@ -160,9 +160,11 @@
      #monado
      #modding
      jetbrains.rider
-     dotnet-sdk_7
+     (with dotnetCorePackages; combinePackages [
+       sdk_6_0
+       sdk_7_0
+     ])
      msbuild
-     #avalonia-ilspy
      #music creation
      famistudio
      #sdr
