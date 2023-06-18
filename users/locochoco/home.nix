@@ -40,6 +40,8 @@
     inkscape
     krita
     gimp
+    #social media
+    revolt-desktop
   ];
 
   home.stateVersion = "23.05";
