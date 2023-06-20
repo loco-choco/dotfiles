@@ -105,6 +105,9 @@
   #rtl-sdr
   hardware.rtl-sdr.enable = true;
 
+  #huion drawing tablet driver
+  hardware.opentabletdriver.enable = true;
+
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "locochoco";
@@ -117,61 +120,61 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     #terminal utils
-     neofetch
-     wget
-     xclip
-     ranger
-     termpdfpy
-     mdcat
-     w3m
-     #random stuff
-     discord
-     openscad
-     #freecad
-     godot_4
-     wine
-     unzip
-     p7zip
-     lutris
-     mono
-     #video editing
-     obs-studio
-     vlc
-     #facul
-     #kicad #usando ltspice com wine
-     ghdl
-     gtkwave
-     quartus-prime-lite
-     #ngspice #vem com kicad
-     #rust
-     rustc
-     cargo
-     #arduino
-     arduino-cli
-     #pic programming
-     #sdcc
-     #pk2cmd
-     #building pkgs
-     nix-prefetch-github
-     #vr
-     #monado
-     #modding
-     jetbrains.rider
-     (with dotnetCorePackages; combinePackages [
-       sdk_6_0
-       sdk_7_0
-     ])
-     msbuild
-     #music creation
-     famistudio
-     #sdr
-     (gnuradio3_8.override {
-       extraPackages = with gnuradio3_8Packages; [
-         osmosdr
-       ];
-     })
-     gqrx
+    #terminal utils
+    neofetch
+    wget
+    xclip
+    ranger
+    termpdfpy
+    mdcat
+    w3m
+    #random stuff
+    discord
+    openscad
+    #freecad
+    godot_4
+    wine
+    unzip
+    p7zip
+    lutris
+    mono
+    #video editing
+    obs-studio
+    vlc
+    #facul
+    #kicad #usando ltspice com wine
+    ghdl
+    gtkwave
+    quartus-prime-lite
+    #ngspice #vem com kicad
+    #rust
+    rustc
+    cargo
+    #arduino
+    arduino-cli
+    #pic programming
+    #sdcc
+    #pk2cmd
+    #building pkgs
+    nix-prefetch-github
+    #vr
+    #monado
+    #modding
+    jetbrains.rider
+    (with dotnetCorePackages; combinePackages [
+      sdk_6_0
+      sdk_7_0
+    ])
+    msbuild
+    #music creation
+    famistudio
+    #sdr
+    (gnuradio3_8.override {
+      extraPackages = with gnuradio3_8Packages; [
+        osmosdr
+      ];
+    })
+    gqrx
   ];
 
   environment.localBinInPath = true;
