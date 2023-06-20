@@ -16,12 +16,24 @@
       owmods-cli = ow-mod-man.packages.${system}.owmods-cli;
       owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
     };
+    opentabletdriver-overlay = final: prev: {
+      fixed-opentabletdriver = prev.opentabletdriver.overrideAttrs (old: {
+        src = prev.fetchFromGitHub {
+          owner = "loco-choco";
+          repo = "OpenTabletDriver";
+          rev = "master";
+          hash = "sha256-CRVWAUxeLQPPT/J2iIo2np7MHX/mxyf5bsSZrvJZjvs=";
+        };
+        dotnetInstallFlags = [ "--framework=net7.0" ];
+      });
+    };
+
     pkgs = import nixpkgs {
       inherit system;
       config = { 
         allowUnfree = true;
       };
-      overlays = [ ow-mod-man-overlay ];
+      overlays = [ ow-mod-man-overlay opentabletdriver-overlay ];
     };
     
     lib = nixpkgs.lib;

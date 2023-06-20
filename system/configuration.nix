@@ -107,6 +107,7 @@
 
   #huion drawing tablet driver
   hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
   services.udev.extraRules = ''
     KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
     # HUION HS611
