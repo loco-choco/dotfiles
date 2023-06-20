@@ -2,8 +2,6 @@
 {
   home.username = "locochoco";
   home.homeDirectory = "/home/locochoco";
-  
-
 
   home.packages = with pkgs; [
     #keys stuff
