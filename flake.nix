@@ -24,7 +24,10 @@
           rev = "master";
           hash = "sha256-CRVWAUxeLQPPT/J2iIo2np7MHX/mxyf5bsSZrvJZjvs=";
         };
+        version = "0.6.1";
         dotnetInstallFlags = [ "--framework=net7.0" ];
+        dotnet-sdk = prev.dotnetCorePackages.sdk_7_0;
+        dotnet-runtime = prev.dotnetCorePackages.runtime_7_0;
       });
     };
 
