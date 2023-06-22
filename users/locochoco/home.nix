@@ -63,6 +63,9 @@
       {
         url = "https://rainworldanthroau.thecomicseries.com/rss/";
       }
+      {
+        url = "https://outerwildsmods.com/feed.xml";
+      }
     ];
   };
   programs.gpg = {
