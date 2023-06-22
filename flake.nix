@@ -3,12 +3,13 @@
   
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.05";
+    nixpkgs-opentabletdriver.url = "github:thiagokokada/nixpkgs/bump-opentabletdriver";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ShoosGun/ow-mod-man-flake/main";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { nixpkgs, home-manager, ow-mod-man, ... }:
+  outputs = { nixpkgs, home-manager, ow-mod-man, nixpkgs-opentabletdriver, ... }:
   let
     system = "x86_64-linux";
     
@@ -17,17 +18,14 @@
       owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
     };
     opentabletdriver-overlay = final: prev: {
-      fixed-opentabletdriver = prev.opentabletdriver.overrideAttrs (old: {
+      opentabletdriver-pkgs = import nixpkgs-opentabletdriver { system = final.system; };
+      fixed-opentabletdriver = final.opentabletdriver-pkgs.opentabletdriver.overrideAttrs (old: {
         src = prev.fetchFromGitHub {
           owner = "loco-choco";
           repo = "OpenTabletDriver";
-          rev = "master";
-          hash = "sha256-CRVWAUxeLQPPT/J2iIo2np7MHX/mxyf5bsSZrvJZjvs=";
+          rev = "hotfix";
+          hash = "sha256-4OpK0DIDmxrc807209T3YptQztuXDBpD468RliHcbLw=";
         };
-        version = "0.6.1";
-        dotnetInstallFlags = [ "--framework=net7.0" ];
-        dotnet-sdk = prev.dotnetCorePackages.sdk_7_0;
-        dotnet-runtime = prev.dotnetCorePackages.runtime_7_0;
       });
     };
 
