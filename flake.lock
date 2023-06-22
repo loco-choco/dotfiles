@@ -54,20 +54,19 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-opentabletdriver": {
+    "nixpkgs-master": {
       "locked": {
-        "lastModified": 1687376314,
-        "narHash": "sha256-IXqGpTnLIw7p1KDYHklbBYEF2C42563lRZhEzrjTne4=",
-        "owner": "thiagokokada",
+        "lastModified": 1687433650,
+        "narHash": "sha256-1dyy9Ygsf4iXWvhRmbPz/XkFGyMbe9+K9p8taWSrppU=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4dc0c0248187b2e14d53e67fd4ba3277c9cb7064",
+        "rev": "920a33346a0b1b8d3ddfbd3636f6101ee94b546d",
         "type": "github"
       },
       "original": {
-        "owner": "thiagokokada",
-        "ref": "bump-opentabletdriver",
-        "repo": "nixpkgs",
-        "type": "github"
+        "id": "nixpkgs",
+        "ref": "master",
+        "type": "indirect"
       }
     },
     "ow-mod-man": {
@@ -96,7 +95,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-opentabletdriver": "nixpkgs-opentabletdriver",
+        "nixpkgs-master": "nixpkgs-master",
         "ow-mod-man": "ow-mod-man"
       }
     },
