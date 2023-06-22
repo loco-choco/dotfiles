@@ -24,7 +24,7 @@
           owner = "loco-choco";
           repo = "OpenTabletDriver";
           rev = "hotfix";
-          hash = "sha256-4OpK0DIDmxrc807209T3YptQztuXDBpD468RliHcbLw=";
+          hash = "sha256-iiuYjO1YQxMueLhykLCGsn+45VWDJQYqybVEzYyXeJs=";
         };
       });
     };
