@@ -38,6 +38,7 @@
     inkscape
     krita
     gimp
+    rnote
     #social media
     revolt-desktop
   ];
@@ -65,6 +66,9 @@
       }
       {
         url = "https://outerwildsmods.com/feed.xml";
+      }
+      {
+        url = "http://localhost:5173/feed.xml";
       }
     ];
   };
