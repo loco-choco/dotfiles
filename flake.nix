@@ -17,7 +17,7 @@
       owmods-cli = ow-mod-man.packages.${system}.owmods-cli;
       owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
     };
-    opentabletdriver-overlay = final: prev: {
+    unstable-pkgs-overlay = final: prev: {
       pkgs-unstable = import nixpkgs-unstable { system = final.system; };
       fixed-opentabletdriver = final.pkgs-unstable.opentabletdriver.overrideAttrs (old: {
         src = prev.fetchFromGitHub {
@@ -27,6 +27,7 @@
           hash = "sha256-iiuYjO1YQxMueLhykLCGsn+45VWDJQYqybVEzYyXeJs=";
         };
       });
+      unityhub = final.pkgs-unstable.unityhub;
     };
 
     pkgs = import nixpkgs {
@@ -34,7 +35,7 @@
       config = { 
         allowUnfree = true;
       };
-      overlays = [ ow-mod-man-overlay opentabletdriver-overlay ];
+      overlays = [ ow-mod-man-overlay unstable-pkgs-overlay ];
     };
     
     lib = nixpkgs.lib;
