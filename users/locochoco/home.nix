@@ -18,11 +18,12 @@
     ffmpeg
     #owmods
     #unityhub
-    (pkgs.unityhub.override {
-      extraPkgs = pkgs: with pkgs; [
-        openssl_1_1
-      ];
-    })
+    unityhub
+    #(pkgs.unityhub.override {
+    #  extraPkgs = pkgs: with pkgs; [
+    #    openssl_1_1
+    #  ];
+    #})
     owmods-cli
     owmods-gui
     avalonia-ilspy
