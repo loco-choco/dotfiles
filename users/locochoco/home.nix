@@ -17,13 +17,7 @@
     ascii-image-converter
     ffmpeg
     #owmods
-    #unityhub
     unityhub
-    #(pkgs.unityhub.override {
-    #  extraPkgs = pkgs: with pkgs; [
-    #    openssl_1_1
-    #  ];
-    #})
     owmods-cli
     owmods-gui
     avalonia-ilspy
