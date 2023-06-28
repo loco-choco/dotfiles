@@ -82,6 +82,10 @@
   };
 
 
+  programs.bottom = {
+      enable = true;
+  };
+
   programs.kitty = {
     enable = true;
     theme = "Space Gray Eighties";
