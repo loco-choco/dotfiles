@@ -54,7 +54,17 @@
             };
           }
           hyprland.homeManagerModules.default
-          {wayland.windowManager.hyprland.enable = true;}
+          {
+            wayland.windowManager.hyprland = {
+              enable = true;
+              xwayland = {
+                enable = true;
+                hidpi = false;
+              };
+              nvidiaPatches = true;
+              extraConfig = import ./users/locochoco/hyprland.conf;
+            };
+          }
         ];
       };
     };
@@ -69,6 +79,7 @@
       };
     };
   };
+
   nixConfig = {
     extra-substituters = [ "https://hyprland.cachix.org" ];
     extra-trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
