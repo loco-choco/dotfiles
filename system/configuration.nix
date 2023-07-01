@@ -55,9 +55,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  #enable hyprland
-  programs.hyprland.enable = true;
-
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
