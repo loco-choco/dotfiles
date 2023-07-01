@@ -47,6 +47,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # hyprland configuration file
+  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
   
   programs.newsboat = {
     enable = true;

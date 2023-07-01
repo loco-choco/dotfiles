@@ -54,7 +54,17 @@
     LC_TELEPHONE = "pt_BR.UTF-8";
     LC_TIME = "pt_BR.UTF-8";
   };
-
+  
+  #hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland = {
+      enable = true;
+      hidpi = false;
+    };
+    nvidiaPatches = true;
+  };
+   
   # Configure keymap in X11
   services.xserver = {
     layout = "us";

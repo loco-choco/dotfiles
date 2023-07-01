@@ -53,18 +53,6 @@
               homeDirectory = "/home/locochoco";
             };
           }
-          hyprland.homeManagerModules.default
-          {
-            wayland.windowManager.hyprland = {
-              enable = true;
-              xwayland = {
-                enable = true;
-                hidpi = false;
-              };
-              nvidiaPatches = true;
-              extraConfig = import ./users/locochoco/hyprland.conf;
-            };
-          }
         ];
       };
     };
