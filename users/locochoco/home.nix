@@ -17,7 +17,8 @@
     ascii-image-converter
     ffmpeg
     #owmods
-    unityhub
+    pkgs-unstable.unityhub
+    blender
     owmods-cli
     owmods-gui
     avalonia-ilspy
