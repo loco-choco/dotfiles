@@ -6,10 +6,11 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
     ow-mod-man.url = "github:ShoosGun/ow-mod-man-flake/main";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { nixpkgs, home-manager, ow-mod-man, nixpkgs-unstable, ... }:
+  outputs = { nixpkgs, home-manager, hyprland, ow-mod-man, nixpkgs-unstable, ... }:
   let
     system = "x86_64-linux";
     
@@ -52,6 +53,8 @@
               homeDirectory = "/home/locochoco";
             };
           }
+          hyprland.homeManagerModules.default
+          {wayland.windowManager.hyprland.enable = true;}
         ];
       };
     };
@@ -65,5 +68,9 @@
         ];
       };
     };
+  };
+  nixConfig = {
+    extra-substituters = [ "https://hyprland.cachix.org" ];
+    extra-trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 }
