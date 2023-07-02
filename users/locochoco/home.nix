@@ -4,6 +4,9 @@
   home.homeDirectory = "/home/locochoco";
 
   home.packages = with pkgs; [
+    #hyprland
+    dunst #notifications
+    waybar #status bar
     #keys stuff
     gnupg
     git-crypt
@@ -47,9 +50,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-
-  # hyprland configuration file
-  home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
   
   programs.newsboat = {
     enable = true;

@@ -55,15 +55,7 @@
     LC_TIME = "pt_BR.UTF-8";
   };
   
-  #hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-    nvidiaPatches = true;
-  };
+
    
   # Configure keymap in X11
   services.xserver = {
