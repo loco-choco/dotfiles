@@ -37,6 +37,9 @@
     rnote
     #social media
     revolt-desktop
+    #vr
+    monado
+    openxr-loader
   ];
 
   home.stateVersion = "23.05";

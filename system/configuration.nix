@@ -110,6 +110,11 @@
   hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
 
   services.udev.extraRules = ''
+    #monado
+    # dell wmr
+    KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="0502", MODE="0666", GROUP="plugdev"
+    KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="04b4", MODE="0666", GROUP="plugdev"
+    #opentabletdriver
     KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
     # HUION HS611
     SUBSYSTEM=="hidraw", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
