@@ -40,6 +40,8 @@
     #vr
     monado
     openxr-loader
+    #eletronics simulatons
+    #ltspice
   ];
 
   home.stateVersion = "23.05";

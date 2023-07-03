@@ -70,6 +70,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.cups-pdf.enable = true; #allow to generate pdf on apps that need a printer first to generate it
 
   # Enable sound with pipewire.
   sound.enable = true;

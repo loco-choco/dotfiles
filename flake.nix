@@ -8,11 +8,16 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ShoosGun/ow-mod-man-flake/main";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
+    loconix.url = "github:loco-choco/loconix/main";
+    loconix.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { nixpkgs, home-manager, ow-mod-man, nixpkgs-unstable, ... }:
+  outputs = { nixpkgs, home-manager, ow-mod-man, loconix, nixpkgs-unstable, ... }:
   let
     system = "x86_64-linux";
     
+    loconix-overlay = final: prev: {
+      ltspice = loconix.packages.${system}.ltspice;
+    };
     ow-mod-man-overlay = final: prev: {
       owmods-cli = ow-mod-man.packages.${system}.owmods-cli;
       owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
@@ -35,7 +40,7 @@
       config = { 
         allowUnfree = true;
       };
-      overlays = [ ow-mod-man-overlay unstable-pkgs-overlay ];
+      overlays = [ ow-mod-man-overlay unstable-pkgs-overlay loconix-overlay];
     };
     
     lib = nixpkgs.lib;
