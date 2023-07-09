@@ -71,6 +71,14 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.printing.cups-pdf.enable = true; #allow to generate pdf on apps that need a printer first to generate it
+  services.printing.cups-pdf.instances = {
+    pdf = {
+      settings = {
+        Out = "\${HOME}/cups-pdf";
+        UserUMask = "0033";
+      };
+    };
+  }; 
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -111,10 +119,25 @@
   hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
 
   services.udev.extraRules = ''
+    #esp32
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
+    
     #monado
     # dell wmr
-    KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="0502", MODE="0666", GROUP="plugdev"
-    KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="04b4", MODE="0666", GROUP="plugdev"
+    #KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="0502", MODE="0666", GROUP="plugdev"
+    #KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="04b4", MODE="0666", GROUP="plugdev"   
+    #KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="045e", MODE="0666", GROUP="plugdev"   
+    # Cypress Semiconductor Corp. Lenovo Explorer - USB
+    ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6504", TAG+="uaccess", ENV{ID_xrhardware}="1"
+    # Microsoft Windows MR Controller - Bluetooth
+    KERNELS=="0005:045E:065B.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    # Microsoft Windows MR Controller - Bluetooth
+    KERNELS=="0005:045E:065D.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    # Microsoft Windows MR Controller (Reverb G2) - Bluetooth
+    KERNELS=="0005:045E:066A.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    # Microsoft HoloLens Sensors - USB
+    ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0659", TAG+="uaccess", ENV{ID_xrhardware}="1"
+
     #opentabletdriver
     KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
     # HUION HS611
