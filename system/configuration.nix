@@ -172,8 +172,8 @@
     wine
     unzip
     p7zip
-    lutris
-    mono
+    #lutris
+    #mono
     #video editing
     obs-studio
     vlc
