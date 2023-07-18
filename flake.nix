@@ -63,11 +63,18 @@
     };
 
     nixosConfigurations = {
-      locochoco = lib.nixosSystem {
+      locopc = lib.nixosSystem {
         inherit system;
         inherit pkgs;
         modules = [
-          ./system/configuration.nix
+          ./system/locopc/configuration.nix
+        ];
+      };
+      locotop = lib.nixosSystem {
+        inherit system;
+        inherit pkgs;
+        modules = [
+          ./system/locotop/configuration.nix
         ];
       };
     };
