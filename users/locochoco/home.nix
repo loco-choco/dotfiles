@@ -19,11 +19,11 @@
     #owmods
     pkgs-unstable.unityhub
     blender
-    owmods-cli
+    #owmods-cli
     owmods-gui
     avalonia-ilspy
     #circuit tools
-    kicad
+    #kicad
     #website making
     zola
     #video editing
@@ -38,8 +38,8 @@
     #social media
     revolt-desktop
     #vr
-    monado
-    openxr-loader
+    #monado
+    #openxr-loader
     #eletronics simulatons
     #ltspice
   ];
