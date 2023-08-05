@@ -35,11 +35,12 @@
     krita
     gimp
     rnote
+    mypaint
     #social media
     revolt-desktop
     #vr
-    #monado
-    #openxr-loader
+    monado
+    openxr-loader
     #eletronics simulatons
     #ltspice
   ];
