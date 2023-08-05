@@ -2,5 +2,8 @@
 result
 tmp
 *~
-
 *.qcow
+#ignore scripts that are meant to work only on a single machine
+apply-users.sh
+apply-system.sh
+update.sh
