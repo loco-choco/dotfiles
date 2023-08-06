@@ -38,6 +38,7 @@
     mypaint
     #social media
     revolt-desktop
+    thunderbird
     #vr
     monado
     openxr-loader
