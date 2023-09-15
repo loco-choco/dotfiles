@@ -20,12 +20,13 @@
       efiSupport = true;
       useOSProber = true;
       default = "saved";
-      splashMode = "normal";
+      splashMode = "normal"; 
     };
   };
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.swraid.enable = false; #fix untill they make false the default in unstable
 
-  networking.hostName = "locochoco"; # Define your hostname.
+  networking.hostName = "locopc"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -116,7 +117,7 @@
 
   #huion drawing tablet driver
   hardware.opentabletdriver.enable = true;
-  hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
+  #hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
 
   services.udev.extraRules = ''
     #esp32
@@ -160,12 +161,10 @@
     neofetch
     wget
     xclip
-    ranger
     termpdfpy
     mdcat
     w3m
     #random stuff
-    discord
     openscad
     #freecad
     godot_4
@@ -181,7 +180,7 @@
     #kicad #usando ltspice com wine
     ghdl
     gtkwave
-    quartus-prime-lite
+    #quartus-prime-lite
     #ngspice #vem com kicad
     #rust
     rustc

@@ -1,5 +1,10 @@
 { pkgs, inputs, ... }:
 {
+
+  imports = [
+    ../../home/modules/neovim
+  ];
+
   home.username = "locochoco";
   home.homeDirectory = "/home/locochoco";
 
@@ -16,10 +21,12 @@
     xdragon
     ascii-image-converter
     ffmpeg
+    xplr
     #owmods
-    pkgs-unstable.unityhub
+    unityhub
     blender
     #owmods-cli
+    mono
     owmods-gui
     avalonia-ilspy
     #circuit tools
@@ -38,7 +45,11 @@
     mypaint
     #social media
     revolt-desktop
+    (pkgs.discord.override {
+      withVencord = true;
+    })
     thunderbird
+    protonmail-bridge
     #vr
     monado
     openxr-loader
@@ -50,6 +61,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  #programs.joshuto = {
+  #  enable = true;
+  #};
   
   programs.newsboat = {
     enable = true;
@@ -94,6 +109,7 @@
     };
     settings = {
       enabled_layouts = "*";
+      bell_path = "/home/locochoco/.dotfiles/bell-sounds/Objects_RockHitA_1.wav";
     };
   };
 
@@ -102,7 +118,7 @@
     userName = "ShoosGun";
     userEmail = "ivanrwpf@gmail.com";
   };
-
+  /*
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -116,11 +132,12 @@
       hologram-nvim
     ];
   };
+  */
 
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableVteIntegration = true;
     autocd = true;
     localVariables = {
