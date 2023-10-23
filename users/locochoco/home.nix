@@ -25,6 +25,7 @@
     #owmods
     unityhub
     blender
+    #freecad
     #owmods-cli
     mono
     owmods-gui
@@ -55,6 +56,9 @@
     openxr-loader
     #eletronics simulatons
     #ltspice
+    #audio recording
+    audacity
+    dconf
   ];
 
   home.stateVersion = "23.05";
@@ -65,6 +69,8 @@
   #programs.joshuto = {
   #  enable = true;
   #};
+
+  services.easyeffects.enable = true;
   
   programs.newsboat = {
     enable = true;
@@ -109,14 +115,15 @@
     };
     settings = {
       enabled_layouts = "*";
+      font_family = "FiraCode Nerd Font";
       bell_path = "/home/locochoco/.dotfiles/bell-sounds/Objects_RockHitA_1.wav";
     };
   };
 
   programs.git = {
     enable = true;
-    userName = "ShoosGun";
-    userEmail = "ivanrwpf@gmail.com";
+    userName = "loco-choco";
+    userEmail = "contact@locochoco.dev";
   };
   /*
   programs.neovim = {
@@ -173,7 +180,7 @@
         "directory"
         "spectrum"
         "utility"
-	      "git"
+	"git"
         "completion"
         "prompt"
       ];
