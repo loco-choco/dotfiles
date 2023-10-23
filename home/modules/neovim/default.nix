@@ -5,6 +5,7 @@
       enable = true;
     };
     plugins.lightline.enable = true;
+    plugins.coq-nvim.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {
