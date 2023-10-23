@@ -149,10 +149,11 @@
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "locochoco";
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; #enable flakes and experimental nix commands
+  
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -230,6 +231,7 @@
     
     kdeconnect.enable = true;
   };
+
 
   #change default shell to zsh
   users.defaultUserShell = pkgs.zsh;
