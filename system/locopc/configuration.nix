@@ -6,23 +6,33 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+      ../modules/drivers/nvidia.nix
+      # Machine configs
+      ../modules/grub.nix
 
-  # Bootloader
-  boot.loader = {
-    #systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot/efi";
-    timeout = 1;
-    grub = {
-      enable = true;
-      devices = ["nodev"];
-      efiSupport = true;
-      useOSProber = true;
-      default = "saved";
-      splashMode = "normal"; 
-    };
-  };
+      ../modules/user.nix
+      ../modules/display/kde
+      ../modules/display/autologin.nix
+
+      ../modules/networking.nix
+      ../modules/pipewire.nix
+      ../modules/cups.nix
+      ../modules/environment.nix
+      ../modules/fonts.nix
+      ../modules/nix
+
+      ../modules/localization/locale.nix
+      ../modules/localization/keyboard.nix
+
+      # Apps and others
+      ../modules/rtl-sdr.nix
+      ../modules/drawingtablet.nix
+      ../modules/steam.nix
+      ../modules/development.nix
+      ../modules/zsh.nix
+      ../modules/common-programs.nix
+    ];
+  
   boot.supportedFilesystems = [ "ntfs" ];
   boot.swraid.enable = false; #fix untill they make false the default in unstable
 
@@ -34,94 +44,94 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
   # Enable bluetooth
-  hardware.bluetooth.enable = true;
+  #hardware.bluetooth.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Sao_Paulo";
+  #time.timeZone = "America/Sao_Paulo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  #i18n.defaultLocale = "en_US.UTF-8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
-  };
+  #i18n.extraLocaleSettings = {
+  #  LC_ADDRESS = "pt_BR.UTF-8";
+  #  LC_IDENTIFICATION = "pt_BR.UTF-8";
+  #  LC_MEASUREMENT = "pt_BR.UTF-8";
+  #  LC_MONETARY = "pt_BR.UTF-8";
+  #  LC_NAME = "pt_BR.UTF-8";
+  #  LC_NUMERIC = "pt_BR.UTF-8";
+  #  LC_PAPER = "pt_BR.UTF-8";
+  #  LC_TELEPHONE = "pt_BR.UTF-8";
+  #  LC_TIME = "pt_BR.UTF-8";
+  #};
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+  #services.xserver = {
+  #  layout = "us";
+  #  xkbVariant = "";
+  #};
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-  services.printing.cups-pdf.enable = true; #allow to generate pdf on apps that need a printer first to generate it
-  services.printing.cups-pdf.instances = {
-    pdf = {
-      settings = {
-        Out = "\${HOME}/cups-pdf";
-        UserUMask = "0033";
-      };
-    };
-  }; 
+  #services.printing.enable = true;
+  #services.printing.cups-pdf.enable = true; #allow to generate pdf on apps that need a printer first to generate it
+  #services.printing.cups-pdf.instances = {
+  #  pdf = {
+  #    settings = {
+  #      Out = "\${HOME}/cups-pdf";
+  #      UserUMask = "0033";
+  #    };
+  #  };
+  #}; 
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  #sound.enable = true;
+  #hardware.pulseaudio.enable = false;
+  #security.rtkit.enable = true;
+  #services.pipewire = {
+  #  enable = true;
+  #  alsa.enable = true;
+  #  alsa.support32Bit = true;
+  #  pulse.enable = true;
+  #  # If you want to use JACK applications, uncomment this
+  #  #jack.enable = true;
+  #
+  #  # use the example session manager (no others are packaged yet so this is enabled by default,
+  #  # no need to redefine it in your config for now)
+  #  #media-session.enable = true;
+  #};
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.locochoco = {
-    isNormalUser = true;
-    description = "Locochoco";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" ];
-    packages = with pkgs; [
-      firefox
-      kate
-    ];
-  };
+  #users.users.locochoco = {
+  #  isNormalUser = true;
+  #  description = "Locochoco";
+  #  extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" ];
+  #  packages = with pkgs; [
+  #    firefox
+  #    kate
+  #  ];
+  #};
 
   #rtl-sdr
-  hardware.rtl-sdr.enable = true;
+  #hardware.rtl-sdr.enable = true;
 
   #huion drawing tablet driver
-  hardware.opentabletdriver.enable = true;
+  #hardware.opentabletdriver.enable = true;
   #hardware.opentabletdriver.package = pkgs.fixed-opentabletdriver;
 
-  services.udev.extraRules = ''
-    #esp32
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
+#  services.udev.extraRules = ''
+#    #esp32
+    #SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
     
     #monado
     # dell wmr
@@ -129,112 +139,114 @@
     #KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="04b4", MODE="0666", GROUP="plugdev"   
     #KERNEL=="hidraw*", ATTRS{busnum}=="1", ATTRS{idVendor}=="045e", MODE="0666", GROUP="plugdev"   
     # Cypress Semiconductor Corp. Lenovo Explorer - USB
-    ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6504", TAG+="uaccess", ENV{ID_xrhardware}="1"
+    #ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6504", TAG+="uaccess", ENV{ID_xrhardware}="1"
     # Microsoft Windows MR Controller - Bluetooth
-    KERNELS=="0005:045E:065B.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    #KERNELS=="0005:045E:065B.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     # Microsoft Windows MR Controller - Bluetooth
-    KERNELS=="0005:045E:065D.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    #KERNELS=="0005:045E:065D.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     # Microsoft Windows MR Controller (Reverb G2) - Bluetooth
-    KERNELS=="0005:045E:066A.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    #KERNELS=="0005:045E:066A.*", TAG+="uaccess", ENV{ID_xrhardware}="1", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     # Microsoft HoloLens Sensors - USB
-    ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0659", TAG+="uaccess", ENV{ID_xrhardware}="1"
+    #ATTRS{idVendor}=="045e", ATTRS{idProduct}=="0659", TAG+="uaccess", ENV{ID_xrhardware}="1"
 
     #opentabletdriver
-    KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
+    #KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
     # HUION HS611
-    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
-    SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
-  '';
+    #SUBSYSTEM=="hidraw", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
+    #SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="006f", MODE="0666"
+#  '';
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "locochoco";
+  #services.xserver.displayManager.autoLogin.enable = true;
+  #services.xserver.displayManager.autoLogin.user = "locochoco";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; #enable flakes and experimental nix commands
-  
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-  ];
+  #nix.settings.trusted-users = [ "locochoco" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  #fonts.packages = with pkgs; [
+  #  (nerdfonts.override { fonts = [ "FiraCode" ]; })
+  #];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  #environment.systemPackages = with pkgs; [
     #terminal utils
-    neofetch
-    wget
-    xclip
-    termpdfpy
-    mdcat
-    w3m
+    #neofetch
+    #wget
+    #xclip
+    #mdcat
+    #w3m
+    #jq
+    #cachix
     #random stuff
-    openscad
+    #openscad
     #freecad
-    godot_4
-    wine
-    unzip
-    p7zip
+    #godot_4
+    #wine
+    #unzip
+    #p7zip
     #lutris
     #mono
     #video editing
-    obs-studio
-    vlc
+  #  obs-studio
+    #vlc
     #facul
     #kicad #usando ltspice com wine
-    ghdl
-    gtkwave
+    #ghdl
+    #gtkwave
     #quartus-prime-lite
     #ngspice #vem com kicad
     #rust
-    rustc
-    cargo
+    #rustc
+    #cargo
     #arduino
-    arduino-cli
+    #arduino-cli
     #pic programming
     #sdcc
     #pk2cmd
     #building pkgs
-    nix-prefetch-github
+    #nix-prefetch-github
     #vr
     #monado
     #modding
-    jetbrains.rider
-    (with dotnetCorePackages; combinePackages [
-      sdk_6_0
-      sdk_7_0
-    ])
-    msbuild
+    #jetbrains.rider
+    #(with dotnetCorePackages; combinePackages [
+    #  sdk_6_0
+    #  sdk_7_0
+    #])
+    #msbuild
     #music creation
-    famistudio
+    #famistudio
     #sdr
-    (gnuradio3_8.override {
-      extraPackages = with gnuradio3_8Packages; [
-        osmosdr
-      ];
-    })
-    gqrx
-  ];
+    #(gnuradio3_8.override {
+    #  extraPackages = with gnuradio3_8Packages; [
+    #    osmosdr
+    #  ];
+    #})
+    #gqrx
+ # ];
 
-  environment.localBinInPath = true;
-  environment.variables.EDITOR = "nvim";
-  programs = {
-    zsh.enable = true;
+  #environment.localBinInPath = true;
+  #environment.variables.EDITOR = "nvim";
+  #programs = {
+  #  zsh.enable = true;
 
-    steam = with pkgs; {
-  	  enable = true;
-  	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	    package = steam.override { # steam beta fix
-          extraProfile = ''
-            export GSETTINGS_SCHEMA_DIR="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}/glib-2.0/schemas/"
-          '';
-      };
-    };
+    #steam = with pkgs; {
+  #	  enable = true;
+  #	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  #	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+#	    package = steam.override { # steam beta fix
+ #         extraProfile = ''
+  #          export GSETTINGS_SCHEMA_DIR="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}/glib-2.0/schemas/"
+   #       '';
+    #  };
+    #};
     
-    kdeconnect.enable = true;
-  };
+    #kdeconnect.enable = true;
+  #};
 
 
   #change default shell to zsh
-  users.defaultUserShell = pkgs.zsh;
+  #users.defaultUserShell = pkgs.zsh;
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -247,14 +259,14 @@
   # List services that you want to enable:
 
   # NVIDIA drivers are unfree
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  #services.xserver.videoDrivers = [ "nvidia" ];
+  #hardware.opengl.enable = true;
 
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
-  hardware.nvidia.modesetting.enable = true;
+  #hardware.nvidia.modesetting.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -265,15 +277,15 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  networking.firewall = { 
-    enable = true;
-    allowedTCPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-    allowedUDPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
-    ];  
-  };  
+  #networking.firewall = { 
+  #  enable = true;
+  #  allowedTCPPortRanges = [ 
+  #    { from = 1714; to = 1764; } # KDE Connect
+  #  ];  
+  #  allowedUDPPortRanges = [ 
+  #    { from = 1714; to = 1764; } # KDE Connect
+  #  ];  
+  #};  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

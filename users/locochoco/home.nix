@@ -22,13 +22,15 @@
     ascii-image-converter
     ffmpeg
     xplr
+    gcc
+    gnumake
+    bear
     #owmods
     unityhub
     blender
     #freecad
     #owmods-cli
-    mono
-    owmods-gui
+    #owmods-gui
     avalonia-ilspy
     #circuit tools
     #kicad
@@ -49,6 +51,7 @@
     (pkgs.discord.override {
       withVencord = true;
     })
+    vesktop
     thunderbird
     protonmail-bridge
     #vr
@@ -72,6 +75,9 @@
 
   services.easyeffects.enable = true;
   
+  programs.owmods-gui.enable = true;
+  programs.owmods-cli.enable = true;
+
   programs.newsboat = {
     enable = true;
     autoReload = true;

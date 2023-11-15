@@ -29,9 +29,9 @@
     # VHDL development
     ghdl # for vhdl
     gtkwave # for visualizing tests output
-    (with yosys.allPlugins; [ # for synthesis
+    ( yosys.withPlugins (with yosys.allPlugins; [ # for synthesis
       ghdl
-    ])
+    ]) )
     netlistsvg # for visualizing rtl yosys files
     #quartus-prime-lite
   ];

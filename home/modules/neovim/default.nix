@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }:{
   programs.nixvim = {
     enable = true;
     colorschemes.onedark = { 
@@ -14,6 +14,10 @@
 	clangd.enable = true;
         rust-analyzer.enable = true;
 	csharp-ls.enable = true;
+	csharp-ls.package = pkgs.csharp-ls.overrideAttrs (old: {
+          version = "0.9.0";
+	  #nugetSha256 = "";
+	});
       };
     };
     plugins.nvim-cmp = {

@@ -1,12 +1,13 @@
 {
   description = "Ivan Pancheniak System Config";
-  
+
+   
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    ow-mod-man.url = "github:ShoosGun/ow-mod-man-flake/main";
+    ow-mod-man.url = "github:loco-choco/ow-mod-man/main";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     loconix.url = "github:loco-choco/loconix/main";
     loconix.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,29 +21,17 @@
     loconix-overlay = final: prev: {
       ltspice = loconix.packages.${system}.ltspice;
     };
-    ow-mod-man-overlay = final: prev: {
-      owmods-cli = ow-mod-man.packages.${system}.owmods-cli;
-      owmods-gui = ow-mod-man.packages.${system}.owmods-gui;
-    };
-    unstable-pkgs-overlay = final: prev: {
-      #pkgs-unstable = import nixpkgs-unstable { system = final.system; };
-      #fixed-opentabletdriver = final.pkgs.opentabletdriver.overrideAttrs (old: {
-      #  src = prev.fetchFromGitHub {
-      #    owner = "OpenTabletDriver";
-      #    repo = "OpenTabletDriver";
-      #    rev = "hotfix";
-      #    hash = "sha256-xVrQLFIrFkqgGua6JZReLmakaYUnR3pwKtPxjNr8Yow=";
-      #  };
-      #});
-      #unityhub = final.pkgs-unstable.unityhub;
-    };
 
     pkgs = import nixpkgs {
       inherit system;
       config = { 
         allowUnfree = true;
+	permittedInsecurePackages = [
+          "openssl-1.1.1w"
+        ];
       };
-      overlays = [ ow-mod-man-overlay unstable-pkgs-overlay loconix-overlay];
+
+      overlays = [ ow-mod-man.overlay.owmods loconix-overlay];
     };
     
     lib = nixpkgs.lib;
@@ -53,6 +42,7 @@
         #pkgs = nixpkgs.legacyPackages.${system};
         inherit pkgs;
         modules = [
+	  ow-mod-man.homeManagerModules.owmods
           nixvim.homeManagerModules.nixvim
           ./users/locochoco/home.nix
           {
@@ -81,5 +71,23 @@
         ];
       };
     };
+
+    nixConfig = {
+      experimental-features = [ "nix-command" "flakes" ];
+      substituters = [
+        "https://cache.nixos.org/"
+      ];
+
+      extra-substituters = [
+        "https://ow-mods.cachix.org"
+        # Nix community's cache server
+        "https://nix-community.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "ow-mods.cachix.org-1:6RTOd1dSRibA2W0MpZHxzT0tw1RzyhKObTPKQJpcrZo="
+      ];
+    };
+
   };
 }
