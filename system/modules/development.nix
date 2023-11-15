@@ -4,7 +4,7 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
   '';
 
-  enviroment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     # C# development
     mono
     (with dotnetCorePackages; combinePackages [
