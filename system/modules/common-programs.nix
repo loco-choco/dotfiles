@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  enviroment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     #terminal tools
     neofetch
     wget
