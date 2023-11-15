@@ -4,7 +4,7 @@
     efi.efiSysMountPoint = "/boot/efi";
     timeout = 1;
     grub = {
-      enabled = true;
+      enable = true;
       devices = ["nodev"];
       efiSupport = true;
       useOSProber = true;
