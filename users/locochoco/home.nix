@@ -48,15 +48,15 @@
     mypaint
     #social media
     revolt-desktop
-    (pkgs.discord.override {
-      withVencord = true;
-    })
+    #(pkgs.discord.override {
+    #  withVencord = true;
+    #})
     vesktop
     thunderbird
     protonmail-bridge
     #vr
-    monado
-    openxr-loader
+    #monado
+    #openxr-loader
     #eletronics simulatons
     #ltspice
     #audio recording
@@ -77,6 +77,8 @@
   
   programs.owmods-gui.enable = true;
   programs.owmods-cli.enable = true;
+
+  programs.firefox.enable = true;
 
   programs.newsboat = {
     enable = true;
