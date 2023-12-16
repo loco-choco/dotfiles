@@ -18,9 +18,9 @@
   let
     system = "x86_64-linux";
     
-    loconix-overlay = final: prev: {
-      ltspice = loconix.packages.${system}.ltspice;
-    };
+    #loconix-overlay = final: prev: {
+    #  ltspice = loconix.packages.${system}.ltspice;
+    #};
 
     pkgs = import nixpkgs {
       inherit system;
@@ -31,7 +31,7 @@
         ];
       };
 
-      overlays = [ ow-mod-man.overlay.owmods loconix-overlay];
+      overlays = [ ow-mod-man.overlay.owmods loconix.overlay.wineApps loconix.overlay.erosanix-lib ];
     };
     
     lib = nixpkgs.lib;
