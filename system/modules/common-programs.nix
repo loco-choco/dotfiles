@@ -12,6 +12,7 @@
     #misc
     #openscad
     #freecad
+    ltspice
     obs-studio
     vlc
   ];
