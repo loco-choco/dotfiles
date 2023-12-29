@@ -13,6 +13,8 @@
 	bashls.enable = true;
 	clangd.enable = true;
         rust-analyzer.enable = true;
+        rust-analyzer.installRustc = true;
+        rust-analyzer.installCargo = true;
 	csharp-ls.enable = true;
 	csharp-ls.package = pkgs.csharp-ls.overrideAttrs (old: {
           version = "0.9.0";

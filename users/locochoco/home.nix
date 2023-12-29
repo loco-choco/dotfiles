@@ -3,6 +3,7 @@
 
   imports = [
     ../../home/modules/neovim
+    ../../home/modules/hyprland
   ];
 
   home.username = "locochoco";
