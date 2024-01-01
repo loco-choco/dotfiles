@@ -3,6 +3,7 @@
     #terminal tools
     neofetch
     wget
+    just
     xclip
     w3m
     jq
