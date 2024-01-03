@@ -1,6 +1,9 @@
 { pkgs, ... }:{
-  home.packages = with pkgs; [ swww grimblast kooha ];
-  services.dunst.enable = true;
+  home.packages = with pkgs; [ swww grimblast ];
+  services.dunstc = {
+    enable = true;
+    settings = import ./dunst;
+  };
   programs.waybar = {
     enable = true;
     settings = import ./waybar;
@@ -20,7 +23,7 @@
     "general:gaps_in" = "2";
     "decoration:rounding" = "2";
     monitor = [
-      "HDMI-A-1,preferred,auto,1,mirror,eDP-1"
+      "HDMI-A-1,highrr,auto,1,mirror,eDP-1"
       "eDP-1,highrr,auto,1"
     ];
     "xwayland:force_zero_scaling" = "true";
