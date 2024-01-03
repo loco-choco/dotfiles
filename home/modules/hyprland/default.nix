@@ -3,7 +3,7 @@
   services.dunst.enable = true;
   programs.waybar = {
     enable = true;
-    settings = import ./waybar.nix;
+    settings = import ./waybar;
   };
   programs.rofi.enable = true;
   wayland.windowManager.hyprland.enable = true;
@@ -44,6 +44,8 @@
       "$mod, K, exec, kitty"
       "$mod, Space, exec, rofi -show combi -modes combi -combi-modes 'window,drun,run'"
       ", Print, exec, grimblast copy output"
+      "$mod, P, exec, grimblast copy output"
+      "$mod ALT, P, exec, grimblast copy area"
     ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
