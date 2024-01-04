@@ -1,0 +1,7 @@
+window.mainBar#waybar { 
+  background-color: #FFFF;
+} 
+
+window.bottomBar#waybar {
+  background-color: transparent;
+} 

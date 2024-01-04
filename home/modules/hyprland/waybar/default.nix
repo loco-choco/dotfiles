@@ -2,9 +2,9 @@
   mainBar = { 
     layer = "top"; 
     position = "top";
-    height = 32;
+    mode = "overlay";
+    height = 40;
     output = [ "eDP-1" "HDMI-A-1" ];
-    modules-left = [ "image#karma-battery" ];
     modules-center = [ "clock" ];
     modules-right = [ "bluetooth" "network" "memory" "temperature" "battery" "tray" ];
 
@@ -40,10 +40,20 @@
       format = "{:%H:%M}";
       tooltip-format = "{:%d/%m/%Y}";
     };
+ };
+
+ bottomBar = { 
+    layer = "top"; 
+    position = "bottom";
+    mode = "overlay";
+    #mode = "overlay";
+    height = 80;
+    output = [ "eDP-1" "HDMI-A-1" ];
+    modules-left = [ "image#karma-battery" ];
 
     "image#karma-battery" = {
       exec ="~/.dotfiles/home/modules/hyprland/waybar/custom-modules/karma-battery/karma-battery.sh";
-      size = 32;
+      size = 80;
       interval = 30;  
     };
  };
