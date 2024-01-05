@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env sh
 symbol_folder="/home/locochoco/.dotfiles/home/modules/hyprland/waybar/custom-modules/karma-battery"
 battery_capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
@@ -28,5 +28,5 @@ else
   convert /tmp/battery-karma-status.png xc:"#ffffff" -channel RGB -clut /tmp/battery-karma-status.png
 fi
 
-
 echo "/tmp/battery-karma-status.png"
+echo "$battery_capacity%"

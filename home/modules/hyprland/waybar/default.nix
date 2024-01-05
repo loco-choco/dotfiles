@@ -1,12 +1,28 @@
+let
+  topBarHeight = 40;
+  bottomBarHeight = 40;
+in
 {  
-  mainBar = { 
+  mainBar = {
+    name = "mainBar";
     layer = "top"; 
     position = "top";
-    mode = "overlay";
-    height = 40;
+    #mode = "overlay";
+    exclusive = false;
+    passthrough = false;
+    spacing = 10;
+    height = topBarHeight;
     output = [ "eDP-1" "HDMI-A-1" ];
-    modules-center = [ "clock" ];
-    modules-right = [ "bluetooth" "network" "memory" "temperature" "battery" "tray" ];
+    modules-center = [ "memory" "clock" "temperature" ];
+    modules-left = [ "tray" ];
+    modules-right = [ "bluetooth" "network" ];
+
+    clock = {  
+      interval = 60;
+      tooltip = true;
+      format = "{:%H:%M}";
+      tooltip-format = "{:%d/%m/%Y}";
+    };
 
     bluetooth = {
       format = " {status}";
@@ -33,28 +49,47 @@
       max-length = 50;
       on-double-click = "kitty nmtui";
     };
-
-    clock = {
-      interval = 60;
-      tooltip = "true";
-      format = "{:%H:%M}";
-      tooltip-format = "{:%d/%m/%Y}";
+    
+    memory = {
+      interval = 30;
+      format = "{percentage}% ";
+      tooltip-format = "{used:0.1f}GiB used\n{swapUsed:0.1f}GiB swap";
     };
- };
 
- bottomBar = { 
+    temperature = {
+      format = "{temperatureC}°C 󱃃";
+    };
+  };
+
+# bottomBar = { 
+#    name = "bottomBar";
+#    layer = "top"; 
+#    position = "bottom";
+#    #mode = "dock";
+#    exclusive = false;
+#    passthrough = false;
+#    spacing = 10;
+#    height = bottomBarHeight;
+#    output = [ "eDP-1" "HDMI-A-1" ];
+#    modules-right = [ "bluetooth" "network" ];
+#
+# };
+ 
+ karmaBar = { 
+    name = "karmaBar";
     layer = "top"; 
     position = "bottom";
-    mode = "overlay";
-    #mode = "overlay";
-    height = 80;
+    #mode = "dock";
+    exclusive = false;
+    passthrough = false;
+    margin-left = 10;
+    margin-bottom = 10;
     output = [ "eDP-1" "HDMI-A-1" ];
     modules-left = [ "image#karma-battery" ];
-
     "image#karma-battery" = {
-      exec ="~/.dotfiles/home/modules/hyprland/waybar/custom-modules/karma-battery/karma-battery.sh";
-      size = 80;
-      interval = 30;  
+      exec ="sh /home/locochoco/.dotfiles/home/modules/hyprland/waybar/custom-modules/karma-battery/karma-battery.sh";
+      size = 90;
+      interval = 30; 
     };
  };
 }

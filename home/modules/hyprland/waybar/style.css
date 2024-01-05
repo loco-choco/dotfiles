@@ -1,7 +1,45 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: FiraCode Nerd Font Mono;
+  font-size: 20px;
+}
+
+window.bottomBar#waybar,
 window.mainBar#waybar { 
-  background-color: #FFFF;
+  background-color: black;
+  color: #a9a4b2;
 } 
 
-window.bottomBar#waybar {
+window.karmaBar#waybar {
   background-color: transparent;
-} 
+  color: #a9a4b2;
+}
+
+tooltip {
+  background: rgba(0, 0, 0, 0.95);
+  border: 3px solid #a9a4b2;
+  border-radius: 10px;
+}
+tooltip label {
+  color: #a9a4b2;
+}
+
+/*#image {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+}*/
+
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
