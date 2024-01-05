@@ -9,7 +9,12 @@
     settings = import ./waybar;
     style = ./waybar/style.css;
   };
-  programs.rofi.enable = true;
+  programs.rofi = {
+    enable = true;
+    terminal = "${pkgs.kitty}/bin/kitty";
+    font = "FiraCode Nerd Font Mono 15";
+    plugins = [ pkgs.rofi-calc pkgs.rofi-screenshot];
+  };
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
