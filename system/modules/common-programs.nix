@@ -3,6 +3,7 @@
     #terminal tools
     neofetch
     wget
+    imagemagick
     just
     xclip
     w3m
