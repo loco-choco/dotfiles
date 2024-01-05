@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ pkgs, config, ... }:{
   home.packages = with pkgs; [ swww grimblast ];
   services.dunst = {
     enable = true;
@@ -11,9 +11,9 @@
   };
   programs.rofi = {
     enable = true;
-    terminal = "${pkgs.kitty}/bin/kitty";
+    terminal = "\${pkgs.kitty}/bin/kitty";
     font = "FiraCode Nerd Font Mono 15";
-    plugins = [ pkgs.rofi-calc pkgs.rofi-screenshot];
+    theme = ./rofi/theme.rasi;
   };
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
