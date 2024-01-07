@@ -22,3 +22,4 @@ user user:
 clean:
   @echo 'Cleaning System'
   sudo nix-collect-garbage -d
+  nix-collect-garbage -d
