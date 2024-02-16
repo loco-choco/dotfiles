@@ -2,7 +2,7 @@ set positional-arguments
 
 update:
   @echo 'Updating Flake'
-  nix update
+  nix flake update
 
 all system user:
   @echo 'Building Whole System {{system}} With User {{user}}'
