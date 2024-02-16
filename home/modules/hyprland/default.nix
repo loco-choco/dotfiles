@@ -34,7 +34,7 @@
     ];
     "xwayland:force_zero_scaling" = "true";
     env = [ "GDK_SCALE,1" "XCURSOR_SIZE,16" ];
-    bindr = [ "SUPERALT, Alt_L, exec, pkill waybar || waybar" ];
+    bindr = [ "SUPER, SUPER_L, exec, pkill waybar || waybar" ];
     binde = [ 
       ", XF86AudioRaiseVolume, exec, sh ~/.dotfiles/home/modules/hyprland/scripts/pips-volume-selector.sh raise"
       ", XF86AudioLowerVolume, exec, sh ~/.dotfiles/home/modules/hyprland/scripts/pips-volume-selector.sh lower"

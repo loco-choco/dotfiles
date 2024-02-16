@@ -82,8 +82,8 @@ in
     #mode = "dock";
     exclusive = false;
     passthrough = false;
-    margin-left = 10;
-    margin-bottom = 10;
+    margin-left = bottomBarHeight;
+    margin-bottom = bottomBarHeight;
     output = [ "eDP-1" "HDMI-A-1" ];
     modules-left = [ "image#karma-battery" ];
     "image#karma-battery" = {
