@@ -49,6 +49,7 @@
     mypaint
     #social media
     revolt-desktop
+    rocketchat-desktop
     #(pkgs.discord.override {
     #  withVencord = true;
     #})

@@ -7,23 +7,23 @@
       sdk_6_0
       sdk_7_0
     ])
-    jetbrains.rider
+    #jetbrains.rider
 
     # Game development
     godot_4
 
     # VR development
     #monado
-    (pkgs.monado.overrideAttrs {
-      src = fetchFromGitLab {
-        domain = "gitlab.freedesktop.org";
-        owner = "monado";
-        repo = "monado";
-        rev = "5cea2bea2f76fa3b44ec5fab771ed1490d937c76";
-        sha256 = "sha256-opx8zkQTRqCGhHAPZUgdhg7s+wqZEeh+c3K33FrYXrk=";
-      };
-      patches = [];
-    })
+    #(pkgs.monado.overrideAttrs {
+    #  src = fetchFromGitLab {
+    #    domain = "gitlab.freedesktop.org";
+    #    owner = "monado";
+    #    repo = "monado";
+    #    rev = "5cea2bea2f76fa3b44ec5fab771ed1490d937c76";
+    #    sha256 = "sha256-opx8zkQTRqCGhHAPZUgdhg7s+wqZEeh+c3K33FrYXrk=";
+    #  };
+    #  patches = [];
+    #})
     openxr-loader
     # Arduino development
     arduino-cli
