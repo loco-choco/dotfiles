@@ -17,5 +17,6 @@
     #ltspice
     obs-studio
     vlc
+    (prismlauncher.override { jdks = [ jdk8 jdk17 jdk19 ]; })
   ];
 }
