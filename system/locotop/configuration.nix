@@ -31,6 +31,8 @@
       ../modules/zsh.nix
       ../modules/common-programs.nix
     ];
+  virtualisation.waydroid.enable = true;
+  
   services.tlp = {
     enable = true;
     settings = {
