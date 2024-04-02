@@ -1,11 +1,15 @@
 { config, pkgs, ... }: {
-
+  services.monado = {
+    enable = true;
+    defaultRuntime = true;
+  };
   environment.systemPackages = with pkgs; [
     # C# development
     mono
     (with dotnetCorePackages; combinePackages [
       sdk_6_0
       sdk_7_0
+      sdk_8_0
     ])
     #jetbrains.rider
 
@@ -24,6 +28,9 @@
     #  };
     #  patches = [];
     #})
+    monado
+    opencomposite
+    opencomposite-helper
     openxr-loader
     # Arduino development
     arduino-cli

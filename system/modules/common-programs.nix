@@ -16,6 +16,7 @@
     #freecad
     #ltspice
     obs-studio
+    ardour
     vlc
     (prismlauncher.override { jdks = [ jdk8 jdk17 jdk19 ]; })
   ];
