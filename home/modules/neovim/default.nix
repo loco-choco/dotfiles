@@ -22,9 +22,9 @@
 	});
       };
     };
-    plugins.nvim-cmp = {
+    plugins.cmp = {
       enable = true;
-      completion.autocomplete = [ "TextChanged" ];
+      settings.completion.autocomplete = [ "TextChanged" ];
     };
   };
 }
