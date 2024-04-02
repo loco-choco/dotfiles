@@ -13,7 +13,6 @@
     #keys stuff
     gnupg
     git-crypt
-    pinentry-qt
     #terminal utils
     onefetch
     mpv
@@ -109,7 +108,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "qt";
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
 
