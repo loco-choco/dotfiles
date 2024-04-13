@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       # Machine configs
-      #../modules/grub.nix
+      ../modules/grub.nix
 
       ../modules/user.nix
 
@@ -47,19 +47,7 @@
     };
   };
   # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot";
-    timeout = 1;
-    grub = {
-      enable = true;
-      devices = ["nodev"];
-      efiSupport = true;
-      useOSProber = true;
-      default = "saved";
-      splashMode = "normal";
-    };
-  };
+  boot.loader.efi.efiSysMountPoint = "/boot";
   
   networking.hostName = "locotop"; # Define your hostname.
 
