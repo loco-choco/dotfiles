@@ -21,5 +21,5 @@ user user:
 
 clean:
   @echo 'Cleaning System'
-  sudo nix-collect-garbage -d
-  nix-collect-garbage -d
+  sudo nix-collect-garbage --delete-older-than 7d
+  nix-collect-garbage --delete-older-than 7d
