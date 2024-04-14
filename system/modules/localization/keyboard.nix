@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 }
