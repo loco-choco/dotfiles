@@ -7,8 +7,9 @@
       ../modules/grub.nix
 
       ../modules/user.nix
-      ../modules/display/kde
-      ../modules/display/autologin.nix
+      #../modules/display/kde
+      ../modules/display/hyprland
+      #../modules/display/autologin.nix
 
       ../modules/networking.nix
       ../modules/pipewire.nix
