@@ -12,7 +12,7 @@ in
     passthrough = false;
     spacing = 10;
     height = topBarHeight;
-    output = [ "eDP-1" "HDMI-A-1" ];
+    output = [ "eDP-1" "HDMI-A-1" "DP-2" ];
     modules-center = [ "memory" "clock" "temperature" ];
     modules-left = [ "tray" ];
     modules-right = [ "bluetooth" "network" ];

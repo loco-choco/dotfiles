@@ -33,7 +33,15 @@
       "eDP-1,highrr,auto,1"
     ];
     "xwayland:force_zero_scaling" = "true";
-    env = [ "GDK_SCALE,1" "XCURSOR_SIZE,16" ];
+    env = [ 
+      "GDK_SCALE,1"
+      "XCURSOR_SIZE,16" 
+      "WLR_NO_HARDWARE_CURSORS,1"
+      "LIBVA_DRIVER_NAME,nvidia" 
+      "XDG_SESSION_TYPE,wayland" 
+      "GBM_BACKEND,nvidia-drm" 
+      "__GLX_VENDOR_LIBRARY_NAME,nvidia" 
+    ];
     bindr = [ "SUPER, SUPER_L, exec, pkill waybar || waybar" ];
     binde = [ 
       ", XF86AudioRaiseVolume, exec, sh ~/.dotfiles/home/modules/hyprland/scripts/pips-volume-selector.sh raise"
