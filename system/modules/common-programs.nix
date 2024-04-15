@@ -19,5 +19,9 @@
     ardour
     vlc
     (prismlauncher.override { jdks = [ jdk8 jdk17 jdk19 ]; })
+    sioyek
+    todoman
+    vdirsyncer
+    logseq
   ];
 }

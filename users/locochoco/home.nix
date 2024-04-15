@@ -149,7 +149,10 @@
     ];
   };
   */
-
+  programs.carapace = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -190,7 +193,7 @@
         "spectrum"
         "utility"
 	"git"
-        "completion"
+        #"completion"
         "prompt"
       ];
     };
