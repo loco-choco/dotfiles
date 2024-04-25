@@ -10,7 +10,7 @@
     #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    ow-mod-man.url = "github:loco-choco/ow-mod-man/main";
+    ow-mod-man.url = "github:ow-mods/ow-mod-man";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     loconix.url = "github:loco-choco/loconix/main";
     loconix.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +46,7 @@
         ];
       };
 
-      overlays = [ ow-mod-man.overlay.owmods loconix.overlay.wineApps loconix.overlay.erosanix-lib xr-hardware-overlay ];
+      overlays = [ ow-mod-man.overlays.default loconix.overlay.wineApps loconix.overlay.erosanix-lib xr-hardware-overlay ];
     };
     
     lib = nixpkgs.lib;
@@ -57,7 +57,6 @@
         #pkgs = nixpkgs.legacyPackages.${system};
         inherit pkgs;
         modules = [
-	  ow-mod-man.homeManagerModules.owmods
           nixvim.homeManagerModules.nixvim
           ./users/locochoco/home.nix
           {

@@ -29,7 +29,7 @@
     unityhub
     blender
     #freecad
-    #owmods-cli
+    owmods-cli
     #owmods-gui
     avalonia-ilspy
     #circuit tools
@@ -76,8 +76,8 @@
 
   services.easyeffects.enable = true;
   
-  programs.owmods-gui.enable = true;
-  programs.owmods-cli.enable = true;
+  #programs.owmods-gui.enable = true;
+  #programs.owmods-cli.enable = true;
 
   programs.firefox.enable = true;
 
@@ -149,13 +149,11 @@
     ];
   };
   */
-  programs.carapace = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  programs.carapace.enable = true;
+  programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    #enableCompletion = true;
     syntaxHighlighting.enable = true;
     enableVteIntegration = true;
     autocd = true;
@@ -167,7 +165,6 @@
       "d" = "kitty +kitten diff";
       "nix" = "noglob nix"; #so we can use the # char in flakes
       "w3m" = "w3m -o inline_img_protocol=4";#so we can see images in kitty
-      "bat" = "bat -P"; # this makes it display the whole file at once
     };
     plugins = [
       #{
@@ -193,7 +190,7 @@
         "spectrum"
         "utility"
 	"git"
-        #"completion"
+        "completion"
         "prompt"
       ];
     };

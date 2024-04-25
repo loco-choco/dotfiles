@@ -138,19 +138,6 @@
         "type": "github"
       }
     },
-    "flake-compat_6": {
-      "locked": {
-        "narHash": "sha256-kvjfFW7WAETZlt09AgDn1MrtKzP7t90Vf7vypd3OL1U=",
-        "rev": "0f9255e01c2351cc7d116c072cb317785dd33b33",
-        "revCount": 57,
-        "type": "tarball",
-        "url": "https://api.flakehub.com/f/pinned/edolstra/flake-compat/1.0.1/018afb31-abd1-7bff-a5e4-cff7e18efb7a/source.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://flakehub.com/f/edolstra/flake-compat/1.tar.gz"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -251,11 +238,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1694529238,
-        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
         "type": "github"
       },
       "original": {
@@ -456,24 +443,44 @@
     },
     "ow-mod-man": {
       "inputs": {
-        "flake-compat": "flake-compat_6",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pnpm2nix": "pnpm2nix"
+      },
+      "locked": {
+        "lastModified": 1710986809,
+        "narHash": "sha256-atP2nUOWs4WBo7jjugPfELW0BDz6kETyTaWkR9tsmb8=",
+        "owner": "ow-mods",
+        "repo": "ow-mod-man",
+        "rev": "f1e55d8584aa2ae47f135a5df980038ef51c5afb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ow-mods",
+        "repo": "ow-mod-man",
+        "type": "github"
+      }
+    },
+    "pnpm2nix": {
+      "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
+          "ow-mod-man",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1698778235,
-        "narHash": "sha256-0Ms0l5yepfHg0CjM8MVPx6I1tLF1vm/QMJLMhAVN/pY=",
-        "owner": "loco-choco",
-        "repo": "ow-mod-man",
-        "rev": "71d4782f62cb68603b5c150e85ae937189ed0695",
+        "lastModified": 1706694632,
+        "narHash": "sha256-ytyTwNPiUR8aq74QlxFI+Wv3MyvXz5POO1xZxQIoi0c=",
+        "owner": "nzbr",
+        "repo": "pnpm2nix-nzbr",
+        "rev": "0366b7344171accc2522525710e52a8abbf03579",
         "type": "github"
       },
       "original": {
-        "owner": "loco-choco",
-        "ref": "main",
-        "repo": "ow-mod-man",
+        "owner": "nzbr",
+        "repo": "pnpm2nix-nzbr",
         "type": "github"
       }
     },

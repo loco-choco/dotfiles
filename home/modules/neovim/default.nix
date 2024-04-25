@@ -11,10 +11,12 @@
       servers = {
         nixd.enable = true;
 	bashls.enable = true;
-	clangd.enable = true;
+	#clangd.enable = true;
+	ccls.enable = true;
         rust-analyzer.enable = true;
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
+	vhdl-ls.enable = true;
 	csharp-ls.enable = true;
 	csharp-ls.package = pkgs.csharp-ls.overrideAttrs (old: {
           version = "0.9.0";
