@@ -23,5 +23,6 @@
     todoman
     vdirsyncer
     logseq
+    openvpn
   ];
 }
