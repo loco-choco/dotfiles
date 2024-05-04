@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     #terminal tools
-    neofetch
+    fastfetch
     wget
     imagemagick
     just
@@ -11,10 +11,12 @@
     wine
     unzip
     zip
+    android-file-transfer
     #misc
     #openscad
     #freecad
     #ltspice
+    anydesk
     obs-studio
     ardour
     vlc
@@ -23,6 +25,5 @@
     todoman
     vdirsyncer
     logseq
-    openvpn
   ];
 }
