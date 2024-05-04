@@ -9,4 +9,6 @@
     # allowedTCPPortRanges = [ ];
     # allowedUDPPortRanges = [ ];
   };
+
+  services.mullvad-vpn.enable = true;
 }
