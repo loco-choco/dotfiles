@@ -5,7 +5,7 @@
    
   inputs = {
     #nixpkgs.url = "github:Scrumplex/nixpkgs/nixos-monado";
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:auxolotl/nixpkgs/nixpkgs-unstable";
     #nixpkgs.url = "nixpkgs/master";
     #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
