@@ -20,7 +20,7 @@
     obs-studio
     ardour
     vlc
-    (prismlauncher.override { jdks = [ jdk8 jdk17 jdk19 ]; })
+    (prismlauncher.override { jdks = [ jdk8 jdk17 ]; })
     sioyek
     todoman
     vdirsyncer
