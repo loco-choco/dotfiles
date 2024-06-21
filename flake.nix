@@ -23,9 +23,6 @@
   let
     system = "x86_64-linux";
     
-    #loconix-overlay = final: prev: {
-    #  ltspice = loconix.packages.${system}.ltspice;
-    #};
     xr-hardware-overlay = final: prev: {
       xr-hardware = prev.xr-hardware.overrideAttrs {  
         src = prev.fetchFromGitLab {
@@ -41,8 +38,9 @@
       inherit system;
       config = { 
         allowUnfree = true;
-	permittedInsecurePackages = [
+        permittedInsecurePackages = [
           "openssl-1.1.1w"
+          "electron-27.3.11"
         ];
       };
 
@@ -54,7 +52,6 @@
   in {
     homeConfigurations = {
       locochoco = home-manager.lib.homeManagerConfiguration {
-        #pkgs = nixpkgs.legacyPackages.${system};
         inherit pkgs;
         modules = [
           nixvim.homeManagerModules.nixvim
@@ -75,7 +72,7 @@
         inherit pkgs;
         modules = [
           ./system/locopc/configuration.nix
-	  nixpkgs-xr.nixosModules.nixpkgs-xr
+          nixpkgs-xr.nixosModules.nixpkgs-xr
         ];
       };
       locotop = lib.nixosSystem {
