@@ -23,6 +23,10 @@
         rust-analyzer.installCargo = true;
 	      vhdl-ls.enable = true;
 	      csharp-ls.enable = true;
+        ltex = {
+          enable = true;
+          settings.enabled = ["json" "bibtex" "context" "context.tex" "html" "latex" "markdown" "org" "restructuredtext" "rsweave"];
+        };
       };
     };
     plugins.cmp-nvim-lsp.enable = true;
