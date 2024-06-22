@@ -19,6 +19,7 @@
       ../modules/environment.nix
       ../modules/fonts.nix
       ../modules/nix
+      ../modules/display/hyprland
 
       #../modules/localization/locale.nix
       #../modules/localization/keyboard.nix
@@ -69,13 +70,6 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  #services.xserver.displayManager.sddm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
-  programs.hyprland.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "br";
