@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ pkgs, ... }: {
   programs.nixvim = {
     enable = true;
     opts = {
@@ -6,30 +6,41 @@
       shiftwidth = 2;
       tabstop = 2;
     };
-    colorschemes.onedark = { 
-      enable = true;
-    };
+    colorschemes.onedark = { enable = true; };
     plugins.lightline.enable = true;
     plugins.coq-nvim.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {
         nixd.enable = true;
-	      bashls.enable = true;
-	      #clangd.enable = true;
-	      ccls.enable = true;
+        bashls.enable = true;
+        #clangd.enable = true;
+        ccls.enable = true;
         rust-analyzer.enable = true;
         rust-analyzer.installRustc = true;
         rust-analyzer.installCargo = true;
-	      vhdl-ls.enable = true;
-	      csharp-ls.enable = true;
+        vhdl-ls.enable = true;
+        csharp-ls.enable = true;
         ltex = {
           enable = true;
-          settings.enabled = ["json" "bibtex" "context" "context.tex" "html" "latex" "markdown" "org" "restructuredtext" "rsweave"];
-          
+          settings.enabled = [
+            "json"
+            "bibtex"
+            "context"
+            "context.tex"
+            "html"
+            "latex"
+            "markdown"
+            "org"
+            "restructuredtext"
+            "rsweave"
+          ];
+
         };
       };
     };
+    plugins.lsp-format.enable = true;
+    plugins.none-ls.enable = true;
     plugins.none-ls.sources.formatting.nixfmt.enable = true;
     plugins.cmp-nvim-lsp.enable = true;
     plugins.cmp = {
