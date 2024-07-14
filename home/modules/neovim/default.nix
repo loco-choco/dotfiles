@@ -26,9 +26,11 @@
         ltex = {
           enable = true;
           settings.enabled = ["json" "bibtex" "context" "context.tex" "html" "latex" "markdown" "org" "restructuredtext" "rsweave"];
+          
         };
       };
     };
+    plugins.none-ls.sources.formatting.nixfmt.enable = true;
     plugins.cmp-nvim-lsp.enable = true;
     plugins.cmp = {
       enable = true;
