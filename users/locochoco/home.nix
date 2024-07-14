@@ -75,7 +75,7 @@
   #};
 
   services.easyeffects.enable = true;
-  
+
   #programs.owmods-gui.enable = true;
   #programs.owmods-cli.enable = true;
 
@@ -85,21 +85,11 @@
     enable = true;
     autoReload = true;
     urls = [
-      {
-        url = "https://xeiaso.net/blog.rss";
-      }
-      {
-        url = "https://www.tamberlanecomic.com/feed.xml";
-      }
-      {
-        url = "https://weekly.nixos.org/feeds/all.rss.xml";
-      }
-      {
-        url = "https://rainworldanthroau.thecomicseries.com/rss/";
-      }
-      {
-        url = "https://outerwildsmods.com/feed.xml";
-      }
+      { url = "https://xeiaso.net/blog.rss"; }
+      { url = "https://www.tamberlanecomic.com/feed.xml"; }
+      { url = "https://weekly.nixos.org/feeds/all.rss.xml"; }
+      { url = "https://rainworldanthroau.thecomicseries.com/rss/"; }
+      { url = "https://outerwildsmods.com/feed.xml"; }
     ];
   };
   programs.gpg = {
@@ -111,9 +101,8 @@
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-
   programs.bottom = {
-      enable = true;
+    enable = true;
   };
 
   programs.kitty = {
@@ -135,19 +124,19 @@
     userEmail = "contact@locochoco.dev";
   };
   /*
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    plugins = with pkgs.vimPlugins; [
-      nvim-lspconfig
-      nvim-treesitter.withAllGrammars
-      plenary-nvim
-      gruvbox-material
-      mini-nvim
-      openscad-nvim #on nixpkgs 23.05
-      hologram-nvim
-    ];
-  };
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+        nvim-lspconfig
+        nvim-treesitter.withAllGrammars
+        plenary-nvim
+        gruvbox-material
+        mini-nvim
+        openscad-nvim #on nixpkgs 23.05
+        hologram-nvim
+      ];
+    };
   */
   programs.carapace.enable = true;
   programs.zoxide.enable = true;
@@ -158,13 +147,13 @@
     enableVteIntegration = true;
     autocd = true;
     localVariables = {
-      VISUAL = "nvim";#for ranger default editor
+      VISUAL = "nvim"; # for ranger default editor
     };
     shellAliases = {
       "icat" = "kitty +kitten icat";
       "d" = "kitty +kitten diff";
-      "nix" = "noglob nix"; #so we can use the # char in flakes
-      "w3m" = "w3m -o inline_img_protocol=4";#so we can see images in kitty
+      "nix" = "noglob nix"; # so we can use the # char in flakes
+      "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
     };
     plugins = [
       #{
@@ -181,7 +170,7 @@
     prezto = {
       enable = true;
       prompt.theme = "paradox";
-      pmodules = [ 
+      pmodules = [
         "environment"
         "terminal"
         "editor"
@@ -189,10 +178,10 @@
         "directory"
         "spectrum"
         "utility"
-	"git"
+        "git"
         "completion"
         "prompt"
       ];
     };
-   }; 
+  };
 }

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     #terminal tools
     fastfetch
@@ -20,7 +21,12 @@
     obs-studio
     ardour
     vlc
-    (prismlauncher.override { jdks = [ jdk8 jdk17 ]; })
+    (prismlauncher.override {
+      jdks = [
+        jdk8
+        jdk17
+      ];
+    })
     sioyek
     todoman
     vdirsyncer

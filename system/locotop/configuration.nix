@@ -5,35 +5,35 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      # Machine configs
-      ../modules/grub.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    # Machine configs
+    ../modules/grub.nix
 
-      ../modules/user.nix
+    ../modules/user.nix
 
-      ../modules/networking.nix
-      ../modules/pipewire.nix
-      ../modules/cups.nix
-      ../modules/environment.nix
-      ../modules/fonts.nix
-      ../modules/nix
-      ../modules/display/hyprland
+    ../modules/networking.nix
+    ../modules/pipewire.nix
+    ../modules/cups.nix
+    ../modules/environment.nix
+    ../modules/fonts.nix
+    ../modules/nix
+    ../modules/display/hyprland
 
-      #../modules/localization/locale.nix
-      #../modules/localization/keyboard.nix
+    #../modules/localization/locale.nix
+    #../modules/localization/keyboard.nix
 
-      # Apps and others
-      #../modules/rtl-sdr.nix
-      #../modules/drawingtablet.nix
-      ../modules/steam.nix
-      ../modules/development.nix
-      ../modules/zsh.nix
-      ../modules/common-programs.nix
-    ];
+    # Apps and others
+    #../modules/rtl-sdr.nix
+    #../modules/drawingtablet.nix
+    ../modules/steam.nix
+    ../modules/development.nix
+    ../modules/zsh.nix
+    ../modules/common-programs.nix
+  ];
   virtualisation.waydroid.enable = true;
-  
+
   services.tlp = {
     enable = true;
     settings = {
@@ -49,7 +49,7 @@
   };
   # Bootloader.
   boot.loader.efi.efiSysMountPoint = "/boot";
-  
+
   networking.hostName = "locotop"; # Define your hostname.
 
   # Set your time zone.
