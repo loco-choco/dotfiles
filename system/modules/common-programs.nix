@@ -25,5 +25,6 @@
     todoman
     vdirsyncer
     logseq
+    nixfmt-rfc-style
   ];
 }
