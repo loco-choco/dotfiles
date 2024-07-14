@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   hardware.nvidia.modesetting.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
