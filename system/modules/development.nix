@@ -32,10 +32,10 @@
     #  };
     #  patches = [];
     #})
-    monado
-    opencomposite
-    opencomposite-helper
-    openxr-loader
+    #monado
+    #opencomposite
+    #opencomposite-helper
+    #openxr-loader
     # Arduino development
     arduino-cli
 
