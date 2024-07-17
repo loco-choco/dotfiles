@@ -58,6 +58,7 @@ in
 
     temperature = {
       format = "{temperatureC}°C 󱃃";
+      hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
     };
   };
 
