@@ -82,6 +82,13 @@
           ./system/locotop/configuration.nix
         ];
       };
+      locoware = lib.nixosSystem {
+        inherit system;
+        inherit pkgs;
+        modules = [
+          ./system/locoware/configuration.nix
+        ];
+      };
     };
 
     nixConfig = {

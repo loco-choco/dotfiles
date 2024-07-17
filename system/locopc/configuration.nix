@@ -32,7 +32,6 @@
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.swraid.enable = false; # fix untill they make false the default in unstable
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   networking.hostName = "locopc";
