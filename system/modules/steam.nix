@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   environment.systemPackages = [ pkgs.heroic ];
   programs.steam = {
     enable = true;
