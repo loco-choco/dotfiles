@@ -45,7 +45,7 @@
     krita
     gimp
     rnote
-    mypaint
+    #mypaint
     #social media
     revolt-desktop
     rocketchat-desktop
@@ -74,7 +74,7 @@
   #  enable = true;
   #};
 
-  services.easyeffects.enable = true;
+  #services.easyeffects.enable = true;
 
   #programs.owmods-gui.enable = true;
   #programs.owmods-cli.enable = true;
