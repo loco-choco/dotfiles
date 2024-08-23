@@ -6,5 +6,6 @@
   boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   boot.kernel.sysctl."kernel.perf_event_paranoid" = -1;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+
   #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 }
