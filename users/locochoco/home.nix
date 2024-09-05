@@ -108,9 +108,6 @@
   programs.kitty = {
     enable = true;
     theme = "Space Gray Eighties";
-    keybindings = {
-      "ctrl+k" = "kitten mykitten.py";
-    };
     settings = {
       enabled_layouts = "*";
       font_family = "FiraCode Nerd Font";
@@ -150,8 +147,6 @@
       VISUAL = "nvim"; # for ranger default editor
     };
     shellAliases = {
-      "icat" = "kitty +kitten icat";
-      "d" = "kitty +kitten diff";
       "nix" = "noglob nix"; # so we can use the # char in flakes
       "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
     };

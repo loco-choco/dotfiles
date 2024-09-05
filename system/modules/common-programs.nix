@@ -7,6 +7,7 @@
     imagemagick
     just
     xclip
+    timg
     w3m
     jq
     wine
