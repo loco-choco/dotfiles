@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
-{
+let
+  dotnet =
+    (with pkgs.dotnetCorePackages; combinePackages [ sdk_6_0 sdk_7_0 sdk_8_0 ]);
+in {
   services.monado = {
     enable = true;
     defaultRuntime = true;
@@ -7,14 +10,7 @@
   environment.systemPackages = with pkgs; [
     # C# development
     mono
-    (
-      with dotnetCorePackages;
-      combinePackages [
-        sdk_6_0
-        sdk_7_0
-        sdk_8_0
-      ]
-    )
+    dotnet
     #jetbrains.rider
 
     # Game development
@@ -53,16 +49,17 @@
     # VHDL development
     ghdl # for vhdl
     gtkwave # for visualizing tests output
-    (yosys.withPlugins (
-      with yosys.allPlugins;
+    (yosys.withPlugins (with yosys.allPlugins;
       [
         # for synthesis
         ghdl
-      ]
-    ))
+      ]))
     netlistsvg # for visualizing rtl yosys files
+    ngspice
     #quartus-prime-lite
   ];
+
+  environment.sessionVariables = { DOTNET_ROOT = "${dotnet}"; };
 
   services.udev.extraRules = ''
         #ESP32
