@@ -56,6 +56,7 @@ in {
       ]))
     netlistsvg # for visualizing rtl yosys files
     ngspice
+    xyce
     #quartus-prime-lite
   ];
 
