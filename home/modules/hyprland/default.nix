@@ -33,10 +33,10 @@
     "decoration:rounding" = "2";
     monitor = [ "HDMI-A-1,highrr,auto,1,mirror,eDP-1" "eDP-1,highrr,auto,1" ];
     "xwayland:force_zero_scaling" = "true";
+    cursor = { no_hardware_cursors = true; };
     env = [
       "GDK_SCALE,1"
       "XCURSOR_SIZE,16"
-      "WLR_NO_HARDWARE_CURSORS,1"
       "LIBVA_DRIVER_NAME,nvidia"
       "XDG_SESSION_TYPE,wayland"
       "GBM_BACKEND,nvidia-drm"
