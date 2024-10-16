@@ -57,6 +57,8 @@ in {
     netlistsvg # for visualizing rtl yosys files
     ngspice
     xyce
+    (sdcc.override { withGputils = true; })
+    gputils
     #quartus-prime-lite
   ];
 
