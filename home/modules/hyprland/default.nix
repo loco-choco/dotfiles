@@ -1,4 +1,5 @@
 { pkgs, config, ... }: {
+  imports = [ ./mpd ];
   home.packages = with pkgs; [ swww grimblast ];
   services.dunst = {
     enable = true;
