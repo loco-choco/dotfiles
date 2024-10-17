@@ -16,13 +16,13 @@
         bashls.enable = true;
         #clangd.enable = true;
         ccls.enable = true;
-        ghdl-ls.enable = true;
-        rust-analyzer = {
+        vhdl_ls.enable = true;
+        rust_analyzer = {
           enable = true;
           installRustc = true;
           installCargo = true;
         };
-        csharp-ls.enable = true;
+        csharp_ls.enable = true;
         ltex = {
           enable = true;
           settings.enabled = [

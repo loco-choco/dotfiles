@@ -20,7 +20,7 @@
     xplr
     gcc
     gnumake
-    bear
+    #bear
     #owmods
     unityhub
     blender
@@ -99,7 +99,7 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Space Gray Eighties";
+    themeFile = "SpaceGray_Eighties";
     settings = {
       enabled_layouts = "*";
       font_family = "FiraCode Nerd Font";
