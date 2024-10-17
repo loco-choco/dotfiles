@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   services.mpd = {
     enable = true;
-    musicDirectory = "/path/to/music";
+    musicDirectory = "/home/locochoco/music";
     extraConfig = ''
       audio_output {
         type "pipewire"
@@ -9,5 +9,18 @@
       }
     '';
   };
-  services.mpd-discord-rpc.enable = true;
+  services.mpd-discord-rpc = {
+    enable = true;
+    settings = {
+      format = {
+        details = "Listening to $title";
+        state = "Tunes from $album by $artist";
+        timestamp = "elapsed";
+        large_image = "notes";
+        small_image = "notes";
+        large_text = "";
+        small_text = "";
+      };
+    };
+  };
 }
