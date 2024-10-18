@@ -9,6 +9,7 @@
       }
     '';
   };
+  # MPD Discord RPC
   services.mpd-discord-rpc = {
     enable = true;
     settings = {
@@ -23,4 +24,19 @@
       };
     };
   };
+  home.packages = [ pkgs.mpc-cli ];
+  # MPD Notifications
+  systemd.user.services.mpd-notification = {
+    Unit = {
+      Description = "MPD Notifications";
+      After = [ "graphical-session-pre.target" "mpd.service" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.mpd-notification}/bin/mpd-notification";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
+  };
+  home.file.".config/mpd-notification.conf".source = ./mpd-notification.conf;
 }
