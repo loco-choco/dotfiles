@@ -25,6 +25,10 @@
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
+    input = {
+      kb_layout = "us";
+      kb_variant = "intl";
+    };
     exec-once = [ "waybar" "swww init" ];
     exec = [
       "swww img ~/.dotfiles/home/modules/hyprland/wallpaper/rw-region-1.png"
