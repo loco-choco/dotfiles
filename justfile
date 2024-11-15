@@ -3,6 +3,7 @@ set positional-arguments
 update:
   @echo 'Updating Flake'
   nix flake update
+  git -o flake.lock -m "Updated Lock File"
 
 all system user:
   @echo 'Building Whole System {{system}} With User {{user}}'
