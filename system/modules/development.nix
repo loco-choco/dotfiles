@@ -3,6 +3,15 @@ let
   dotnet =
     (with pkgs.dotnetCorePackages; combinePackages [ sdk_6_0 sdk_7_0 sdk_8_0 ]);
 in {
+  hardware.nvidia-container-toolkit.enable = true;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  users.users.locochoco.extraGroups = [ "docker" ];
+
+
   services.monado = {
     enable = true;
     defaultRuntime = true;
