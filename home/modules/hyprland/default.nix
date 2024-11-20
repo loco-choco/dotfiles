@@ -29,7 +29,7 @@
       kb_layout = "us";
       kb_variant = "intl";
     };
-    exec-once = [ "waybar" "swww init" ];
+    exec-once = [ "waybar" "swww-daemon" ];
     exec = [
       "swww img ~/.dotfiles/home/modules/hyprland/wallpaper/rw-region-1.png"
     ];
