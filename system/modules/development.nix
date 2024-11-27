@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
-let
-  dotnet =
-    (with pkgs.dotnetCorePackages; combinePackages [ sdk_6_0 sdk_7_0 sdk_8_0 ]);
+let dotnet = (with pkgs.dotnetCorePackages; combinePackages [ sdk_9_0 ]);
 in {
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.docker.enable = true;
@@ -10,7 +8,6 @@ in {
     setSocketVariable = true;
   };
   users.users.locochoco.extraGroups = [ "docker" ];
-
 
   services.monado = {
     enable = true;
