@@ -27,7 +27,7 @@
     #freecad
     owmods-cli
     #owmods-gui
-    avalonia-ilspy
+    #avalonia-ilspy
     #circuit tools
     #kicad
     #website making
