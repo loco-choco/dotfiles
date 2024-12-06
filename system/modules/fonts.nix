@@ -1,1 +1,1 @@
-{ config, pkgs, ... }: { fonts.packages = with pkgs; [ fira-code ]; }
+{ config, pkgs, ... }: { fonts.packages = with pkgs; [ nerd-fonts.fira-code ]; }
