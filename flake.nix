@@ -36,6 +36,21 @@
 
       lib = nixpkgs.lib;
 
+      # TODO Make this config more modular, maybe some cool option to auto create the modules list
+      # instead of imports in the configuration file
+      agenix-modules = [
+        {
+          age.identityPaths = [ "/home/locochoco/.ssh/id_ed25519" ];
+          age.secrets.github-api = {
+            file = .secrets/github-api.age;
+            mode = "0440";
+            owner = "locochoco";
+            group = "wheel";
+          };
+        }
+        agenix.nixosModules.default
+      ];
+
     in {
       homeConfigurations = {
         locochoco = home-manager.lib.homeManagerConfiguration {
@@ -52,25 +67,23 @@
           ];
         };
       };
-
+      # TODO Make this config more modular, maybe some cool option to auto create the modules list
+      # instead of imports in the configuration file
       nixosConfigurations = {
         locopc = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules =
-            [ ./system/locopc/configuration.nix agenix.nixosModules.default ];
+          modules = [ ./system/locopc/configuration.nix ] ++ agenix-modules;
         };
         locotop = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules =
-            [ ./system/locotop/configuration.nix agenix.nixosModules.default ];
+          modules = [ ./system/locotop/configuration.nix ] ++ agenix-modules;
         };
         locoware = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules =
-            [ ./system/locoware/configuration.nix agenix.nixosModules.default ];
+          modules = [ ./system/locoware/configuration.nix ] ++ agenix-modules;
         };
       };
 
