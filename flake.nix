@@ -14,8 +14,9 @@
     loconix.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim/main";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
   };
-  outputs = { nixpkgs, home-manager, ow-mod-man, loconix, nixvim, ... }:
+  outputs = { nixpkgs, home-manager, ow-mod-man, loconix, nixvim, agenix, ... }:
     let
       system = "x86_64-linux";
 
@@ -56,17 +57,20 @@
         locopc = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locopc/configuration.nix ];
+          modules =
+            [ ./system/locopc/configuration.nix agenix.nixosModules.default ];
         };
         locotop = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locotop/configuration.nix ];
+          modules =
+            [ ./system/locotop/configuration.nix agenix.nixosModules.default ];
         };
         locoware = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locoware/configuration.nix ];
+          modules =
+            [ ./system/locoware/configuration.nix agenix.nixosModules.default ];
         };
       };
 
