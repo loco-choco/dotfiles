@@ -50,6 +50,13 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
-
+  # Until fix, we go closed
+  hardware.nvidia.open = pkgs.lib.mkForce false;
+  # Dual GPU Setup
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
   system.stateVersion = "24.05";
 }
