@@ -17,6 +17,7 @@
         #clangd.enable = true;
         ccls.enable = true;
         vhdl_ls.enable = true;
+        verible.enable = true;
         rust_analyzer = {
           enable = true;
           installRustc = true;

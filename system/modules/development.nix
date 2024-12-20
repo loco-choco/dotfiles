@@ -51,7 +51,10 @@ in {
 
     # Nix development
     nix-prefetch-github
-
+    
+    #Verilog + SystemVerilog Dev
+    verilator
+    iverilog
     # VHDL development
     ghdl # for vhdl
     gtkwave # for visualizing tests output
