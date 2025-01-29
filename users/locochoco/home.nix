@@ -26,7 +26,7 @@
     blender
     #freecad
     owmods-cli
-    #owmods-gui
+    owmods-gui
     #avalonia-ilspy
     #circuit tools
     #kicad

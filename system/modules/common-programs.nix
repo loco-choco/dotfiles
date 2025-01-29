@@ -18,6 +18,15 @@
     #openscad
     #freecad
     #ltspice
+    (sm64coopdx.overrideAttrs {
+      version = "1.1.1";
+      src = fetchFromGitHub {
+        owner = "coop-deluxe";
+        repo = "sm64coopdx";
+        rev = "v1.1.1";
+        hash = "sha256-ktdvzOUYSh6H49BVDovqYt5CGyvJi4UW6nJOOD/HGGU=";
+      };
+    })
     (anydesk.overrideAttrs {
       version = "6.3.3";
 

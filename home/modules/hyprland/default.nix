@@ -36,7 +36,7 @@
     "general:gaps_out" = "2";
     "general:gaps_in" = "2";
     "decoration:rounding" = "2";
-    monitor = [ "HDMI-A-1,highrr,auto,1,mirror,eDP-1" "eDP-1,highrr,auto,1" ];
+    monitor = [ ",highrr,auto,1,mirror,eDP-1"  "eDP-1,highrr,auto,1" ];
     "xwayland:force_zero_scaling" = "true";
     cursor = { no_hardware_cursors = true; };
     env = [

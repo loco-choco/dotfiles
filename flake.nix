@@ -8,7 +8,7 @@
     #nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    ow-mod-man.url = "github:ow-mods/ow-mod-man";
+    ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
     ow-mod-man.inputs.nixpkgs.follows = "nixpkgs";
     loconix.url = "github:loco-choco/loconix/main";
     loconix.inputs.nixpkgs.follows = "nixpkgs";

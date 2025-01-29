@@ -477,15 +477,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1731291284,
-        "narHash": "sha256-aA/g5IrsfMwF6K0OHrtxMv1g/bOh/tslh/ZUSXIUgJY=",
+        "lastModified": 1734738151,
+        "narHash": "sha256-sWAybltvn03HF9iLkJoM0hIUnxb5nBy2qVawZIPV7WE=",
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "173b03c259428ed066a6e0ea40c573763b2c89d0",
+        "rev": "d705f118233d2ef30a2ce60480969d7b9ab0d1f6",
         "type": "github"
       },
       "original": {
         "owner": "ow-mods",
+        "ref": "dev",
         "repo": "ow-mod-man",
         "type": "github"
       }
