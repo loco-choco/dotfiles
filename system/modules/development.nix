@@ -1,13 +1,8 @@
 { config, pkgs, ... }:
 let dotnet = (with pkgs.dotnetCorePackages; combinePackages [ sdk_9_0 ]);
 in {
-  hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-  users.users.locochoco.extraGroups = [ "docker" ];
+
+  services.ollama.enable = true;
 
   services.monado = {
     enable = true;
@@ -42,7 +37,6 @@ in {
     arduino-cli
 
     # PIC development
-    #(pkgs.sdcc.override { withGputils = true;})
     #gputils
 
     # Rust development
@@ -68,8 +62,6 @@ in {
     netlistsvg # for visualizing rtl yosys files
     ngspice
     xyce
-    (sdcc.override { withGputils = true; })
-    gputils
     #quartus-prime-lite
   ];
 
