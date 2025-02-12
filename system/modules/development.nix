@@ -1,8 +1,43 @@
 { config, pkgs, ... }:
-let dotnet = (with pkgs.dotnetCorePackages; combinePackages [ sdk_9_0 ]);
+let
+  dotnet = (with pkgs.dotnetCorePackages; combinePackages [ sdk_9_0 ]);
+
+  nextpnr-src = pkgs.fetchFromGitHub {
+    owner = "YosysHQ";
+    repo = "nextpnr";
+    rev = "e4115e85f734a6dc2d59654308eb2474375a7370";
+    hash = "sha256-EsWFp5FjrAMky2zsyXH4Ba6UdqezLbWEZiFET6E1kJ4=";
+    name = "nextpnr";
+    fetchSubmodules = true;
+  };
+
+  yosys-updated = pkgs.yosys.overrideAttrs {
+    src = pkgs.fetchFromGitHub {
+      owner = "YosysHQ";
+      repo = "yosys";
+      rev = "18a7c00382cd64d46b61ff6cafe80851ca29cb77";
+      hash = "sha256-VhkYpaBcUtMhdiOoBpmKNqOFx657T+JCM0j5Y2RZxPc=";
+      fetchSubmodules = true;
+      leaveDotGit = true;
+      postFetch = ''
+        # set up git hashes as if we used the tarball
+
+        pushd $out
+        git rev-parse HEAD > .gitcommit
+        cd $out/abc
+        git rev-parse HEAD > .gitcommit
+        popd
+
+        # remove .git now that we are through with it
+        find "$out" -name .git -print0 | xargs -0 rm -rf
+      '';
+    };
+  };
+
 in {
 
   services.ollama.enable = true;
+  services.open-webui.enable = true;
 
   services.monado = {
     enable = true;
@@ -51,14 +86,33 @@ in {
     iverilog
     # VHDL development
     ghdl # for vhdl
-    nextpnr
+    (nextpnr.overrideAttrs (old: {
+      src = nextpnr-src;
+      #patches = [ ];
+      cmakeFlags = [
+        "-DARCH=himbaechel;gowin"
+        #"-DBUILD_TESTS=ON"
+        "-DHIMBAECHEL_UARCH=gowin"
+        "-DICESTORM_INSTALL_PREFIX=${icestorm}"
+        "-DTRELLIS_INSTALL_PREFIX=${trellis}"
+        "-DTRELLIS_LIBDIR=${trellis}/lib/trellis"
+        "-DGOWIN_BBA_EXECUTABLE=${python3Packages.apycula}/bin/gowin_bba"
+        "-DUSE_OPENMP=ON"
+        # warning: high RAM usage
+        "-DSERIALIZE_CHIPDBS=OFF"
+        "-DHIMBAECHEL_GOWIN_DEVICES=all"
+      ];
+    }))
     python312Packages.apycula
     gtkwave # for visualizing tests output
-    (yosys.withPlugins (with yosys.allPlugins;
-      [
-        # for synthesis
-        ghdl
-      ]))
+    yosys-updated
+    /* .withPlugins (with yosys-updated.allPlugins;
+       [
+         # for synthesis
+         ghdl
+       ]))
+    */
+    openfpgaloader
     netlistsvg # for visualizing rtl yosys files
     ngspice
     xyce
@@ -66,70 +120,4 @@ in {
   ];
 
   environment.sessionVariables = { DOTNET_ROOT = "${dotnet}"; };
-
-  services.udev.extraRules = ''
-    #ESP32
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="303a", ATTRS{idProduct}=="00??", GROUP="plugdev", MODE="0666"
-    ACTION!="add|change", GOTO="openfpgaloader_rules_end"
-
-    # gpiochip subsystem
-    SUBSYSTEM=="gpio", MODE="0664", GROUP="plugdev", TAG+="uaccess"
-
-    SUBSYSTEM!="usb|tty|hidraw", GOTO="openfpgaloader_rules_end"
-
-    # Original FT232/FT245 VID:PID
-    ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # Original FT2232 VID:PID
-    ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6010", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # Original FT4232 VID:PID
-    ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6011", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # Original FT232H VID:PID
-    ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # Original FT231X VID:PID
-    ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6015", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # anlogic cable
-    ATTRS{idVendor}=="0547", ATTRS{idProduct}=="1002", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # altera usb-blaster
-    ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6001", MODE="664", GROUP="plugdev", TAG+="uaccess"
-    ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6002", MODE="664", GROUP="plugdev", TAG+="uaccess"
-    ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6003", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # altera usb-blasterII - uninitialized
-    ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="664", GROUP="plugdev", TAG+="uaccess"
-    # altera usb-blasterII - initialized
-    ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # dirtyJTAG
-    ATTRS{idVendor}=="1209", ATTRS{idProduct}=="c0ca", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # Jlink
-    ATTRS{idVendor}=="1366", ATTRS{idProduct}=="0105", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # NXP LPC-Link2
-    ATTRS{idVendor}=="1fc9", ATTRS{idProduct}=="0090", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # NXP ARM mbed
-    ATTRS{idVendor}=="0d28", ATTRS{idProduct}=="0204", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # icebreaker bitsy
-    ATTRS{idVendor}=="1d50", ATTRS{idProduct}=="6146", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # numato systems
-    ATTRS{idVendor}=="2a19", ATTRS{idProduct}=="1009", MODE="644", GROUP="plugdev", TAG+="uaccess"
-
-    # orbtrace-mini dfu
-    ATTRS{idVendor}=="1209", ATTRS{idProduct}=="3442", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    # QinHeng Electronics USB To UART+JTAG (ch347)
-    ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55dd", MODE="664", GROUP="plugdev", TAG+="uaccess"
-
-    LABEL="openfpgaloader_rules_end"
-
-  '';
 }

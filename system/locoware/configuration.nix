@@ -23,6 +23,7 @@
     ../modules/display/hyprland
 
     ../modules/localization/locale.nix
+    ../modules/udev.nix
 
     # Apps and others
     #../modules/rtl-sdr.nix
