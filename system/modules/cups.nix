@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
-  service.printing.browsed.enable = true;
+  services.printing.browsed.enable = true;
   hardware.printers = {
     ensurePrinters = [{
       name = "HP_DeskJet_2676";
