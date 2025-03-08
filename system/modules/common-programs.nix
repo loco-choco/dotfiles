@@ -18,7 +18,7 @@
     #openscad
     #freecad
     #ltspice
-    (sm64coopdx.overrideAttrs {
+    /*(sm64coopdx.overrideAttrs {
       version = "1.1.1";
       src = fetchFromGitHub {
         owner = "coop-deluxe";
@@ -26,7 +26,7 @@
         rev = "v1.1.1";
         hash = "sha256-ktdvzOUYSh6H49BVDovqYt5CGyvJi4UW6nJOOD/HGGU=";
       };
-    })
+    })*/
     obs-studio
     ardour
     vlc
