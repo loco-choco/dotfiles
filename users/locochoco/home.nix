@@ -25,8 +25,8 @@
     unityhub
     blender
     #freecad
-    owmods-cli
-    owmods-gui
+    #owmods-cli
+    #owmods-gui
     #avalonia-ilspy
     #circuit tools
     #kicad
