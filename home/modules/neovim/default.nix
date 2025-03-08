@@ -44,7 +44,10 @@
     };
     plugins.lsp-format.enable = true;
     plugins.none-ls.enable = true;
-    plugins.none-ls.sources.formatting.nixfmt.enable = true;
+    plugins.none-ls.sources.formatting.nixfmt = {
+      enable = true;
+      package = pkgs.nixfmt-rfc-style;
+    };
     plugins.cmp-nvim-lsp.enable = true;
     plugins.cmp = {
       enable = true;
