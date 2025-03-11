@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
 let
-  dotnet = (with pkgs.dotnetCorePackages; combinePackages [ sdk_8_0 sdk_9_0 ]);
+  dotnet = (
+    with pkgs.dotnetCorePackages;
+    combinePackages [
+      sdk_8_0
+      sdk_9_0
+    ]
+  );
 
-in {
+in
+{
 
   services.ollama.enable = true;
   services.open-webui.enable = true;
@@ -20,22 +27,6 @@ in {
     # Game development
     godot_4
 
-    # VR development
-    #monado
-    #(pkgs.monado.overrideAttrs {
-    #  src = fetchFromGitLab {
-    #    domain = "gitlab.freedesktop.org";
-    #    owner = "monado";
-    #    repo = "monado";
-    #    rev = "5cea2bea2f76fa3b44ec5fab771ed1490d937c76";
-    #    sha256 = "sha256-opx8zkQTRqCGhHAPZUgdhg7s+wqZEeh+c3K33FrYXrk=";
-    #  };
-    #  patches = [];
-    #})
-    #monado
-    #opencomposite
-    #opencomposite-helper
-    #openxr-loader
     # Arduino development
     arduino-cli
 
@@ -57,11 +48,13 @@ in {
     nextpnr
     python312Packages.apycula
     gtkwave # for visualizing tests output
-    (yosys.withPlugins (with yosys.allPlugins;
+    (yosys.withPlugins (
+      with yosys.allPlugins;
       [
         # for synthesis
         ghdl
-      ]))
+      ]
+    ))
     openfpgaloader
     netlistsvg # for visualizing rtl yosys files
     ngspice
@@ -69,5 +62,7 @@ in {
     #quartus-prime-lite
   ];
 
-  environment.sessionVariables = { DOTNET_ROOT = "${dotnet}"; };
+  environment.sessionVariables = {
+    DOTNET_ROOT = "${dotnet}";
+  };
 }

@@ -29,6 +29,7 @@
     ../modules/development.nix
     ../modules/zsh.nix
     ../modules/common-programs.nix
+    ../modules/vr.nix
   ];
 
   boot.supportedFilesystems = [ "ntfs" ];
