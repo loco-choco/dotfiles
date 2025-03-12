@@ -14,10 +14,6 @@ in
   services.ollama.enable = true;
   services.open-webui.enable = true;
 
-  services.monado = {
-    enable = true;
-    defaultRuntime = true;
-  };
   environment.systemPackages = with pkgs; [
     # C# development
     mono

@@ -1,8 +1,14 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   users.users.locochoco = {
     isNormalUser = true;
     description = "Locochoco";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "plugdev" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "dialout"
+      "plugdev"
+    ];
   };
   systemd.sleep.extraConfig = ''
     AllowSuspend=no

@@ -1,6 +1,15 @@
-{ pkgs, inputs, ... }: {
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
+{
 
-  imports = [ ../../home/modules/neovim ../../home/modules/hyprland ];
+  imports = [
+    ../../home/modules/neovim
+    ../../home/modules/hyprland
+  ];
 
   home.username = "locochoco";
   home.homeDirectory = "/home/locochoco";
@@ -52,8 +61,6 @@
     thunderbird
     protonmail-bridge
     #vr
-    #monado
-    #openxr-loader
     #eletronics simulatons
     #ltspice
     #audio recording
@@ -88,14 +95,18 @@
       { url = "https://outerwildsmods.com/feed.xml"; }
     ];
   };
-  programs.gpg = { enable = true; };
+  programs.gpg = {
+    enable = true;
+  };
 
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-qt;
   };
 
-  programs.bottom = { enable = true; };
+  programs.bottom = {
+    enable = true;
+  };
 
   programs.kitty = {
     enable = true;
@@ -103,8 +114,7 @@
     settings = {
       enabled_layouts = "*";
       font_family = "FiraCode Nerd Font";
-      bell_path =
-        "/home/locochoco/.dotfiles/bell-sounds/Objects_RockHitA_1.wav";
+      bell_path = "/home/locochoco/.dotfiles/bell-sounds/Objects_RockHitA_1.wav";
     };
   };
 
@@ -113,19 +123,20 @@
     userName = "loco-choco";
     userEmail = "contact@locochoco.dev";
   };
-  /* programs.neovim = {
-       enable = true;
-       defaultEditor = true;
-       plugins = with pkgs.vimPlugins; [
-         nvim-lspconfig
-         nvim-treesitter.withAllGrammars
-         plenary-nvim
-         gruvbox-material
-         mini-nvim
-         openscad-nvim #on nixpkgs 23.05
-         hologram-nvim
-       ];
-     };
+  /*
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      plugins = with pkgs.vimPlugins; [
+        nvim-lspconfig
+        nvim-treesitter.withAllGrammars
+        plenary-nvim
+        gruvbox-material
+        mini-nvim
+        openscad-nvim #on nixpkgs 23.05
+        hologram-nvim
+      ];
+    };
   */
   programs.carapace.enable = true;
   programs.zoxide.enable = true;
@@ -171,4 +182,27 @@
       ];
     };
   };
+
+  # TODO COLOCAR EM ARQUIVOS BUNITOS E N ESSA BAGUNCA!!!
+  xdg.configFile."openxr/1/active_runtime.json".source =
+    "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+  xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+    {
+      "config" :
+      [
+        "${config.xdg.dataHome}/Steam/config"
+      ],
+      "external_drivers" : null,
+      "jsonid" : "vrpathreg",
+      "log" :
+      [
+        "${config.xdg.dataHome}/Steam/logs"
+      ],
+      "runtime" :
+      [
+        "${pkgs.opencomposite}/lib/opencomposite"
+      ],
+      "version" : 1
+    }
+  '';
 }

@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  # hardware.opentabletdriver.enable = true;
   services.monado = {
     enable = true;
     defaultRuntime = true;
