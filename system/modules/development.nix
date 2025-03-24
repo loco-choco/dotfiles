@@ -13,6 +13,7 @@ in
 
   services.ollama.enable = true;
   services.open-webui.enable = true;
+  programs.pulseview.enable = true;
 
   environment.systemPackages = with pkgs; [
     # C# development

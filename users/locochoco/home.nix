@@ -4,6 +4,19 @@
   inputs,
   ...
 }:
+let
+  monado-pkg = pkgs.monado.overrideAttrs {
+    src = pkgs.fetchFromGitLab {
+      domain = "gitlab.freedesktop.org";
+      owner = "thaytan";
+      repo = "monado";
+      rev = "dev-constellation-controller-tracking";
+      sha256 = "sha256-He/RI6cwfC70k0fh/w4ou9rppSOKak2hAzut56x0j3Y=";
+    };
+    patches = [ ];
+  };
+
+in
 {
 
   imports = [
@@ -185,7 +198,7 @@
 
   # TODO COLOCAR EM ARQUIVOS BUNITOS E N ESSA BAGUNCA!!!
   xdg.configFile."openxr/1/active_runtime.json".source =
-    "${pkgs.monado}/share/openxr/1/openxr_monado.json";
+    "${monado-pkg}/share/openxr/1/openxr_monado.json";
   xdg.configFile."openvr/openvrpaths.vrpath".text = ''
     {
       "config" :
