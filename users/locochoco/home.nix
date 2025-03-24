@@ -55,9 +55,9 @@ in
     #website making
     zola
     #video editing
-    libsForQt5.kdenlive
+    #libsForQt5.kdenlive
     #screen recording
-    peek
+    #peek
     #drawing
     inkscape
     krita
