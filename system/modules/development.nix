@@ -10,7 +10,11 @@ let
 
 in
 {
-
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+  users.extraGroups.docker.members = [ "locochoco" ];
   #services.ollama.enable = true;
   #services.open-webui.enable = true;
   programs.pulseview.enable = true;
