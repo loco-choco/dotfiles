@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     enable = true;
     opts = {
@@ -6,12 +7,15 @@
       shiftwidth = 2;
       tabstop = 2;
     };
-    colorschemes.onedark = { enable = true; };
+    colorschemes.onedark = {
+      enable = true;
+    };
     plugins.lightline.enable = true;
     plugins.coq-nvim.enable = true;
     plugins.lsp = {
       enable = true;
       servers = {
+        jdtls.enable = true;
         nixd.enable = true;
         bashls.enable = true;
         #clangd.enable = true;
