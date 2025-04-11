@@ -17,6 +17,7 @@
     plugins.lsp = {
       enable = true;
       servers = {
+        jsonls.enable = true;
         jdtls.enable = true;
         nixd.enable = true;
         bashls.enable = true;
