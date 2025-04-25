@@ -11,7 +11,7 @@ let
       owner = "thaytan";
       repo = "monado";
       rev = "dev-constellation-controller-tracking";
-      sha256 = "sha256-He/RI6cwfC70k0fh/w4ou9rppSOKak2hAzut56x0j3Y=";
+      sha256 = "sha256-o9JI2vCuDHEI6MNIWjbw7HGUBsnRQo58AUtDw1XUgw8=";
     };
     patches = [ ];
   };
@@ -63,7 +63,7 @@ in
     krita
     gimp
     rnote
-    #mypaint
+    mypaint
     #social media
     revolt-desktop
     rocketchat-desktop
