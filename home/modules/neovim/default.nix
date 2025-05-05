@@ -13,6 +13,7 @@
     plugins.lightline.enable = true;
     plugins.coq-nvim.enable = true;
 
+    plugins.typst-preview.enable = true;
     ## LSP
     plugins.lsp = {
       enable = true;
