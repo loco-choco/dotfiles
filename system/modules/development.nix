@@ -61,6 +61,10 @@ in
     ngspice
     xyce
     #quartus-prime-lite
+
+    # Document Writing
+    libreoffice
+    typst
   ];
 
   environment.sessionVariables = {
