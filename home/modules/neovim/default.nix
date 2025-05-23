@@ -14,6 +14,7 @@
     plugins.coq-nvim.enable = true;
 
     plugins.typst-preview.enable = true;
+    plugins.zig.enable = true;
     ## LSP
     plugins.lsp = {
       enable = true;
@@ -22,6 +23,7 @@
         jdtls.enable = true;
         nixd.enable = true;
         bashls.enable = true;
+        zls.enable = true;
         #clangd.enable = true;
         ccls.enable = true;
         vhdl_ls.enable = true;

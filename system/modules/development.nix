@@ -38,6 +38,8 @@ in
     rustc
     cargo
 
+    zig
+
     # Nix development
     nix-prefetch-github
 
