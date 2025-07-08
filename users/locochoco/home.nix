@@ -11,7 +11,7 @@ let
       owner = "thaytan";
       repo = "monado";
       rev = "dev-constellation-controller-tracking";
-      sha256 = "sha256-o9JI2vCuDHEI6MNIWjbw7HGUBsnRQo58AUtDw1XUgw8=";
+      sha256 = "sha256-IKO/bhUsISmRb3k+wAEscuTUXDyrzyVYQG1eJkLCIUI=";
     };
     patches = [ ];
   };
@@ -71,8 +71,6 @@ in
     #  withVencord = true;
     #})
     legcord
-    thunderbird
-    protonmail-bridge
     #vr
     #eletronics simulatons
     #ltspice

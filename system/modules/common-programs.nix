@@ -4,6 +4,8 @@
     enable = true;
     plugins = [ pkgs.obs-studio-plugins.obs-livesplit-one ];
   };
+  services.protonmail-bridge.enable = true;
+  programs.thunderbird.enable = true;
   environment.systemPackages = with pkgs; [
     #terminal tools
     fastfetch
