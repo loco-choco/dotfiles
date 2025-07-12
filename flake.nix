@@ -16,7 +16,16 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
   };
-  outputs = { nixpkgs, home-manager, ow-mod-man, loconix, nixvim, agenix, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      ow-mod-man,
+      loconix,
+      nixvim,
+      agenix,
+      ...
+    }:
     let
       system = "x86_64-linux";
 
@@ -24,7 +33,10 @@
         inherit system;
         config = {
           allowUnfree = true;
-          permittedInsecurePackages = [ "openssl-1.1.1w" "electron-27.3.11" ];
+          permittedInsecurePackages = [
+            "openssl-1.1.1w"
+            "electron-27.3.11"
+          ];
         };
 
         overlays = [
@@ -36,59 +48,37 @@
 
       lib = nixpkgs.lib;
 
-      # TODO Make this config more modular, maybe some cool option to auto create the modules list
-      # instead of imports in the configuration file
-      agenix-modules = [
-        {
-          age.identityPaths = [ "/home/locochoco/.ssh/id_ed25519" ];
-          age.secrets.github-api = {
-            file = .secrets/github-api.age;
-            mode = "0440";
-            owner = "locochoco";
-            group = "wheel";
-          };
-        }
+      modules = [
         agenix.nixosModules.default
+        home-manager.nixosModules.default
+        nixvim.homeManagerModules.nixvim
       ];
 
-    in {
-      homeConfigurations = {
-        locochoco = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            nixvim.homeManagerModules.nixvim
-            ./users/locochoco/home.nix
-            {
-              home = {
-                username = "locochoco";
-                homeDirectory = "/home/locochoco";
-              };
-            }
-          ];
-        };
-      };
-      # TODO Make this config more modular, maybe some cool option to auto create the modules list
-      # instead of imports in the configuration file
+    in
+    {
       nixosConfigurations = {
         locopc = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locopc/configuration.nix ] ++ agenix-modules;
+          modules = [ ./machines/locopc/configuration.nix ] ++ modules;
         };
         locotop = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locotop/configuration.nix ] ++ agenix-modules;
+          modules = [ ./machines/locotop/configuration.nix ] ++ modules;
         };
         locoware = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./system/locoware/configuration.nix ] ++ agenix-modules;
+          modules = [ ./machines/locoware/configuration.nix ] ++ modules;
         };
       };
 
       nixConfig = {
-        experimental-features = [ "nix-command" "flakes" ];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
         substituters = [ "https://cache.nixos.org/" ];
 
         extra-substituters = [

@@ -1,0 +1,66 @@
+[
+  ### Hardware
+  ./hardware/android.nix
+  ./hardware/drawing-tablet/default.nix
+  ./hardware/keyboard/br-abnt2.nix
+  ./hardware/keyboard/us-int.nix
+  ./hardware/logical-analyser/default.nix
+  ./hardware/printer/default.nix
+  ./hardware/printer/deskjet.nix
+  ./hardware/sdr/rtl-sdr.nix
+  ./hardware/vr/default.nix
+  ### Systems
+  ./systems/audio/pipewire.nix
+  ./systems/audio/mpd/default.nix
+  ./systems/bluetooth/default.nix
+  ./systems/boot/efi.nix
+  ./systems/boot/grub.nix
+  ./systems/desktop/dunst/default.nix
+  ./systems/desktop/hyprland/default.nix
+  ./systems/desktop/rofi/default.nix
+  ./systems/desktop/waybar/default.nix
+  ./systems/disk/ntfs.nix
+  ./systems/font/nerd-font.nix
+  ./systems/gpu/nvidia.nix
+  ./systems/gpu/nvidia-prime.nix
+  ./systems/kernel/zen.nix
+  ./systems/localization/brazil.nix
+  ./systems/network/default.nix
+  ./systems/network/vpn.nix
+  ./systems/nix/agenix.nix
+  ./systems/nix/default.nix
+  ./systems/power/management.nix
+  ./systems/power/sleep.nix
+  ./systems/services/docker.nix
+  ./systems/services/gpg.nix
+  ./systems/services/mail.nix
+  ./systems/services/ollama.nix
+  ./systems/services/waydroid.nix
+  ./systems/users/default.nix
+  ### Tools
+  ./tools/development/arduino.nix
+  ./tools/development/csharp.nix
+  ./tools/development/game/godot.nix
+  ./tools/development/game/unity.nix
+  ./tools/development/git.nix
+  ./tools/development/hdl.nix
+  ./tools/development/microprocessors.nix
+  ./tools/development/profiling/perf.nix
+  ./tools/development/rust.nix
+  ./tools/development/zig.nix
+  ./tools/science/spice.nix
+  ./tools/terminal/default.nix
+  ./tools/terminal/kitty/default.nix
+  ./tools/terminal/nvim/default.nix
+  ./tools/terminal/zsh.nix
+  ./tools/toujours/art.nix
+  ./tools/toujours/document-writing.nix
+  ./tools/toujours/game/heroic.nix
+  ./tools/toujours/game/steam.nix
+  ./tools/toujours/game/minecraft.nix
+  ./tools/toujours/obs.nix
+  ./tools/toujours/rss.nix
+  ./tools/toujours/social.nix
+  ./tools/toujours/web.nix
+  ./tools/toujours/wine.nix
+]
