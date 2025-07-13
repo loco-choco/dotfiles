@@ -37,6 +37,9 @@ in
           "nix" = "noglob nix"; # so we can use the # char in flakes
           "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
         };
+        localVariables = {
+          VISUAL = "nvim"; # default editor
+        };
         plugins = [
         ];
         prezto = {
