@@ -29,14 +29,14 @@ in
         };
         tcp-ports = mkOption {
           default = [ ];
-          type = types.list;
+          type = lib.types.listOf lib.types.port;
           description = ''
             Allowed Tcp Ports 
           '';
         };
         udp-ports = mkOption {
           default = [ ];
-          type = types.list;
+          type = lib.types.listOf lib.types.port;
           description = ''
             Allowed Udp Ports 
           '';

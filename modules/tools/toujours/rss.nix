@@ -23,6 +23,7 @@ in
   };
 
   config = mkIf cfg.enable {
+      home-manager.users.locochoco = {
     programs.newsboat = {
       enable = true;
       autoReload = true;
@@ -33,6 +34,6 @@ in
         { url = "https://rainworldanthroau.thecomicseries.com/rss/"; }
         { url = "https://outerwildsmods.com/feed.xml"; }
       ];
-    };
+    };};
   };
 }

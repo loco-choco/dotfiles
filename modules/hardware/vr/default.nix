@@ -14,7 +14,7 @@ let
       owner = "thaytan";
       repo = "monado";
       rev = "dev-constellation-controller-tracking";
-      sha256 = "sha256-o9JI2vCuDHEI6MNIWjbw7HGUBsnRQo58AUtDw1XUgw8=";
+      sha256 = "sha256-IKO/bhUsISmRb3k+wAEscuTUXDyrzyVYQG1eJkLCIUI=";
     };
     patches = [ ];
   };
@@ -50,27 +50,29 @@ in
       wlx-overlay-s
       opencomposite
     ];
-  };
 
-  xdg.configFile."openxr/1/active_runtime.json".source =
-    "${monado-pkg}/share/openxr/1/openxr_monado.json";
-  xdg.configFile."openvr/openvrpaths.vrpath".text = ''
-    {
-      "config" :
-      [
-        "${config.xdg.dataHome}/Steam/config"
-      ],
-      "external_drivers" : null,
-      "jsonid" : "vrpathreg",
-      "log" :
-      [
-        "${config.xdg.dataHome}/Steam/logs"
-      ],
-      "runtime" :
-      [
-        "${pkgs.opencomposite}/lib/opencomposite"
-      ],
-      "version" : 1
-    }
-  '';
+    home-manager.users.locochoco = {
+      xdg.configFile."openxr/1/active_runtime.json".source =
+        "${monado-pkg}/share/openxr/1/openxr_monado.json";
+      xdg.configFile."openvr/openvrpaths.vrpath".text = ''
+        {
+          "config" :
+          [
+            "${config.home-manager.users.locochoco.xdg.dataHome}/Steam/config"
+          ],
+          "external_drivers" : null,
+          "jsonid" : "vrpathreg",
+          "log" :
+          [
+            "${config.home-manager.users.locochoco.xdg.dataHome}/Steam/logs"
+          ],
+          "runtime" :
+          [
+            "${pkgs.opencomposite}/lib/opencomposite"
+          ],
+          "version" : 1
+        }
+      '';
+    };
+  };
 }

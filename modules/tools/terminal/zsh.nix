@@ -23,34 +23,39 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.zsh = {
-      enable = true;
-      syntaxHighlighting.enable = true;
-      enableVteIntegration = true;
-      autocd = true;
-      shellAliases = {
-        "nix" = "noglob nix"; # so we can use the # char in flakes
-        "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
-      };
-      plugins = [
-      ];
-      prezto = {
+
+    programs.zsh.enable = true;
+    users.defaultUserShell = pkgs.zsh;
+
+    home-manager.users.locochoco = {
+      programs.zsh = {
         enable = true;
-        prompt.theme = "paradox";
-        pmodules = [
-          "environment"
-          "terminal"
-          "editor"
-          "history"
-          "directory"
-          "spectrum"
-          "utility"
-          "git"
-          "completion"
-          "prompt"
+        syntaxHighlighting.enable = true;
+        enableVteIntegration = true;
+        autocd = true;
+        shellAliases = {
+          "nix" = "noglob nix"; # so we can use the # char in flakes
+          "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
+        };
+        plugins = [
         ];
+        prezto = {
+          enable = true;
+          prompt.theme = "paradox";
+          pmodules = [
+            "environment"
+            "terminal"
+            "editor"
+            "history"
+            "directory"
+            "spectrum"
+            "utility"
+            "git"
+            "completion"
+            "prompt"
+          ];
+        };
       };
     };
-    users.defaultUserShell = pkgs.zsh;
   };
 }

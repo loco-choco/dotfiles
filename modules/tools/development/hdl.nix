@@ -41,7 +41,7 @@ in
       #quartus-prime-lite
     ];
 
-    programs.nixvim.plugins.lsp = {
+    programs.nixvim.plugins.lsp.servers = {
       vhdl_ls.enable = true;
       verible.enable = true;
     };

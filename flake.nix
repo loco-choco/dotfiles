@@ -50,8 +50,8 @@
 
       modules = [
         agenix.nixosModules.default
-        home-manager.nixosModules.default
-        nixvim.homeManagerModules.nixvim
+        home-manager.nixosModules.home-manager
+        nixvim.nixosModules.nixvim
       ];
 
     in

@@ -23,11 +23,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.rofi = {
-      enable = true;
-      terminal = "${pkgs.kitty}/bin/kitty";
-      font = "FiraCode Nerd Font Mono 15";
-      theme = ./theme.rasi;
+    home-manager.users.locochoco = {
+      programs.rofi = {
+        enable = true;
+        terminal = "${pkgs.kitty}/bin/kitty";
+        font = "FiraCode Nerd Font Mono 15";
+        theme = ./theme.rasi;
+      };
     };
   };
 }

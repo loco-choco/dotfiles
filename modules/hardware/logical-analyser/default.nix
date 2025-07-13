@@ -11,7 +11,7 @@ let
 in
 {
   options = {
-    hardware.drawing-tablet = {
+    hardware.logical-analyser = {
       enable = mkOption {
         default = false;
         type = types.bool;

@@ -23,6 +23,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.firefox.enable = true;
+      home-manager.users.locochoco = {
+    programs.firefox.enable = true;};
   };
 }

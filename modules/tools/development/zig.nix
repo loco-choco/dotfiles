@@ -28,6 +28,6 @@ in
     ];
 
     programs.nixvim.plugins.zig.enable = true;
-    programs.nixvim.plugins.lsp.zls.enable = true;
+    programs.nixvim.plugins.lsp.servers.zls.enable = true;
   };
 }

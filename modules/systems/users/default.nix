@@ -15,10 +15,11 @@
       "plugdev"
     ];
   };
+  home-manager.users.locochoco = {
+    home.username = "locochoco";
+    home.homeDirectory = "/home/locochoco";
 
-  home.username = "locochoco";
-  home.homeDirectory = "/home/locochoco";
-
-  programs.home-manager.enable = true;
-  home.stateVersion = "23.05";
+    programs.home-manager.enable = true;
+    home.stateVersion = "23.05";
+  };
 }

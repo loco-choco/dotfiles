@@ -11,7 +11,7 @@ let
 in
 {
   options = {
-    systems.drivers.nvidia = {
+    systems.gpu.nvidia = {
       enable = mkOption {
         default = false;
         type = types.bool;

@@ -23,10 +23,12 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.git = {
-      enable = true;
-      userName = "loco-choco";
-      userEmail = "contact@locochoco.dev";
+    home-manager.users.locochoco = {
+      programs.git = {
+        enable = true;
+        userName = "loco-choco";
+        userEmail = "contact@locochoco.dev";
+      };
     };
   };
 }

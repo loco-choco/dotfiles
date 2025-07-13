@@ -14,7 +14,7 @@ in
     systems.boot.efi = {
       mount-point = mkOption {
         default = "/boot";
-        type = types.string;
+        type = types.str;
         description = ''
           EFI mount path
         '';

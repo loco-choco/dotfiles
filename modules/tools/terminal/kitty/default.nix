@@ -23,13 +23,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.kitty = {
-      enable = true;
-      themeFile = "SpaceGray_Eighties";
-      settings = {
-        enabled_layouts = "*";
-        font_family = "FiraCode Nerd Font";
-        bell_path = ./sounds/Objects_RockHitA_1.wav;
+    home-manager.users.locochoco = {
+      programs.kitty = {
+        enable = true;
+        themeFile = "SpaceGray_Eighties";
+        settings = {
+          enabled_layouts = "*";
+          font_family = "FiraCode Nerd Font";
+          bell_path = builtins.toString ./sounds/Objects_RockHitA_1.wav;
+        };
       };
     };
   };

@@ -23,13 +23,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    programs.gpg = {
-      enable = true;
-    };
+    home-manager.users.locochoco = {
+      programs.gpg = {
+        enable = true;
+      };
 
-    services.gpg-agent = {
-      enable = true;
-      pinentry.package = pkgs.pinentry-qt;
+      services.gpg-agent = {
+        enable = true;
+        pinentry.package = pkgs.pinentry-qt;
+      };
     };
   };
 }

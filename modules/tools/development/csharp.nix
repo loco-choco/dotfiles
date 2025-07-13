@@ -38,6 +38,6 @@ in
       DOTNET_ROOT = "${dotnet}";
     };
 
-    programs.nixvim.plugins.lsp.csharp_ls.enable = true;
+    programs.nixvim.plugins.lsp.servers.csharp_ls.enable = true;
   };
 }

@@ -28,7 +28,7 @@ in
       cargo
     ];
 
-    programs.nixvim.plugins.lsp.rust_analyzer = {
+    programs.nixvim.plugins.lsp.servers.rust_analyzer = {
       enable = true;
       installRustc = true;
       installCargo = true;

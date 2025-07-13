@@ -6,9 +6,8 @@
 
 {
   imports = [
-    ../../modules/modules.nix
     ./hardware-configuration.nix
-  ];
+  ] ++ import ../../modules/modules.nix;
 
   system.stateVersion = "24.05";
 
@@ -62,7 +61,6 @@
   systems = {
     bluetooth.enable = true;
     nix = {
-      enable = true;
       trust.all = true;
       github-api-path = config.age.secrets.github-api.path;
     };

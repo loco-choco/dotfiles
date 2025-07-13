@@ -12,7 +12,7 @@ in
 {
   imports = [ ./nvidia.nix ];
   options = {
-    systems.drivers.nvidia-prime = {
+    systems.gpu.nvidia-prime = {
       enable = mkOption {
         default = false;
         type = types.bool;
@@ -21,13 +21,13 @@ in
         '';
       };
       intel-bus = mkOption {
-        type = types.string;
+        type = types.str;
         description = ''
           Intel GPU Bus Id 
         '';
       };
       nvidia-bus = mkOption {
-        type = types.string;
+        type = types.str;
         description = ''
           Nvidia GPU Bus Id
         '';
@@ -37,7 +37,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    system.drivers.nvidia.enable = true;
+    systems.gpu.nvidia.enable = true;
     hardware.nvidia.prime = {
       sync.enable = true;
       intelBusId = cfg.intel-bus;

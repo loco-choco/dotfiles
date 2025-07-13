@@ -24,7 +24,6 @@ in
 
   config = mkIf cfg.enable {
     environment.variables.EDITOR = "nvim";
-
     programs.nixvim = {
       enable = true;
       opts = {
