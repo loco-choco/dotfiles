@@ -1,5 +1,5 @@
 #! /usr/bin/env sh
-symbol_folder="/home/locochoco/.dotfiles/home/modules/hyprland/waybar/custom-modules/karma-battery"
+symbol_folder="/home/locochoco/.dotfiles/modules/systems/desktop/waybar/custom-modules/karma-battery"
 battery_capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
 if [[ -z $battery_capacity ]] 
