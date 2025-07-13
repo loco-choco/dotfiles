@@ -25,7 +25,7 @@ in
   config = mkIf cfg.enable {
     boot.loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 1;
+      #timeout = 1;
       grub = {
         enable = true;
         devices = [ "nodev" ];

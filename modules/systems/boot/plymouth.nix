@@ -23,9 +23,26 @@ in
   };
 
   config = mkIf cfg.enable {
-    boot.plymouth = {
-      enable = true;
-      themePackages = [ pkgs.plymouth-blahaj-theme ];
+    boot = {
+      plymouth = {
+        enable = true;
+        theme = "blahaj";
+        themePackages = [ pkgs.plymouth-blahaj-theme ];
+      };
+
+      consoleLogLevel = 3;
+      initrd.verbose = false;
+
+      kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "udev.log_priority=3"
+        "rd.systemd.show_status=auto"
+      ];
+
+      ### Hide OS Selection
+      loader.timeout = 0;
     };
   };
 }
