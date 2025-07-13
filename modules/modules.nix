@@ -14,6 +14,7 @@
   ./systems/audio/mpd/default.nix
   ./systems/bluetooth/default.nix
   ./systems/boot/efi.nix
+  ./systems/boot/plymouth.nix
   ./systems/boot/grub.nix
   ./systems/desktop/dunst/default.nix
   ./systems/desktop/hyprland/default.nix
