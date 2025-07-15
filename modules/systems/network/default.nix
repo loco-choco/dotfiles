@@ -46,11 +46,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    networking.networkmanager.enable = true;
-    networking.firewall = {
-      enable = cfg.firewall.enable;
-      allowedTCPPortRanges = cfg.firewall.tcp-ports;
-      allowedUDPPortRanges = cfg.firewall.udp-ports;
+    networking = {
+      networkmanager.enable = true;
+      firewall = {
+        enable = cfg.firewall.enable;
+        allowedTCPPortRanges = cfg.firewall.tcp-ports;
+        allowedUDPPortRanges = cfg.firewall.udp-ports;
+      };
     };
   };
 }
