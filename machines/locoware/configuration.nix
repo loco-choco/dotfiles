@@ -57,6 +57,7 @@
       enable = true;
       deskjet.enable = true;
     };
+    scanner.enable = true;
   };
   systems = {
     bluetooth.enable = true;

@@ -13,6 +13,8 @@
       "wheel"
       "dialout"
       "plugdev"
+      "scanner"
+      "lp"
     ];
   };
   home-manager.users.locochoco = {

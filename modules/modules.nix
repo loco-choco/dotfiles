@@ -7,6 +7,7 @@
   ./hardware/logical-analyser/default.nix
   ./hardware/printer/default.nix
   ./hardware/printer/deskjet.nix
+  ./hardware/scanner/default.nix
   ./hardware/sdr/rtl-sdr.nix
   ./hardware/vr/default.nix
   ### Systems
