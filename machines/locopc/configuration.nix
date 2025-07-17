@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../modules/modules.nix
     ./hardware-configuration.nix
-  ];
+  ] ++ import ../../modules/modules.nix;
 
   networking.hostName = "locopc";
   system.stateVersion = "22.11";
@@ -54,6 +53,7 @@
       enable = true;
       deskjet.enable = true;
     };
+    scanner.enable = true;
   };
   systems = {
     bluetooth.enable = true;
@@ -67,6 +67,7 @@
     localization.brazil.enable = true;
     boot.grub.enable = true;
     boot.efi.mount-point = "/boot/efi";
+    boot.plymouth.enable = true;
     power.sleep.disable = true;
     power.management.enable = true;
     kernel.zen.enable = true;
@@ -74,8 +75,6 @@
       enable = true;
       open = false;
     };
-    gpu.nvidia-prime.enable = false;
-
     network.enable = true;
     network.vpn.enable = true;
     services = {
