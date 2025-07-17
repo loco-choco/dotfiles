@@ -45,10 +45,10 @@
   hardware = {
     drawing-tablet.enable = true;
     android.enable = true;
-    keyboard.us-int.enable = true;
-    vr.enable = true;
+    keyboard.br-abnt2.enable = true;
+    vr.enable = false;
     sdr.rtl-sdr.enable = false;
-    logical-analyser.enable = true;
+    logical-analyser.enable = false;
     printer = {
       enable = true;
       deskjet.enable = true;
@@ -67,20 +67,19 @@
     localization.brazil.enable = true;
     boot.grub.enable = true;
     boot.efi.mount-point = "/boot/efi";
-    boot.plymouth.enable = true;
+    boot.plymouth.enable = false;
     power.sleep.disable = true;
-    power.management.enable = true;
     kernel.zen.enable = true;
     gpu.nvidia = {
       enable = true;
       open = false;
     };
     network.enable = true;
-    network.vpn.enable = true;
+    network.vpn.enable = false;
     services = {
       mail.enable = true;
       ollama.enable = false;
-      docker.enable = true;
+      docker.enable = false;
       gpg.enable = true;
       waydroid.enable = false;
 
