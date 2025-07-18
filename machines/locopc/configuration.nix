@@ -86,6 +86,6 @@
     };
     font.nerd-font.enable = true;
     desktop.plasma6.enable = true;
-    desktop.autologin.enable = true;
+    #desktop.autologin.enable = true;
   };
 }
