@@ -17,6 +17,7 @@
   ./systems/boot/efi.nix
   ./systems/boot/plymouth.nix
   ./systems/boot/grub.nix
+  ./systems/desktop/autologin/default.nix
   ./systems/desktop/dunst/default.nix
   ./systems/desktop/hyprland/default.nix
   ./systems/desktop/rofi/default.nix
