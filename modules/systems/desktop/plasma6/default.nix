@@ -23,9 +23,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    services.desktopManager.plasma6.enable = true;
+    services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.wayland.enable = true;
 
     environment.systemPackages = with pkgs; [
       kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
