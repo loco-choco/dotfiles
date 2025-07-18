@@ -85,6 +85,6 @@
 
     };
     font.nerd-font.enable = true;
-    desktop.hyprland.enable = true;
+    desktop.plasma6.enable = true;
   };
 }
