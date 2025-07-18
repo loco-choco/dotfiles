@@ -67,7 +67,7 @@
     localization.brazil.enable = true;
     boot.grub.enable = true;
     boot.efi.mount-point = "/boot/efi";
-    boot.plymouth.enable = false;
+    boot.plymouth.enable = true;
     power.sleep.disable = true;
     kernel.zen.enable = true;
     gpu.nvidia = {
