@@ -26,8 +26,18 @@ in
     boot = {
       plymouth = {
         enable = true;
-        theme = "blahaj";
-        themePackages = [ pkgs.plymouth-blahaj-theme ];
+        theme = "pixels";
+        themePackages = with pkgs; [
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "pixels" ];
+          })
+        ];
+        extraConfig = ''
+          # KMS
+          drm
+          nouveau modeset=1
+        '';
       };
 
       consoleLogLevel = 3;
