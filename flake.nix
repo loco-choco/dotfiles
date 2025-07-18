@@ -57,10 +57,10 @@
     in
     {
       nixosConfigurations = {
-        locopc = lib.nixosSystem {
+        homepc = lib.nixosSystem {
           inherit system;
           inherit pkgs;
-          modules = [ ./machines/locopc/configuration.nix ] ++ modules;
+          modules = [ ./machines/homepc/configuration.nix ] ++ modules;
         };
         locotop = lib.nixosSystem {
           inherit system;

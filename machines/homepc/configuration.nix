@@ -4,23 +4,11 @@
     ./hardware-configuration.nix
   ] ++ import ../../modules/modules.nix;
 
-  networking.hostName = "locopc";
+  networking.hostName = "homepc";
   system.stateVersion = "22.11";
 
   tools = {
-    science.spice.enable = true;
-    development = {
-      profiling.perf.enable = true;
-      arduino.enable = true;
-      git.enable = true;
-      microprocessors.enable = true;
-      zig.enable = true;
-      hdl.enable = true;
-      csharp.enable = true;
-      rust.enable = true;
-      game.unity.enable = false;
-      game.godot.enable = false;
-    };
+    development.git.enable = true;
     terminal = {
       enable = true;
       zsh.enable = true;
@@ -35,11 +23,6 @@
       social.enable = true;
       obs.enable = true;
       document-writing.enable = true;
-      game = {
-        steam.enable = true;
-        heroic.enable = true;
-        minecraft.enable = true;
-      };
     };
   };
   hardware = {
@@ -51,7 +34,6 @@
     logical-analyser.enable = false;
     printer = {
       enable = true;
-      deskjet.enable = true;
     };
     scanner.enable = true;
   };
@@ -59,15 +41,15 @@
     bluetooth.enable = true;
     nix = {
       trust.all = true;
-      github-api-path = config.age.secrets.github-api.path;
+      #github-api-path = config.age.secrets.github-api.path;
     };
     audio.mpd.enable = true;
     audio.pipewire.enable = true;
     disk.ntfs.enable = true;
     localization.brazil.enable = true;
     boot.grub.enable = true;
-    boot.efi.mount-point = "/boot/efi";
-    boot.plymouth.enable = true;
+    boot.efi.mount-point = "/boot";
+    boot.plymouth.enable = false;
     power.sleep.disable = true;
     kernel.zen.enable = true;
     gpu.nvidia = {

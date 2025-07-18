@@ -24,5 +24,8 @@ in
 
   config = mkIf cfg.enable {
     boot.supportedFilesystems = [ "ntfs" ];
+    environment.systemPackages = [
+      pkgs.ntfs3g
+    ];
   };
 }
