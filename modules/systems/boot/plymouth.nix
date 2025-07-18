@@ -33,11 +33,6 @@ in
             selected_themes = [ "pixels" ];
           })
         ];
-        extraConfig = ''
-          # KMS
-          drm
-          nouveau modeset=1
-        '';
       };
 
       consoleLogLevel = 3;
@@ -49,6 +44,7 @@ in
         "boot.shell_on_fail"
         "udev.log_priority=3"
         "rd.systemd.show_status=auto"
+        "plymouth.use-simpledrm"
       ];
 
       ### Hide OS Selection
