@@ -7,26 +7,22 @@
 
 with lib;
 let
-  cfg = config.hardware.scanner;
+  cfg = config.systems.services.flatpak;
 in
 {
   options = {
-    hardware.scanner = {
+    systems.services.flatpak = {
       enable = mkOption {
         default = false;
         type = types.bool;
         description = ''
-          Enables SANE Driver
+          Enables flatpak support 
         '';
       };
     };
   };
 
   config = mkIf cfg.enable {
-    hardware.sane.enable = true;
-    environment.systemPackages = with pkgs; [
-      xsane
-      kdePackages.skanpage
-    ];
+    services.flatpak.enable = true;
   };
 }

@@ -37,6 +37,7 @@
   ./systems/power/management.nix
   ./systems/power/sleep.nix
   ./systems/services/docker.nix
+  ./systems/services/flatpak.nix
   ./systems/services/gpg.nix
   ./systems/services/mail.nix
   ./systems/services/ollama.nix

@@ -63,6 +63,7 @@
       ollama.enable = false;
       docker.enable = false;
       gpg.enable = true;
+      flatpak.enable = true;
       waydroid.enable = false;
 
     };
