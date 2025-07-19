@@ -41,7 +41,7 @@
     bluetooth.enable = true;
     nix = {
       trust.all = true;
-      #github-api-path = config.age.secrets.github-api.path;
+      github-api-path = config.age.secrets.github-api.path;
     };
     audio.mpd.enable = true;
     audio.pipewire.enable = true;

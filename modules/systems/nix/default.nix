@@ -44,8 +44,8 @@ in
       "nix-command"
       "flakes"
     ];
-    #nix.extraOptions = ''
-    #  !include ${cfg.github-api-path}
-    #'';
+    nix.extraOptions = ''
+      !include ${cfg.github-api-path}
+    '';
   };
 }
