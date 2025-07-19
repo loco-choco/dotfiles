@@ -28,6 +28,10 @@ in
     users.defaultUserShell = pkgs.zsh;
 
     home-manager.users.locochoco = {
+      programs.fzf = {
+        enable = true;
+        enableZshIntegration = true;
+      };
       programs.zsh = {
         enable = true;
         syntaxHighlighting.enable = true;
