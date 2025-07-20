@@ -71,7 +71,7 @@
     localization.brazil.enable = true;
     boot.grub.enable = true;
     boot.efi.mount-point = "/boot";
-    boot.plymouth.enable = true;
+    boot.plymouth.enable = false;
     power.sleep.disable = true;
     power.management.enable = true;
     kernel.zen.enable = true;
