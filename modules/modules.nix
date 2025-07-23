@@ -64,6 +64,7 @@
   ./tools/toujours/game/heroic.nix
   ./tools/toujours/game/steam.nix
   ./tools/toujours/game/minecraft.nix
+  ./tools/toujours/game/mods.nix
   ./tools/toujours/obs.nix
   ./tools/toujours/rss.nix
   ./tools/toujours/social.nix

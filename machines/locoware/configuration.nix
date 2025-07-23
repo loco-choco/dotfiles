@@ -43,6 +43,7 @@
         steam.enable = true;
         heroic.enable = true;
         minecraft.enable = true;
+        mods.enable = true;
       };
     };
   };
