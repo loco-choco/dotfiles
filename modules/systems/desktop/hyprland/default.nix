@@ -60,6 +60,7 @@ in
         hyprcursor.enable = true;
         hyprcursor.size = 32;
         package = pkgs.graphite-cursors;
+        name = "graphite-dark-nord";
       };
 
       wayland.windowManager.hyprland.enable = true;
@@ -94,10 +95,6 @@ in
           "XDG_SESSION_TYPE,wayland"
           "GBM_BACKEND,nvidia-drm"
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          "HYPRCURSOR_THEME,Bibata-Modern-Ice"
-          "HYPRCURSOR_SIZE,24"
-          "XCURSOR_THEME,Bibata-Modern-Ice"
-          "XCURSOR_SIZE,32"
         ];
         bindr = [ "SUPER, SUPER_L, exec, pkill waybar || waybar" ];
         binde = [
