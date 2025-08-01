@@ -14,7 +14,7 @@ let
       owner = "thaytan";
       repo = "monado";
       rev = "dev-constellation-controller-tracking";
-      sha256 = "sha256-3laJtIBMQnmvse5lYo1I80DOpFjqWKCH8HY3tIDKpgc=";
+      sha256 = "sha256-XxxoP8vF117AE28bN2DC0YpmUGXfQDrgO06R3cDYz9k=";
     };
     patches = [ ];
   };
