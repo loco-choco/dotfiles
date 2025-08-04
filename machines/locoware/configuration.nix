@@ -22,7 +22,7 @@
       hdl.enable = true;
       csharp.enable = true;
       rust.enable = true;
-      game.unity.enable = false;
+      game.unity.enable = true;
       game.godot.enable = false;
     };
     terminal = {
