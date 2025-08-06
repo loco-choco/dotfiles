@@ -24,5 +24,6 @@ in
 
   config = mkIf cfg.enable {
     services.mullvad-vpn.enable = true;
+    programs.openvpn3.enable = true;
   };
 }
