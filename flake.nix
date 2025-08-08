@@ -37,6 +37,8 @@
             "openssl-1.1.1w"
             "electron-27.3.11"
             "libxml2-2.13.8"
+            "dotnet-sdk-6.0.428"
+            "dotnet-sdk-7.0.410"
           ];
         };
 
