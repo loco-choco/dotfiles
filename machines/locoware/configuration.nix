@@ -51,7 +51,7 @@
     drawing-tablet.enable = true;
     android.enable = true;
     keyboard.us-int.enable = true;
-    vr.enable = true;
+    vr.enable = false;
     sdr.rtl-sdr.enable = false;
     logical-analyser.enable = true;
     printer = {
