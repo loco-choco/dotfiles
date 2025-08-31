@@ -20,7 +20,7 @@
       git.enable = true;
       microprocessors.enable = true;
       zig.enable = true;
-      hdl.enable = true;
+      hdl.enable = false;
       csharp.enable = true;
       rust.enable = true;
       game.unity.enable = true;
