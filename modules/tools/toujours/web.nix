@@ -23,7 +23,11 @@ in
   };
 
   config = mkIf cfg.enable {
-      home-manager.users.locochoco = {
-    programs.firefox.enable = true;};
+    home-manager.users.locochoco = {
+      programs.firefox.enable = true;
+    };
+    environment.systemPackages = with pkgs; [
+      ungoogled-chromium
+    ];
   };
 }
