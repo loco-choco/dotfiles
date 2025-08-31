@@ -7,7 +7,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-  ] ++ import ../../modules/modules.nix;
+  ]
+  ++ import ../../modules/modules.nix;
 
   system.stateVersion = "24.05";
 
@@ -69,7 +70,7 @@
     audio.mpd.enable = true;
     audio.pipewire.enable = true;
     disk.ntfs.enable = true;
-    localization.brazil.enable = true;
+    localization.france.enable = true;
     boot.grub.enable = true;
     boot.efi.mount-point = "/boot";
     boot.plymouth.enable = false;
