@@ -30,6 +30,7 @@
   ./systems/kernel/zen.nix
   ./systems/localization/default.nix
   ./systems/localization/brazil.nix
+  ./systems/localization/france.nix
   ./systems/network/default.nix
   ./systems/network/vpn.nix
   ./systems/nix/agenix.nix
