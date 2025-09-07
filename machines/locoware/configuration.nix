@@ -10,6 +10,7 @@
   ]
   ++ import ../../modules/modules.nix;
 
+  networking.hostName = "locoware";
   system.stateVersion = "24.05";
 
   tools = {
