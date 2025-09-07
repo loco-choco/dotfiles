@@ -2,18 +2,13 @@ set positional-arguments
 
 host-name := shell('hostname')
 
-update:
-  @echo 'Updating Flake'
-  nix flake update
-  git commit -o flake.lock -m "Updated Lock File"
-
 build system=host-name:
   @echo 'Building System {{system}}'
-  sudo nixos-rebuild switch --flake .#{{system}}
+  nh os switch -u --ask -H {{system}} .
 
 clean:
   @echo 'Cleaning System'
-  sudo nix-collect-garbage --delete-older-than 7d
+  nh clean --ask
 
 format:
   @echo 'Formating Tree'
