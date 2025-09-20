@@ -9,7 +9,7 @@ build system=host-name:
 
 clean:
   @echo 'Cleaning System'
-  nh clean --ask
+  nh clean all --ask
 
 format:
   @echo 'Formating Tree'
