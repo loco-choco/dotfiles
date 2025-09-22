@@ -24,6 +24,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      gnumake
       sdcc
       gputils
       gcc-arm-embedded
