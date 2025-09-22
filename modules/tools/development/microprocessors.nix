@@ -30,6 +30,7 @@ in
       gdb
       segger-jlink
     ];
+    services.udev.packages = [ pkgs.segger-jlink ];
     programs.nixvim.plugins.lsp.servers = {
       asm_lsp.enable = true;
     };
