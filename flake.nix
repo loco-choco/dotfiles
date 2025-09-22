@@ -39,7 +39,9 @@
             "libxml2-2.13.8"
             "dotnet-sdk-6.0.428"
             "dotnet-sdk-7.0.410"
+            "segger-jlink-qt4-824"
           ];
+          segger-jlink.acceptLicense = true;
         };
 
         overlays = [

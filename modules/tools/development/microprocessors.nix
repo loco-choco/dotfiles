@@ -26,6 +26,9 @@ in
     environment.systemPackages = with pkgs; [
       sdcc
       gputils
+      gcc-arm-embedded
+      gdb
+      segger-jlink
     ];
   };
 }
