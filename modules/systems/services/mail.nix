@@ -24,5 +24,7 @@ in
 
   config = mkIf cfg.enable {
     programs.thunderbird.enable = true;
+    services.protonmail-bridge.enable = true;
+    services.passSecretService.enable = true;
   };
 }
