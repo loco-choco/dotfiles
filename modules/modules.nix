@@ -37,6 +37,7 @@
   ./systems/nix/default.nix
   ./systems/power/management.nix
   ./systems/power/sleep.nix
+  ./systems/services/asterisk.nix
   ./systems/services/docker.nix
   ./systems/services/flatpak.nix
   ./systems/services/gpg.nix

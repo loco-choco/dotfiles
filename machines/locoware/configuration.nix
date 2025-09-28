@@ -90,6 +90,7 @@
     network.enable = true;
     network.vpn.enable = true;
     services = {
+      asterisk.enable = true;
       mail.enable = true;
       ollama.enable = false;
       docker.enable = true;
