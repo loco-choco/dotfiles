@@ -26,5 +26,8 @@ in
     hardware.bluetooth.powerOnBoot = true;
     hardware.bluetooth.enable = true;
     services.blueman.enable = true;
+    environment.systemPackages = with pkgs; [
+      bluez-tools
+    ];
   };
 }
