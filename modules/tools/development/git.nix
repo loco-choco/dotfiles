@@ -26,8 +26,10 @@ in
     home-manager.users.locochoco = {
       programs.git = {
         enable = true;
-        userName = "loco-choco";
-        userEmail = "contact@locochoco.dev";
+        settings.user = {
+          name = "loco-choco";
+          email = "contact@locochoco.dev";
+        };
       };
     };
   };
