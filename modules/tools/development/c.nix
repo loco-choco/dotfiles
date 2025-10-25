@@ -26,7 +26,7 @@ in
     environment.systemPackages = with pkgs; [
       gnumake
       gdb
-      libgcc
+      gcc
     ];
     programs.nixvim.plugins.lsp.servers = {
       ccls.enable = true;
