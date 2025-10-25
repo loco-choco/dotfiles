@@ -47,11 +47,13 @@
   ./systems/users/default.nix
   ### Tools
   ./tools/development/arduino.nix
+  ./tools/development/c.nix
   ./tools/development/csharp.nix
   ./tools/development/game/godot.nix
   ./tools/development/game/unity.nix
   ./tools/development/git.nix
   ./tools/development/hdl.nix
+  ./tools/development/java.nix
   ./tools/development/microprocessors.nix
   ./tools/development/profiling/perf.nix
   ./tools/development/rust.nix
