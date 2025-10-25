@@ -29,9 +29,9 @@ in
       gputils
       gcc-arm-embedded
       gdb
-      segger-jlink
+      segger-jlink-headless
     ];
-    services.udev.packages = [ pkgs.segger-jlink ];
+    services.udev.packages = [ pkgs.segger-jlink-headless ];
     programs.nixvim.plugins.lsp.servers = {
       asm_lsp = {
         enable = true;
