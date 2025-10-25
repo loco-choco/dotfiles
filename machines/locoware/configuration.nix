@@ -18,11 +18,13 @@
     development = {
       profiling.perf.enable = true;
       arduino.enable = true;
+      c.enable = true;
+      csharp.enable = true;
       git.enable = true;
+      java.enable = true;
       microprocessors.enable = true;
       zig.enable = true;
       hdl.enable = false;
-      csharp.enable = true;
       rust.enable = true;
       game.unity.enable = true;
       game.godot.enable = false;
