@@ -31,6 +31,6 @@ in
 
   config = mkIf cfg.enable {
     boot.kernel.sysctl."kernel.perf_event_paranoid" = cfg.level;
-    environment.systemPackages = [ config.boot.kernelPackages.perf ];
+    environment.systemPackages = [ pkgs.perf ];
   };
 }
