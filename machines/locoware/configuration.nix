@@ -19,6 +19,7 @@
       profiling.perf.enable = true;
       arduino.enable = true;
       c.enable = true;
+      cad.enable = true;
       csharp.enable = true;
       git.enable = true;
       java.enable = true;
