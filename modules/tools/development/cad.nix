@@ -24,7 +24,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (callPackage ./openscad.nix { })
+      openscad-unstable
     ];
     programs.nixvim.plugins.lsp.servers = {
       openscad_lsp.enable = true;
