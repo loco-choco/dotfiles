@@ -48,6 +48,7 @@
   ### Tools
   ./tools/development/arduino.nix
   ./tools/development/c.nix
+  ./tools/development/cad.nix
   ./tools/development/csharp.nix
   ./tools/development/game/godot.nix
   ./tools/development/game/unity.nix
