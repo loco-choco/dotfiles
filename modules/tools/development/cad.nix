@@ -35,7 +35,7 @@ in
       }))
     ];
     programs.nixvim.plugins.lsp.servers = {
-      openscad_ls.enable = true;
+      openscad_lsp.enable = true;
     };
   };
 }
