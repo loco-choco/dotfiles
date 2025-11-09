@@ -15,6 +15,7 @@
 
   tools = {
     #science.spice.enable = true;
+    science.math.enable = true;
     development = {
       profiling.perf.enable = true;
       arduino.enable = true;
