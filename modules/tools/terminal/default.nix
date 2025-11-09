@@ -37,7 +37,7 @@ in
       mpv
       f3d
       bat
-      xdragon
+      dragon-drop
       ascii-image-converter
       ffmpeg
     ];
