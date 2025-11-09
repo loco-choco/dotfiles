@@ -49,7 +49,7 @@ in
           };
         };
       };
-      home.packages = [ pkgs.mpc-cli ];
+      home.packages = [ pkgs.mpc ];
       # MPD Notifications
       systemd.user.services.mpd-notification = {
         Unit = {
