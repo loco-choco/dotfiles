@@ -59,6 +59,7 @@
   ./tools/development/profiling/perf.nix
   ./tools/development/rust.nix
   ./tools/development/zig.nix
+  ./tools/science/math.nix
   ./tools/science/spice.nix
   ./tools/terminal/default.nix
   ./tools/terminal/kitty/default.nix
