@@ -35,7 +35,7 @@
           allowUnfree = true;
           permittedInsecurePackages = [
             "openssl-1.1.1w"
-            "electron-27.3.11"
+            "electron-36.9.5"
             "libxml2-2.13.8"
             "dotnet-sdk-6.0.428"
             "dotnet-sdk-7.0.410"
