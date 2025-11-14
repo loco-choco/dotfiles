@@ -104,5 +104,6 @@
     };
     font.nerd-font.enable = true;
     desktop.hyprland.enable = true;
+    desktop.niri.enable = true;
   };
 }
