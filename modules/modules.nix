@@ -21,6 +21,7 @@
   ./systems/desktop/dunst/default.nix
   ./systems/desktop/hyprland/default.nix
   ./systems/desktop/rofi/default.nix
+  ./systems/desktop/niri/default.nix
   ./systems/desktop/plasma6/default.nix
   ./systems/desktop/waybar/default.nix
   ./systems/disk/ntfs.nix
