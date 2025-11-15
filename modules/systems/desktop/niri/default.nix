@@ -26,6 +26,11 @@ in
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs.niri.enable = true;
 
+    home-manager.users.locochoco = {
+      xdg.configFile."niri/config.kdl".source = ./config.kdl;
+
+    };
+
     #services.greetd = {
     #  enable = true;
     #  settings = {
