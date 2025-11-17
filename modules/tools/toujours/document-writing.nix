@@ -27,5 +27,10 @@ in
       libreoffice
       typst
     ];
+    programs.nixvim.plugins.lsp.servers = {
+      ltex_plus = {
+        enable = true;
+      };
+    };
   };
 }
