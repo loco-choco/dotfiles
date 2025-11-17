@@ -30,6 +30,7 @@ in
     programs.nixvim.plugins.lsp.servers = {
       ltex_plus = {
         enable = true;
+        package = pkgs.ltex-ls-plus;
       };
     };
   };
