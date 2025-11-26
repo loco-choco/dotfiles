@@ -38,7 +38,7 @@ in
       ))
       openfpgaloader
       netlistsvg # for visualizing rtl yosys files
-      #quartus-prime-lite
+      quartus-prime-lite
     ];
 
     programs.nixvim.plugins.lsp.servers = {
