@@ -4,7 +4,11 @@ host-name := shell('hostname')
 
 build system=host-name:
   @echo 'Building System {{system}}'
-  nh os switch -u --ask -H {{system}} .
+  nh os switch --ask -H {{system}} .
+
+update:
+  @echo 'Updating lockfile'
+  nix flake update
   git commit -o flake.lock -m "Updated Lock File {{datetime("%F")}}"
 
 clean:
