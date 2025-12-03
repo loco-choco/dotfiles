@@ -24,7 +24,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      (octave.withPackages (p: [
+      (octaveFull.withPackages (p: [
         p.signal
       ]))
     ];
