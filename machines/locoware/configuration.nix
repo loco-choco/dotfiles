@@ -29,7 +29,7 @@
       hdl.enable = true;
       rust.enable = true;
       game.unity.enable = true;
-      game.godot.enable = false;
+      game.godot.enable = true;
     };
     terminal = {
       enable = true;
