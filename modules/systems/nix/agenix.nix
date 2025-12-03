@@ -12,4 +12,7 @@
     owner = "locochoco";
     group = "wheel";
   };
+  environment.systemPackages = with pkgs; [
+    agenix
+  ];
 }

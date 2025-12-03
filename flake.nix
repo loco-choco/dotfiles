@@ -48,6 +48,7 @@
           ow-mod-man.overlays.default
           loconix.overlay.wineApps
           loconix.overlay.erosanix-lib
+          agenix.overlays.default
         ];
       };
 
