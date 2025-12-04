@@ -24,6 +24,7 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      aseprite
       blender
       inkscape
       krita
