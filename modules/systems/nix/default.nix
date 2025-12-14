@@ -38,6 +38,7 @@ in
   };
 
   config = {
+    nix.package = pkgs.lixPackageSets.stable.lix;
     nix.settings.trusted-users =
       if cfg.trust.all then builtins.attrNames config.users.users else cfg.trust.users;
     nix.settings.experimental-features = [
