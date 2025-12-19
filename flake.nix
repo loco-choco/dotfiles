@@ -15,6 +15,8 @@
     nixvim.url = "github:nix-community/nixvim/main";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
+    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+    pipewire-screenaudio.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs =
     {
@@ -24,6 +26,7 @@
       loconix,
       nixvim,
       agenix,
+      pipewire-screenaudio,
       ...
     }:
     let
@@ -49,6 +52,7 @@
           loconix.overlay.wineApps
           loconix.overlay.erosanix-lib
           agenix.overlays.default
+          (final: prev: {pipewire-screenaudio = pipewire-screenaudio.packages.${system}.default;})
         ];
       };
 

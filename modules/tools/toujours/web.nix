@@ -24,7 +24,10 @@ in
 
   config = mkIf cfg.enable {
     home-manager.users.locochoco = {
-      programs.firefox.enable = true;
+      programs.firefox = {
+        enable = true;
+        nativeMessagingHosts = [ pkgs.pipewire-screenaudio ];
+      };
     };
     environment.systemPackages = with pkgs; [
       ungoogled-chromium

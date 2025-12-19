@@ -310,6 +310,26 @@
         "type": "github"
       }
     },
+    "pipewire-screenaudio": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761605726,
+        "narHash": "sha256-zVA8lfgJ9yM586wrqxZpWbNXSxsoKp/IAPEtbObvpt0=",
+        "owner": "IceDBorn",
+        "repo": "pipewire-screenaudio",
+        "rev": "853a646cfe9a6cef6c044c19f7866aab42bf6cb1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "IceDBorn",
+        "repo": "pipewire-screenaudio",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -317,7 +337,8 @@
         "loconix": "loconix",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
-        "ow-mod-man": "ow-mod-man"
+        "ow-mod-man": "ow-mod-man",
+        "pipewire-screenaudio": "pipewire-screenaudio"
       }
     },
     "rust-overlay": {
