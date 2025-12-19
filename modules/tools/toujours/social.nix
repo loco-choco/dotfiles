@@ -23,6 +23,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    home-manager.users.locochoco.vesktop.enable = true;
+    home-manager.users.locochoco.programs.vesktop.enable = true;
   };
 }
