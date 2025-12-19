@@ -23,8 +23,6 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      legcord
-    ];
+    home-manager.users.locochoco.vesktop.enable = true;
   };
 }
