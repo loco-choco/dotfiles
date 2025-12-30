@@ -14,7 +14,7 @@
   system.stateVersion = "24.05";
 
   tools = {
-    #science.spice.enable = true;
+    science.spice.enable = true;
     science.math.enable = true;
     development = {
       profiling.perf.enable = true;
