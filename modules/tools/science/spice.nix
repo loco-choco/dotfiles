@@ -26,6 +26,7 @@ in
     environment.systemPackages = with pkgs; [
       ngspice
       xyce
+      qucs-s
     ];
   };
 }
