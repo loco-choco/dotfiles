@@ -44,6 +44,7 @@
   ./systems/services/gpg.nix
   ./systems/services/mail.nix
   ./systems/services/ollama.nix
+  ./systems/services/virtualisation.nix
   ./systems/services/waydroid.nix
   ./systems/users/default.nix
   ### Tools
