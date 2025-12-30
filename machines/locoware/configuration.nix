@@ -99,6 +99,7 @@
       ollama.enable = false;
       docker.enable = true;
       gpg.enable = true;
+      virtualisation.enable = true;
       waydroid.enable = false;
 
     };
