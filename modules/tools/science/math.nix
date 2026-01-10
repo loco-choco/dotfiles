@@ -27,6 +27,8 @@ in
       numbat
       (octaveFull.withPackages (p: [
         p.signal
+        p.communications
+        p.miscellaneous
       ]))
     ];
   };
