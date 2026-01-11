@@ -50,7 +50,7 @@ in
       plugins.none-ls.enable = true;
       plugins.none-ls.sources.formatting.nixfmt = {
         enable = true;
-        package = pkgs.nixfmt-rfc-style;
+        package = pkgs.nixfmt;
       };
 
       ## Auto Complete
