@@ -35,6 +35,6 @@ in
     hardware.nvidia.modesetting.enable = true;
     boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
     hardware.nvidia.open = cfg.open;
-    hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+    hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 }
