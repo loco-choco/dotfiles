@@ -30,6 +30,7 @@ in
       krita
       gimp
       renoise
+      redux
     ];
   };
 }
