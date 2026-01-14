@@ -29,6 +29,7 @@ in
       inkscape
       krita
       gimp
+      renoise
     ];
   };
 }
