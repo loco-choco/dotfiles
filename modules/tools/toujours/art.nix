@@ -29,6 +29,8 @@ in
       inkscape
       krita
       gimp
+      audacity
+      ardour
     ];
   };
 }
