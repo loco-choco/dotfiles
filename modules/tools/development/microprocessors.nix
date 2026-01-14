@@ -26,7 +26,7 @@ in
     environment.systemPackages = with pkgs; [
       gnumake
       sdcc
-      gputils
+      #gputils
       gcc-arm-embedded
       gdb
       segger-jlink
