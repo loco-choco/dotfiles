@@ -76,6 +76,7 @@
   ./tools/toujours/obs.nix
   ./tools/toujours/rss.nix
   ./tools/toujours/social.nix
+  ./tools/toujours/music-production.nix
   ./tools/toujours/web.nix
   ./tools/toujours/wine.nix
 ]

@@ -29,9 +29,6 @@ in
       inkscape
       krita
       gimp
-      audacity
-      lmms
-      polyphone
     ];
   };
 }
