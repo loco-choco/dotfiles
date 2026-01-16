@@ -38,7 +38,7 @@ in
       useTextGreeter = true;
       settings = {
         default_session = {
-          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland --greeting 'Welcome aboard captain!' --remember";
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland --greeting 'Welcome aboard captain!' --remember";
           user = "greeter";
         };
       };
