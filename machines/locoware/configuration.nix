@@ -41,6 +41,7 @@
       web.enable = true;
       wine.enable = true;
       art.enable = true;
+      music-production.enable = true;
       rss.enable = true;
       social.enable = true;
       obs.enable = true;
