@@ -31,6 +31,7 @@ in
       gimp
       audacity
       lmms
+      polyphone
     ];
   };
 }
