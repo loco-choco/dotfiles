@@ -30,7 +30,7 @@ in
       krita
       gimp
       audacity
-      ardour
+      lmms
     ];
   };
 }
