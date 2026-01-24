@@ -33,6 +33,30 @@ in
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs.hyprland.enable = true;
 
+    xdg.autostart.enable = true;
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
+      config = {
+        common = {
+          default = [ "gtk" ];
+          "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+        };
+        hyprland = {
+          default = [
+            "hyprland"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+          "org.freedesktop.impl.portal.OpenURI" = [ "gtk" ];
+        };
+      };
+    };
+
     services.greetd = {
       enable = true;
       useTextGreeter = true;
