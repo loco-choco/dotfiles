@@ -11,7 +11,7 @@ let
 in
 {
   options = {
-    systems.kernel.zen.enable = mkOption {
+    systems.kernel.latest.enable = mkOption {
       default = false;
       type = types.bool;
       description = ''
