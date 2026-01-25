@@ -28,8 +28,8 @@ in
     ];
     system.activationScripts = {
       profile-init.text = ''
-        mkdir -p $HOME/.local/share/godot
-        ln -s ${pkgs.godot-mono.export-templates-bin}/share/godot/templates $HOME/.local/share/godot
+        mkdir -p /home/locochoco/.local/share/godot
+        ln -s ${pkgs.godot-mono.export-templates-bin}/share/godot/export_templates /home/locochoco/.local/share/godot
       '';
     };
   };
