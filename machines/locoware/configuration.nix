@@ -82,7 +82,7 @@
     boot.plymouth.enable = false;
     power.sleep.disable = true;
     power.management.enable = true;
-    kernel.zen.enable = true;
+    kernel.latest.enable = true;
     gpu.nvidia = {
       enable = true;
       open = false;
