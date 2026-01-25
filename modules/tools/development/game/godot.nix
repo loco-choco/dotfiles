@@ -26,9 +26,11 @@ in
     environment.systemPackages = with pkgs; [
       godot-mono
     ];
-    home-manager.users.locochoco = {
-      home.file.".local/share/godot/export_templates/4.5.1.stable.mono".source =
-        "${pkgs.godot-mono.export-templates-bin}/4.5.1.stable/share/godot/export_templates/4.5.1.stable.mono";
+    system.activationScripts = {
+      profile-init.text = ''
+        mkdir -p $HOME/.local/share/godot
+        ln -s ${pkgs.godot-mono.export-templates-bin}/share/godot/templates $HOME/.local/share/godot
+      '';
     };
   };
 }
