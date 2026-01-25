@@ -27,10 +27,8 @@ in
       godot-mono
     ];
     home-manager.users.locochoco = {
-      home.file.".local/share/godot/export_templates/${
-        builtins.replaceStrings [ "-" ] [ "." ] pkgs.godot-mono.export-templates-bin.version
-      }".source =
-        pkgs.godot-mono.export-templates-bin;
+      home.file.".local/share/godot/export_templates/".source =
+        "${pkgs.godot-mono.export-templates-bin}/4.5.1.stable/share/godot/export_templates/";
     };
   };
 }
