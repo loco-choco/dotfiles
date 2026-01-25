@@ -26,11 +26,10 @@ in
     environment.systemPackages = with pkgs; [
       godot-mono
     ];
-    system.activationScripts = {
-      profile-init.text = ''
-        mkdir -p /home/locochoco/.local/share/godot
-        ln -s ${pkgs.godot-mono.export-templates-bin}/share/godot/export_templates /home/locochoco/.local/share/godot
-      '';
+
+    home-manager.users.locochoco = {
+      xdg.dataFile."godot/export_templates".source =
+        "${pkgs.godot-mono.export-templates-bin}/share/godot/export_templates";
     };
   };
 }
