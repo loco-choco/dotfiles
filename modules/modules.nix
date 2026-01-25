@@ -28,6 +28,7 @@
   ./systems/font/nerd-font.nix
   ./systems/gpu/nvidia.nix
   ./systems/gpu/nvidia-prime.nix
+  ./systems/kernel/latest.nix
   ./systems/kernel/zen.nix
   ./systems/localization/default.nix
   ./systems/localization/brazil.nix
