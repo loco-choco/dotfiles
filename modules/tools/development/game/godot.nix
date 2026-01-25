@@ -26,9 +26,11 @@ in
     environment.systemPackages = with pkgs; [
       godot-mono
     ];
-    home.file.".local/share/godot/export_templates/${
-      builtins.replaceStrings [ "-" ] [ "." ] pkgs.godot-mono.export-templates-bin.version
-    }".source =
-      pkgs.godot-mono.export-templates-bin;
+    home-manager.users.locochoco = {
+      home.file.".local/share/godot/export_templates/${
+        builtins.replaceStrings [ "-" ] [ "." ] pkgs.godot-mono.export-templates-bin.version
+      }".source =
+        pkgs.godot-mono.export-templates-bin;
+    };
   };
 }
