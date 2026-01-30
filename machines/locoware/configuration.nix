@@ -24,9 +24,9 @@
       csharp.enable = true;
       git.enable = true;
       java.enable = true;
-      microprocessors.enable = true;
+      microprocessors.enable = false;
       zig.enable = true;
-      hdl.enable = true;
+      hdl.enable = false;
       rust.enable = true;
       game.unity.enable = true;
       game.godot.enable = true;
@@ -93,9 +93,9 @@
       nvidia-bus = "PCI:1:0:0";
     };
     network.enable = true;
-    network.vpn.enable = true;
+    network.vpn.enable = false;
     services = {
-      asterisk.enable = true;
+      asterisk.enable = false;
       flatpak.enable = true;
       mail.enable = true;
       ollama.enable = false;
