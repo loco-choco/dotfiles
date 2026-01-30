@@ -29,6 +29,8 @@ in
       wget
       imagemagick
       just
+      jujutsu
+      jjui
       timg
       w3m
       jq
