@@ -24,12 +24,12 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      godot-mono
+      godotPackages_4_6.godot-mono
     ];
 
     home-manager.users.locochoco = {
       xdg.dataFile."godot/export_templates".source =
-        "${pkgs.godot-mono.export-templates-bin}/share/godot/export_templates";
+        "${pkgs.godotPackages_4_6.godot-mono.export-templates-bin}/share/godot/export_templates";
     };
   };
 }
