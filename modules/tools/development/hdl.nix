@@ -8,6 +8,16 @@
 with lib;
 let
   cfg = config.tools.development.hdl;
+  d10-udev-rule = pkgs.callPackage pkgs.stdenv.mkDerivation {
+    name = "quartus-pgm-rules";
+    src = ./z99_quartus_pgm.rules;
+    dontBuild = true;
+    dontConfigure = true;
+    installPhase = ''
+      mkdir -p $out/lib/udev/rules.d
+      cp z99_quartus_pgm.rules $out/lib/udev/rules.d
+    '';
+  } { };
 in
 {
   options = {
@@ -40,7 +50,7 @@ in
       netlistsvg # for visualizing rtl yosys files
       quartus-prime-lite
     ];
-
+    services.udev.packages = [ d10-udev-rule ];
     programs.nixvim.plugins.lsp.servers = {
       vhdl_ls.enable = true;
       verible.enable = true;
