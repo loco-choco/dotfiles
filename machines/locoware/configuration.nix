@@ -24,9 +24,9 @@
       csharp.enable = true;
       git.enable = true;
       java.enable = true;
-      microprocessors.enable = false;
+      microprocessors.enable = true;
       zig.enable = true;
-      hdl.enable = false;
+      hdl.enable = true;
       rust.enable = true;
       game.unity.enable = true;
       game.godot.enable = true;
