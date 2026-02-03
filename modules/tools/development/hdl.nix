@@ -8,16 +8,11 @@
 with lib;
 let
   cfg = config.tools.development.hdl;
-  d10-udev-rule = pkgs.callPackage pkgs.stdenv.mkDerivation {
+  d10-udev-rule = pkgs.writeTextFile {
     name = "quartus-pgm-rules";
-    src = ./z99_quartus_pgm.rules;
-    dontBuild = true;
-    dontConfigure = true;
-    installPhase = ''
-      mkdir -p $out/lib/udev/rules.d
-      cp z99_quartus_pgm.rules $out/lib/udev/rules.d
-    '';
-  } { };
+    text = builtins.readFile ./udev-rules/z99_quartus_pgm.rules;
+    destination = "/lib/udev/rules.d/z99_quartus_pgm.rules";
+  };
 in
 {
   options = {
