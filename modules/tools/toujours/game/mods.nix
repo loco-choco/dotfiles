@@ -27,6 +27,7 @@ in
       owmods-cli
       r2modman
       everest-mons
+      archipelago
     ];
   };
 }
