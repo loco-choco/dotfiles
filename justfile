@@ -10,7 +10,7 @@ update:
   @echo 'Updating lockfile'
   jj new
   nix flake update
-  jj describe -m "Updated Lock File {{datetime("%F")}}"
+  jj commit -m "Updated Lock File {{datetime("%F")}}"
 
 clean:
   @echo 'Cleaning System'
