@@ -8,8 +8,9 @@ build system=host-name:
 
 update:
   @echo 'Updating lockfile'
+  jj new
   nix flake update
-  git commit -o flake.lock -m "Updated Lock File {{datetime("%F")}}"
+  jj describe -m "Updated Lock File {{datetime("%F")}}"
 
 clean:
   @echo 'Cleaning System'
