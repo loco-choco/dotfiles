@@ -70,23 +70,20 @@
 
     in
     {
-      nixosConfigurations = {
-        homepc = lib.nixosSystem {
-          inherit system;
-          inherit pkgs;
-          modules = [ ./machines/homepc/configuration.nix ] ++ modules;
-        };
-        locotop = lib.nixosSystem {
-          inherit system;
-          inherit pkgs;
-          modules = [ ./machines/locotop/configuration.nix ] ++ modules;
-        };
-        locoware = lib.nixosSystem {
-          inherit system;
-          inherit pkgs;
-          modules = [ ./machines/locoware/configuration.nix ] ++ modules;
-        };
-      };
+      nixosConfigurations = builtins.listToAttrs (
+        lib.mapAttrsToList (name: file-type: {
+          inherit name;
+          value = lib.nixosSystem {
+            inherit system;
+            inherit pkgs;
+            modules = [
+              ./machines/${name}/configuration.nix
+              { networking.hostName = name; }
+            ]
+            ++ modules;
+          };
+        }) (builtins.readDir ./machines)
+      );
 
       nixConfig = {
         experimental-features = [

@@ -9,7 +9,6 @@
     ../../modules/modules.nix
     ./hardware-configuration.nix
   ];
-  networking.hostName = "locotop"; # Define your hostname.
   system.stateVersion = "23.05"; # Did you read the comment?
 
   tools = {
