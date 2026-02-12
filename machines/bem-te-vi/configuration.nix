@@ -6,9 +6,9 @@
 
 {
   imports = [
-    ../../modules/modules.nix
     ./hardware-configuration.nix
   ];
+
   system.stateVersion = "23.05"; # Did you read the comment?
 
   tools = {

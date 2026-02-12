@@ -66,6 +66,7 @@
         home-manager.nixosModules.home-manager
         nixvim.nixosModules.nixvim
         musnix.nixosModules.musnix
+        ./modules/default.nix
       ];
 
     in
