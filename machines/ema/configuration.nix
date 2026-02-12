@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
   ] ++ import ../../modules/modules.nix;
 
-  networking.hostName = "homepc";
   system.stateVersion = "22.11";
 
   tools = {
