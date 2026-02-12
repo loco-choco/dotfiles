@@ -23,6 +23,31 @@ in
   };
 
   config = mkIf cfg.enable {
-    fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
+    fonts = {
+      enableDefaultPackages = true;
+      packages = with pkgs; [
+        charis-sil
+        noto-fonts
+        nerd-fonts.fira-code
+        maple-mono.NF-unhinted
+      ];
+      fontconfig = {
+        enable = true;
+        defaultFonts = {
+          serif = [
+            "Charis SIL"
+          ];
+          sansSerif = [
+            "Noto Sans"
+          ];
+          monospace = [
+            "Maple Mono NF CN"
+          ];
+          emoji = [
+            "Noto Color Emoji"
+          ];
+        };
+      };
+    };
   };
 }
