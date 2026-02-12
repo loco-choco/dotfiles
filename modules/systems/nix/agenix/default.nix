@@ -7,7 +7,7 @@
 {
   age.identityPaths = [ "/home/locochoco/.ssh/id_ed25519" ];
   age.secrets.github-api = {
-    file = ./agenix/github-api.age;
+    file = ./github-api.age;
     mode = "0440";
     owner = "locochoco";
     group = "wheel";
