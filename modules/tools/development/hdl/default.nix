@@ -10,7 +10,7 @@ let
   cfg = config.tools.development.hdl;
   d10-udev-rule = pkgs.writeTextFile {
     name = "quartus-pgm-rules";
-    text = builtins.readFile ./udev-rules/z99_quartus_pgm.rules;
+    text = builtins.readFile ./z99_quartus_pgm.rules;
     destination = "/lib/udev/rules.d/z99_quartus_pgm.rules";
   };
 in
