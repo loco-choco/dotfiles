@@ -84,11 +84,11 @@
     gpu.nvidia = {
       enable = true;
       open = false;
-    };
-    gpu.nvidia-prime = {
-      enable = true;
-      intel-bus = "PCI:0:2:0";
-      nvidia-bus = "PCI:1:0:0";
+      prime = {
+        enable = true;
+        intel-bus = "PCI:0:2:0";
+        nvidia-bus = "PCI:1:0:0";
+      };
     };
     network.enable = true;
     network.vpn.enable = false;
