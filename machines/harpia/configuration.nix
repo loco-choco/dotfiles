@@ -7,8 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-  ]
-  ++ import ../../modules/modules.nix;
+  ];
 
   system.stateVersion = "24.05";
 
