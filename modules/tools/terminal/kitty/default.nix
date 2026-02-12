@@ -29,7 +29,7 @@ in
         themeFile = "SpaceGray_Eighties";
         settings = {
           enabled_layouts = "*";
-          font_family = "FiraCode Nerd Font";
+          font_family = "Maple Mono NF";
           bell_path = builtins.toString ./sounds/Objects_RockHitA_1.wav;
         };
       };
