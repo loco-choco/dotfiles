@@ -41,7 +41,7 @@ in
       ];
     }
     (mkIf cfg.latest.enable {
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot.kernelPackages = pkgs.linuxPackages_6_18;
     })
     (mkIf cfg.zen.enable {
       boot.kernelPackages = pkgs.linuxPackages_zen;
