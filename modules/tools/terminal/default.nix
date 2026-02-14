@@ -42,7 +42,12 @@ in
       dragon-drop
       ascii-image-converter
       ffmpeg
-      zoxide
     ];
+    home-manager.users.locochoco = {
+      programs.zoxide = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+    };
   };
 }
