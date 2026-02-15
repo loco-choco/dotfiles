@@ -24,17 +24,13 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      rustc
       rustup
-      cargo
-      emscripten 
-      cmake
     ];
 
     programs.nixvim.plugins.lsp.servers.rust_analyzer = {
       enable = true;
-      installRustc = true;
-      installCargo = true;
+      installRustc = false;
+      installCargo = false;
     };
   };
 }
