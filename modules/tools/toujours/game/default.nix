@@ -40,6 +40,13 @@ in
           Enables steam 
         '';
       };
+      retro.enable = mkOption {
+        default = false;
+        type = types.bool;
+        description = ''
+          Enables retroarch 
+        '';
+      };
     };
   };
 
@@ -73,6 +80,15 @@ in
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
       };
+    })
+    (mkIf cfg.retro.enable {
+      environment.systemPackages = with pkgs; [
+        (retroarch.withCores (
+          cores: with cores; [
+            melonds
+          ]
+        ))
+      ];
     })
   ];
 }
