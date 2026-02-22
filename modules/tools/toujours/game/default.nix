@@ -44,7 +44,7 @@ in
         default = false;
         type = types.bool;
         description = ''
-          Enables retroarch 
+          Enables retro emulators 
         '';
       };
     };
@@ -83,11 +83,7 @@ in
     })
     (mkIf cfg.retro.enable {
       environment.systemPackages = with pkgs; [
-        (retroarch.withCores (
-          cores: with cores; [
-            melonds
-          ]
-        ))
+        melonDS
       ];
     })
   ];
