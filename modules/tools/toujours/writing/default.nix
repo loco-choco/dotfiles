@@ -27,10 +27,14 @@ in
       libreoffice
       typst
     ];
-    programs.nixvim.plugins.lsp.servers = {
-      ltex_plus = {
-        enable = true;
-        package = pkgs.ltex-ls-plus;
+    programs.nixvim.plugins = {
+      typst-vim.enable = true;
+      typst-preview.enable = true;
+      lsp.servers = {
+        ltex_plus = {
+          enable = true;
+          package = pkgs.ltex-ls-plus;
+        };
       };
     };
   };
