@@ -40,6 +40,7 @@ in
         };
       };
       lsp.servers = {
+        tinymist.enable = true;
         ltex_plus = {
           enable = true;
           package = pkgs.ltex-ls-plus;
