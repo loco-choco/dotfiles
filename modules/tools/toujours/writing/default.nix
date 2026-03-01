@@ -28,8 +28,17 @@ in
       typst
     ];
     programs.nixvim.plugins = {
-      typst-vim.enable = true;
       typst-preview.enable = true;
+      typst-vim = {
+        enable = true;
+        settings = {
+          folding = 1;
+          conceal_math = 1;
+          embedded_languages = [
+            "matlab"
+          ];
+        };
+      };
       lsp.servers = {
         ltex_plus = {
           enable = true;
