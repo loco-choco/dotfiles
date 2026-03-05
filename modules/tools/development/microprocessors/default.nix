@@ -30,6 +30,8 @@ in
       gcc-arm-embedded
       gdb
       segger-jlink
+      ## Rust tools
+      probe-rs-tools
     ];
     services.udev.packages = [ pkgs.segger-jlink ];
     programs.nixvim.plugins.lsp.servers = {
