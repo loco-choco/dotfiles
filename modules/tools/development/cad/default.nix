@@ -25,6 +25,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       openscad
+      freecad
     ];
     programs.nixvim.plugins.lsp.servers = {
       openscad_lsp.enable = true;
