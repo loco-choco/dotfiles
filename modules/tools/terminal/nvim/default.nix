@@ -37,6 +37,7 @@ in
       plugins.lightline.enable = true;
       plugins.coq-nvim.enable = true;
       ## LSP
+      lsp.inlayHints.enable = true;
       plugins.lsp = {
         enable = true;
         servers = {
