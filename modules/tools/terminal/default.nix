@@ -42,6 +42,7 @@ in
       dragon-drop
       ascii-image-converter
       ffmpeg
+      ddgr
     ];
     home-manager.users.locochoco = {
       programs.zoxide = {
