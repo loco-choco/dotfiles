@@ -40,8 +40,8 @@ in
         shellAliases = {
           "nix" = "noglob nix"; # so we can use the # char in flakes
           "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
-          "den" = "ddgr -w en.wiktionary.org";
-          "dfr" = "ddgr -w fr.wiktionary.org";
+          "den" = "ddgr --np --noua -w en.wiktionary.org";
+          "dfr" = "ddgr --np --noua -w fr.wiktionary.org";
         };
         localVariables = {
           BROWSER = "w3m";
