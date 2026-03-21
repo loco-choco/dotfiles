@@ -26,7 +26,7 @@ in
     home-manager.users.locochoco = {
       programs.firefox = {
         enable = true;
-        nativeMessagingHosts = [ pkgs.pipewire-screenaudio ];
+        #nativeMessagingHosts = [ pkgs.pipewire-screenaudio ];
       };
     };
     environment.systemPackages = with pkgs; [

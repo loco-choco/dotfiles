@@ -15,8 +15,8 @@
     nixvim.url = "github:nix-community/nixvim/nixos-25.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
-    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
-    pipewire-screenaudio.inputs.nixpkgs.follows = "nixpkgs";
+    #pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+    #pipewire-screenaudio.inputs.nixpkgs.follows = "nixpkgs";
     musnix.url = "github:musnix/musnix";
     musnix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -28,7 +28,7 @@
       loconix,
       nixvim,
       agenix,
-      pipewire-screenaudio,
+      #pipewire-screenaudio,
       musnix,
       ...
     }:
@@ -55,7 +55,7 @@
           loconix.overlay.wineApps
           loconix.overlay.erosanix-lib
           agenix.overlays.default
-          (final: prev: { pipewire-screenaudio = pipewire-screenaudio.packages.${system}.default; })
+          #(final: prev: { pipewire-screenaudio = pipewire-screenaudio.packages.${system}.default; })
         ];
       };
 
