@@ -94,6 +94,7 @@
     network.enable = true;
     network.vpn.enable = false;
     network.tailscale.enable = true;
+    network.vnc.enable = true;
     services = {
       asterisk.enable = false;
       flatpak.enable = true;
