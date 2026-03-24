@@ -24,5 +24,8 @@ in
 
   config = mkIf cfg.enable {
     home-manager.users.locochoco.programs.vesktop.enable = true;
+    environment.systemPackages = with pkgs; [
+      fluffychat
+    ];
   };
 }
