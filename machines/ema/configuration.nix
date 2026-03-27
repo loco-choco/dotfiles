@@ -57,6 +57,8 @@
     };
     network.enable = true;
     network.vpn.enable = false;
+    network.tailscale.enable = true;
+    network.vnc.enable = true;
     services = {
       mail.enable = true;
       ollama.enable = false;

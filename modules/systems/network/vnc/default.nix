@@ -22,10 +22,19 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    programs.wayvnc.enable = true;
-    environment.systemPackages = with pkgs; [
-      wlvncc
-    ];
-  };
+  config = mkMerge [
+    (mkIf cfg.enable {
+      programs.wayvnc.enable = true;
+      environment.systemPackages = with pkgs; [
+        wlvncc
+      ];
+    })
+    (mkIf cfg.enable config.systems.desktop.plasma6.enable {
+      environment.systemPackages = with pkgs.kdePackages; [
+        krdc
+        krfb
+      ];
+    })
+
+  ];
 }
