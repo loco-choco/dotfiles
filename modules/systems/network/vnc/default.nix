@@ -29,7 +29,7 @@ in
         wlvncc
       ];
     })
-    (mkIf cfg.enable config.systems.desktop.plasma6.enable {
+    (mkIf (cfg.enable && config.systems.desktop.plasma6.enable) {
       environment.systemPackages = with pkgs.kdePackages; [
         krdc
         krfb
