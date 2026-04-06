@@ -23,27 +23,15 @@ in
   };
 
   config = mkIf cfg.enable {
-    virtualisation.docker = {
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-      virtualisation.podman = {
-        enable = true;
-        dockerCompat = true;
-      };
-
-      environment.systemPackages = [ pkgs.distrobox ];
-      daemon.settings = {
-        #experimental = true;
-        default-address-pools = [
-          {
-            base = "172.30.0.0/16";
-            size = 24;
-          }
-        ];
-      };
+    virtualisation.oci-containers.backend = "podman";
+    virtualisation.podman = {
+      enable = true;
+      dockerCompat = true;
     };
+    environment.systemPackages = [
+      pkgs.distrobox
+      pkgs.podman-tui
+    ];
     users.extraGroups.docker.members = builtins.attrNames config.users.users;
   };
 }
