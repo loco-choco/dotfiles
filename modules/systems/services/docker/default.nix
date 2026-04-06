@@ -28,6 +28,12 @@ in
         enable = true;
         setSocketVariable = true;
       };
+      virtualisation.podman = {
+        enable = true;
+        dockerCompat = true;
+      };
+
+      environment.systemPackages = [ pkgs.distrobox ];
       daemon.settings = {
         #experimental = true;
         default-address-pools = [
