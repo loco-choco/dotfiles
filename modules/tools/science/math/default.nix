@@ -32,6 +32,15 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
+      (python3.withPackages (
+        ps: with ps; [
+          jupyter
+          ipython
+          pandas
+          numpy
+          matplotlib
+        ]
+      ))
       numbat
       (octaveFull.withPackages (p: [
         p.signal
