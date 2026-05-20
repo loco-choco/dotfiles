@@ -77,7 +77,7 @@ in
 
     home-manager.users.locochoco = {
       home.packages = with pkgs; [
-        swww
+        awww
         grimblast
       ];
 
@@ -99,10 +99,10 @@ in
         };
         exec-once = [
           "waybar"
-          "swww-daemon"
+          "awww-daemon"
         ];
         exec = [
-          "swww img ${../wallpapers/rw-region-1.png}"
+          "awww img ${../wallpapers/rw-region-1.png}"
         ];
         "general:gaps_out" = "2";
         "general:gaps_in" = "2";
@@ -162,9 +162,9 @@ in
               in
               [
                 "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod, ${ws}, exec, swww img ${../wallpapers}/rw-region-${toString (x + 1)}.png --transition-type right --transition-duration 0 --transition-step 255"
+                "$mod, ${ws}, exec, awww img ${../wallpapers}/rw-region-${toString (x + 1)}.png --transition-type right --transition-duration 0 --transition-step 255"
                 "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, exec, swww img ${../wallpapers}/rw-region-${toString (x + 1)}.png --transition-type right --transition-duration 0 --transition-step 255"
+                "$mod SHIFT, ${ws}, exec, awww img ${../wallpapers}/rw-region-${toString (x + 1)}.png --transition-type right --transition-duration 0 --transition-step 255"
               ]
             ) 10
           )
