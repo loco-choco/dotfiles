@@ -66,7 +66,7 @@ in
       hardware.nvidia.modesetting.enable = true;
       boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
       hardware.nvidia.open = cfg.open;
-      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
     })
     (mkIf (cfg.enable && cfg.prime.enable) {
       hardware.nvidia.prime = {

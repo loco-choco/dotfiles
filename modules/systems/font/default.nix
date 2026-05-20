@@ -26,7 +26,7 @@ in
     fonts = {
       enableDefaultPackages = true;
       packages = with pkgs; [
-        charis-sil
+        charis
         noto-fonts
         nerd-fonts.fira-code
         maple-mono.NF-unhinted

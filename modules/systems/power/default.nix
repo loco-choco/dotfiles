@@ -30,12 +30,12 @@ in
 
   config = mkMerge [
     (mkIf cfg.sleep.disable {
-      systemd.sleep.extraConfig = ''
-        AllowSuspend=no
-        AllowHibernation=no
-        AllowHybridSleep=no
-        AllowSuspendThenHibernate=no
-      '';
+      systemd.sleep.settings.Sleep = {
+        AllowSuspend = "no";
+        AllowHibernation = "no";
+        AllowHybridSleep = "no";
+        AllowSuspendThenHibernate = "no";
+      };
     })
     (mkIf cfg.management.enable {
       services.tlp = {
