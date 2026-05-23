@@ -31,6 +31,11 @@ in
 
   config = mkIf cfg.enable {
     boot.kernel.sysctl."kernel.perf_event_paranoid" = cfg.level;
-    environment.systemPackages = [ pkgs.perf ];
+    environment.systemPackages = [
+      pkgs.perf
+      cudaPackages.nsight_systems
+      cudaPackages.cuda_nsight
+      cudaPackages.nsight_compute
+    ];
   };
 }
