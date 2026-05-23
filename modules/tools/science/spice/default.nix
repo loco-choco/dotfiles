@@ -27,6 +27,7 @@ in
       ngspice
       xyce
       qucs-s
+      kicad
     ];
   };
 }
