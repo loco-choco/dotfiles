@@ -55,5 +55,8 @@ in
       flake = "/home/locochoco/.dotfiles"; # sets NH_OS_FLAKE variable for you
     };
     environment.systemPackages = [ pkgs.nix-output-monitor ];
+    programs.nix-ld = {
+      enable = true;
+    };
   };
 }
