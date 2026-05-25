@@ -253,6 +253,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-25-11": {
+      "locked": {
+        "lastModified": 1764521362,
+        "narHash": "sha256-M101xMtWdF1eSD0xhiR8nG8CXRlHmv6V+VoY65Smwf4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "871b9fd269ff6246794583ce4ee1031e1da71895",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "25.11",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1701012495,
@@ -337,6 +352,7 @@
         "loconix": "loconix",
         "musnix": "musnix",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-25-11": "nixpkgs-25-11",
         "nixvim": "nixvim",
         "ow-mod-man": "ow-mod-man"
       }
