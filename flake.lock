@@ -268,6 +268,22 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-elan": {
+      "locked": {
+        "lastModified": 1780136262,
+        "narHash": "sha256-qFFhue+v74mEQNjQ9Y4VxsX8ocQ183eKvilfPn0/ohE=",
+        "owner": "loco-choco",
+        "repo": "nixpkgs",
+        "rev": "2dec94401a3a0ca7bffefd35fa3a8ee3fa439bb6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "loco-choco",
+        "ref": "elan-annotation-init",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1701012495,
@@ -353,6 +369,7 @@
         "musnix": "musnix",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-25-11": "nixpkgs-25-11",
+        "nixpkgs-elan": "nixpkgs-elan",
         "nixvim": "nixvim",
         "ow-mod-man": "ow-mod-man"
       }

@@ -5,6 +5,7 @@
     #nixpkgs.url = "github:Scrumplex/nixpkgs/nixos-monado";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     #nixpkgs.url = "nixpkgs/master";
+    nixpkgs-elan.url = "github:loco-choco/nixpkgs/elan-annotation-init";
     nixpkgs-25-11.url = "nixpkgs/25.11";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,7 @@
     {
       nixpkgs,
       nixpkgs-25-11,
+      nixpkgs-elan,
       home-manager,
       ow-mod-man,
       loconix,
@@ -59,6 +61,10 @@
           (final: prev: {
             pkgs-25-11 = import nixpkgs-25-11 { inherit system; };
             csharp-ls-22 = final.pkgs-25-11.csharp-ls;
+          })
+          (final: prev: {
+            pkgs-elan = import nixpkgs-elan { inherit system; };
+            elan-annotation = final.pkgs-elan.elan-annotation;
           })
         ];
       };

@@ -27,6 +27,7 @@ in
     users.users.locochoco.extraGroups = [ "audio" ];
 
     environment.systemPackages = with pkgs; [
+      elan-annotation
       audacity
       lmms
       polyphone
