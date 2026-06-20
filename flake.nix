@@ -5,7 +5,7 @@
     #nixpkgs.url = "github:Scrumplex/nixpkgs/nixos-monado";
     nixpkgs.url = "nixpkgs/nixos-unstable";
     #nixpkgs.url = "nixpkgs/master";
-    nixpkgs-elan.url = "github:loco-choco/nixpkgs/elan-annotation-init";
+    #nixpkgs-elan.url = "github:loco-choco/nixpkgs/elan-annotation-init";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ow-mod-man.url = "github:ow-mods/ow-mod-man/dev";
@@ -23,7 +23,7 @@
   outputs =
     {
       nixpkgs,
-      nixpkgs-elan,
+      # nixpkgs-elan,
       home-manager,
       ow-mod-man,
       loconix,
@@ -56,10 +56,10 @@
           loconix.overlay.wineApps
           loconix.overlay.erosanix-lib
           agenix.overlays.default
-          (final: prev: {
-            pkgs-elan = import nixpkgs-elan { inherit system; };
-            elan-annotation = final.pkgs-elan.elan-annotation;
-          })
+          #(final: prev: {
+          #  pkgs-elan = import nixpkgs-elan { inherit system; };
+          #  elan-annotation = final.pkgs-elan.elan-annotation;
+          #})
         ];
       };
 
