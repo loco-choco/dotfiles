@@ -31,7 +31,7 @@
     };
     terminal = {
       enable = true;
-      nushel.enable = true;
+      nushell.enable = true;
       alacritty.enable = true;
       #zsh.enable = true;
       #kitty.enable = true;

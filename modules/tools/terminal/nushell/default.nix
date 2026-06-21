@@ -7,16 +7,16 @@
 
 with lib;
 let
-  cfg = config.tools.terminal.nushel;
+  cfg = config.tools.terminal.nushell;
 in
 {
   options = {
-    tools.terminal.nushel = {
+    tools.terminal.nushell = {
       enable = mkOption {
         default = false;
         type = types.bool;
         description = ''
-          Enables nushel 
+          Enables nushell 
         '';
       };
     };
@@ -24,7 +24,7 @@ in
 
   config = mkIf cfg.enable {
 
-    users.defaultUserShell = pkgs.nushel;
+    users.defaultUserShell = pkgs.nushell;
 
     home-manager.users.locochoco = {
       programs.nushell = {
