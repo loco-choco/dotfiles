@@ -31,9 +31,11 @@
     };
     terminal = {
       enable = true;
-      zsh.enable = true;
+      nushel.enable = true;
+      alacritty.enable = true;
+      #zsh.enable = true;
+      #kitty.enable = true;
       nvim.enable = true;
-      kitty.enable = true;
     };
     toujours = {
       web.enable = true;
