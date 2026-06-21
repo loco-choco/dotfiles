@@ -40,11 +40,8 @@ in
           VISUAL = "nvim"; # default editor
         };
         plugins = with pkgs.nushellPlugins; [
-          dbus
           gstat
           highlight
-          net
-          units
         ];
       };
     };

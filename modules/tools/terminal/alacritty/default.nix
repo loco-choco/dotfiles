@@ -25,7 +25,7 @@ in
     home-manager.users.locochoco = {
       programs.alacritty = {
         enable = true;
-        theme = "gruvbox_material_soft_dark";
+        theme = "nordfox";
         settings = {
           font.normal.family = "Maple Mono NF";
         };
