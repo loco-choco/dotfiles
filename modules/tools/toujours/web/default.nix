@@ -26,7 +26,7 @@ in
     home-manager.users.locochoco = {
       programs.firefox = {
         enable = true;
-        configPath = "${config.xdg.configHome}/mozilla/firefox";
+        configPath = "~/.config/mozilla/firefox";
         #nativeMessagingHosts = [ pkgs.pipewire-screenaudio ];
       };
     };

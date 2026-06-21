@@ -24,11 +24,12 @@ in
 
   config = mkIf cfg.enable {
 
-    users.defaultUserShell = pkgs.nushell;
+    #users.defaultUserShell = pkgs.nushell;
 
     home-manager.users.locochoco = {
       programs.nushell = {
         enable = true;
+        package = pkgs.nushell;
         shellAliases = {
           "nix" = "noglob nix"; # so we can use the # char in flakes
           "w3m" = "w3m -o inline_img_protocol=4"; # so we can see images in kitty
@@ -41,7 +42,7 @@ in
         };
         plugins = with pkgs.nushellPlugins; [
           gstat
-          highlight
+          #highlight
         ];
       };
     };

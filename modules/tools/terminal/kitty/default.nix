@@ -30,7 +30,7 @@ in
         settings = {
           enabled_layouts = "*";
           font_family = "Maple Mono NF";
-          bell_path = builtins.toString ./sounds/Objects_RockHitA_1.wav;
+          bell_path = toString ./sounds/Objects_RockHitA_1.wav;
         };
       };
     };
