@@ -87,7 +87,7 @@ in
     })
     (mkIf cfg.retro.enable {
       environment.systemPackages = with pkgs; [
-        melonDS
+        melonds
       ];
     })
   ];

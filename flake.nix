@@ -13,7 +13,6 @@
     loconix.url = "github:loco-choco/loconix/main";
     loconix.inputs.nixpkgs.follows = "nixpkgs";
     nixvim.url = "github:nix-community/nixvim/main";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     agenix.url = "github:ryantm/agenix";
     #pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
     #pipewire-screenaudio.inputs.nixpkgs.follows = "nixpkgs";
