@@ -26,8 +26,8 @@ in
       programs.wezterm = {
         enable = true;
         settings = {
-          color_scheme = "nord";
-          font_size = 13;
+          color_scheme = "N0tch2k";
+          font_size = 11;
           hide_tab_bar_if_only_one_tab = true;
           window_padding = {
             left = 0;
@@ -35,7 +35,7 @@ in
             top = 0;
             bottom = 0;
           };
-          font = lib.generators.mkLuaInline ''wezterm.font("Maple Mono NF")'';
+          font = lib.generators.mkLuaInline ''wezterm.font("Maple Mono NF", { weight = 'Bold' })'';
         };
       };
     };
