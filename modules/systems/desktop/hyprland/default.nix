@@ -141,7 +141,7 @@ in
           "$mod, C, killactive,"
           "$mod, V, togglefloating,"
           "$mod, F, exec, firefox"
-          "$mod, K, exec, kitty"
+          "$mod, K, exec, wezterm"
           "$mod, Space, exec, rofi -show combi -modes combi -combi-modes 'window,drun,run'"
           ", Print, exec, grimblast copy output"
           "$mod, P, exec, grimblast copy output"
