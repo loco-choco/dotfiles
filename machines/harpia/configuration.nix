@@ -34,6 +34,7 @@
       zsh.enable = true;
       nushell.enable = true;
       kitty.enable = true;
+      wezterm.enable = true;
       nvim.enable = true;
     };
     toujours = {
