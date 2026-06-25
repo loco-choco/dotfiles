@@ -47,6 +47,7 @@ in
 
   config = mkIf cfg.enable {
     services.openssh.enable = true;
+    environment.systemPackages = [ pkgs.sshfs ];
     networking = {
       networkmanager.enable = true;
       firewall = {
