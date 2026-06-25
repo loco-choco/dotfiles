@@ -46,6 +46,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    services.openssh.enable = true;
     networking = {
       networkmanager.enable = true;
       firewall = {
