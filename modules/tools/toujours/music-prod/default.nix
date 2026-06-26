@@ -23,7 +23,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    musnix.enable = true;
+    #musnix.enable = true;
     users.users.locochoco.extraGroups = [ "audio" ];
 
     environment.systemPackages = with pkgs; [

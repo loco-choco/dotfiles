@@ -28,8 +28,8 @@ in
       gdb
       gcc
     ];
-    programs.nixvim.plugins.lsp.servers = {
-      ccls.enable = true;
-    };
+    #programs.nixvim.plugins.lsp.servers = {
+    #  ccls.enable = true;
+    #};
   };
 }
