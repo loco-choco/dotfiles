@@ -47,7 +47,55 @@ in
         enableNushellIntegration = true;
         presets = [ "gruvbox-rainbow" ];
         extraPackages = [ pkgs.starship-jj ];
-        settings = fromTOML ./starship.toml;
+        settings = {
+
+          format = lib.concatStrings [
+            "[](color_orange)"
+            "$os"
+            "$username"
+            "[](bg:color_yellow fg:color_orange)"
+            "$directory"
+            "[](fg:color_yellow bg:color_aqua)"
+            "$git_branch"
+            "$git_status"
+            "$\{custom.jj}"
+            "[](fg:color_aqua bg:color_blue)"
+            "$c"
+            "$cpp"
+            "$rust"
+            "$golang"
+            "$nodejs"
+            "$bun"
+            "$php"
+            "$java"
+            "$kotlin"
+            "$haskell"
+            "$python"
+            "[](fg:color_blue bg:color_bg3)"
+            "$docker_context"
+            "$conda"
+            "$pixi"
+            "[](fg:color_bg3 bg:color_bg1)"
+            "$time"
+            "[ ](fg:color_bg1)"
+            "$line_break"
+            "$character"
+          ];
+
+          custom.jj = {
+            command = "prompt";
+            format = "$output";
+            ignore_timeout = true;
+            shell = [
+              "starship-jj"
+              "--ignore-working-copy"
+              "starship"
+            ];
+            use_stdin = false;
+            when = true;
+          };
+
+        };
       };
     };
   };
