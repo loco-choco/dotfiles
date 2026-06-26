@@ -24,7 +24,7 @@ in
 
   config = mkIf cfg.enable {
 
-    #users.defaultUserShell = pkgs.nushell;
+    users.defaultUserShell = pkgs.nushell;
 
     home-manager.users.locochoco = {
       programs.nushell = {

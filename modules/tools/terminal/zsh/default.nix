@@ -25,7 +25,7 @@ in
   config = mkIf cfg.enable {
 
     programs.zsh.enable = true;
-    users.defaultUserShell = pkgs.zsh;
+    #users.defaultUserShell = pkgs.zsh;
 
     home-manager.users.locochoco = {
       programs.fzf = {
