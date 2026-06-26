@@ -1,6 +1,6 @@
 let
   sources = import ./npins;
-  pkgs = import sources.nixpkgs { };
+  pkgs = import sources.nixpkgs;
   lib = pkgs.lib;
 in
 {
@@ -10,7 +10,14 @@ in
   defaults =
     { name, ... }:
     {
+      imports = [
+        (sources.agenix + "/modules/age.nix")
+        (sources.home-manager + "/nixos")
+        #(import sources.nixvim).nixosModules.nixvim
+        #(import sources.musnix)
+        ./modules/default.nix
+      ];
       networking.hostName = name;
     };
-  harpia = import ./machines/harpia/configuration.nix;
+  harpia = ./machines/harpia/configuration.nix;
 }
