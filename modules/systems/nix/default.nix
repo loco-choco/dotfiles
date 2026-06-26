@@ -57,6 +57,7 @@ in
     environment.systemPackages = with pkgs; [
       nix-output-monitor
       npins
+      colmena
     ];
     programs.nix-ld = {
       enable = true;
