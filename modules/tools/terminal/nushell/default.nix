@@ -47,6 +47,20 @@ in
         enableNushellIntegration = true;
         presets = [ "gruvbox-rainbow" ];
         extraPackages = [ pkgs.starship-jj ];
+        settings = {
+          custom.jj = {
+            command = "prompt";
+            format = "$output";
+            ignore_timeout = true;
+            shell = [
+              "starship-jj"
+              "--ignore-working-copy"
+              "starship"
+            ];
+            use_stdin = false;
+            when = true;
+          };
+        };
       };
     };
   };
