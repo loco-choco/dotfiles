@@ -12,10 +12,5 @@ in
     {
       networking.hostName = name;
     };
+  harpia = import ./machines/harpia/configuration.nix;
 }
-// lib.attrsets.mergeAttrsList (
-  lib.mapAttrsToList (name: file-type: {
-    inherit name;
-    value = ./machines/${name}/configuration.nix;
-  }) (builtins.readDir ./machines)
-)
