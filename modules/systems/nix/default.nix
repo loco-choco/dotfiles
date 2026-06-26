@@ -54,7 +54,10 @@ in
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/locochoco/.dotfiles"; # sets NH_OS_FLAKE variable for you
     };
-    environment.systemPackages = [ pkgs.nix-output-monitor ];
+    environment.systemPackages = with pkgs; [
+      nix-output-monitor
+      npins
+    ];
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
