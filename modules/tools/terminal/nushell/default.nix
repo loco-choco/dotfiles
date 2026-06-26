@@ -46,6 +46,7 @@ in
         enable = true;
         enableNushellIntegration = true;
         presets = [ "gruvbox-rainbow" ];
+        extraPackages = [ pkgs.starship-jj ];
       };
     };
   };
