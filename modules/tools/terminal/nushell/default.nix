@@ -36,6 +36,7 @@ in
           "den" = "ddgr --np --noua -w en.wiktionary.org";
           "dfr" = "ddgr --np --noua -w fr.wiktionary.org";
         };
+        configFile.source = ./config.nu;
         environmentVariables = {
           BROWSER = "w3m";
           VISUAL = "nvim"; # default editor
