@@ -40,10 +40,11 @@ in
           BROWSER = "w3m";
           VISUAL = "nvim"; # default editor
         };
-        plugins = with pkgs.nushellPlugins; [
-          gstat
-          #highlight
-        ];
+      };
+      programs.starship = {
+        enable = true;
+        enableNushellIntegration = true;
+        presets = [ "gruvbox-rainbow" ];
       };
     };
   };
