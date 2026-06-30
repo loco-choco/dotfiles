@@ -26,6 +26,7 @@ in
     environment.systemPackages = with pkgs; [
       libreoffice
       typst
+      obsidian
     ];
     programs.nixvim.plugins = {
       typst-preview.enable = true;
