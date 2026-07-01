@@ -29,10 +29,20 @@ in
         (sources.agenix + "/modules/age.nix")
         (sources.home-manager + "/nixos")
         (import sources.nixvim).nixosModules.nixvim
-        (import sources.musnix).nixosModules.musnix
+        #(import sources.musnix).nixosModules.musnix
         ./modules/default.nix
       ];
       networking.hostName = name;
+      nix.settings = {
+        extra-substituters = [
+          "https://ow-mods.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+        extra-trusted-public-keys = [
+          "ow-mods.cachix.org-1:6RTOd1dSRibA2W0MpZHxzT0tw1RzyhKObTPKQJpcrZo="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+      };
     };
   harpia = ./machines/harpia/configuration.nix;
 }
