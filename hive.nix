@@ -17,7 +17,6 @@ let
       (import (sources.agenix + "/overlay.nix"))
     ];
   };
-  lib = pkgs.lib;
 in
 {
   meta = {
@@ -29,8 +28,8 @@ in
       imports = [
         (sources.agenix + "/modules/age.nix")
         (sources.home-manager + "/nixos")
-        #(import sources.nixvim).nixosModules.nixvim
-        #(import sources.musnix)
+        (import sources.nixvim).nixosModules.nixvim
+        (import sources.musnix).nixosModules.musnix
         ./modules/default.nix
       ];
       networking.hostName = name;
