@@ -2,14 +2,18 @@ set positional-arguments
 
 host-name := shell('hostname')
 
-build system=host-name:
-  @echo 'Building System {{system}}'
-  nh os switch --ask -H {{system}} .
+apply:
+  @echo 'Applying System'
+  colmena apply-local --sudo
+
+deploy-systems:
+  @echo 'Deploying all systems'
+  colmena apply
 
 update:
-  @echo 'Updating lockfile'
-  nix flake update
-  jj commit -m "Updated Lock File {{datetime("%F")}}" flake.lock
+  @echo 'Updating npins references'
+  npins update
+  jj commit -m "Updated Npins References {{datetime("%F")}}" npins/
 
 clean:
   @echo 'Cleaning System'
