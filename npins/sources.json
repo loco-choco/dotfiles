@@ -22,9 +22,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "d32537981c036473cf6990ae03176a5d84c43b29",
-      "url": "https://github.com/nix-community/home-manager/archive/d32537981c036473cf6990ae03176a5d84c43b29.tar.gz",
-      "hash": "sha256-HvlS1KDGXDjd1bNzzPvH1mkDJATlDAfVYfTh//wJBEA="
+      "revision": "ebc87daabc8d3f595e9a8b67107eaaa8115ad582",
+      "url": "https://github.com/nix-community/home-manager/archive/ebc87daabc8d3f595e9a8b67107eaaa8115ad582.tar.gz",
+      "hash": "sha256-2rwNd77TzZ4sDDvMam0IXFXN5IfC35mifoeKS0uAc/4="
     },
     "loconix": {
       "type": "Git",
@@ -56,8 +56,8 @@
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1025128.e52c192be9d7/nixexprs.tar.xz",
-      "hash": "sha256-OBddwHNJ+qxOHaKih0bE2PXJeZHlzUC8WOHZrUcnFwY="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1025900.e8273b29fe13/nixexprs.tar.xz",
+      "hash": "sha256-mFP086y1bNA1g9AsY/pCue3H3W2R7ayroHyRbZrcMf0="
     },
     "nixvim": {
       "type": "Git",
@@ -68,9 +68,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "78acb50d9aa9cbb5d8e0ac1518d0842a29d70553",
-      "url": "https://github.com/nix-community/nixvim/archive/78acb50d9aa9cbb5d8e0ac1518d0842a29d70553.tar.gz",
-      "hash": "sha256-WTHHrBpVONCcSfW6j4OUru3tjNlr4xgweS7j13hFL/4="
+      "revision": "702008d2b3dd1d032a953e3bdd2532531aac0639",
+      "url": "https://github.com/nix-community/nixvim/archive/702008d2b3dd1d032a953e3bdd2532531aac0639.tar.gz",
+      "hash": "sha256-vVYo8fbgTgXBU47dLmnUcfetOI/MLui+wXU44x3ZeqM="
     },
     "ow-mod-man": {
       "type": "Git",
