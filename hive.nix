@@ -44,5 +44,11 @@ in
         ];
       };
     };
-  harpia = ./machines/harpia/configuration.nix;
+  harpia = { ... }: {
+    imports = [ ./machines/harpia/configuration.nix ];
+    deployment = {
+      allowLocalDeployment = true;
+      targetHost = null;
+    };
+  };
 }
