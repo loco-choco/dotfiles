@@ -13,6 +13,19 @@
       "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
       "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
     },
+    "finix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "finix-community",
+        "repo": "finix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6f527e0439a16d03e4f3889b1c2a6b35404d1004",
+      "url": "https://github.com/finix-community/finix/archive/6f527e0439a16d03e4f3889b1c2a6b35404d1004.tar.gz",
+      "hash": "sha256-RXvEgkVX69kQzT7sgF40VuALqMVk5degJzgWG/nOC9w="
+    },
     "home-manager": {
       "type": "Git",
       "repository": {
