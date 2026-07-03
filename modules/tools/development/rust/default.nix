@@ -27,10 +27,6 @@ in
       rustup
     ];
 
-    programs.nixvim.plugins.lsp.servers.rust_analyzer = {
-      enable = true;
-      installRustc = false;
-      installCargo = false;
-    };
+    programs.nvf.settings.vim.languages.rust.enable = true;
   };
 }

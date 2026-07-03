@@ -32,5 +32,11 @@ in
         };
       };
     };
+    programs.nvf.settings = {
+      vim.git = {
+        enable = true;
+        git-conflict.enable = true;
+      };
+    };
   };
 }

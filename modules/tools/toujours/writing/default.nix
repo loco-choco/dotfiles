@@ -28,25 +28,12 @@ in
       typst
       obsidian
     ];
-    #programs.nixvim.plugins = {
-    #  typst-preview.enable = true;
-    #  typst-vim = {
-    #    enable = true;
-    #    settings = {
-    #      folding = 1;
-    #      conceal_math = 1;
-    #      embedded_languages = [
-    #        "matlab"
-    #      ];
-    #    };
-    #  };
-    #  lsp.servers = {
-    #    tinymist.enable = true;
-    #    ltex_plus = {
-    #      enable = true;
-    #      package = pkgs.ltex-ls-plus;
-    #    };
-    #  };
-    #};
+    programs.nvf.settings.vim = {
+      lsp.presets.texlab.enable = true;
+      languages = {
+        typst.enable = true;
+        markdown.enable = true;
+      };
+    };
   };
 }

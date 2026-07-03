@@ -28,8 +28,6 @@ in
       gdb
       jdk25
     ];
-    programs.nixvim.plugins.lsp.servers = {
-      java_language_server.enable = true;
-    };
+    programs.nvf.settings.vim.languages.java.enable = true;
   };
 }

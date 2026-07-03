@@ -27,8 +27,6 @@ in
       openscad
       solvespace
     ];
-    programs.nixvim.plugins.lsp.servers = {
-      openscad_lsp.enable = true;
-    };
+    programs.nvf.settings.vim.languages.openscad.enable = true;
   };
 }

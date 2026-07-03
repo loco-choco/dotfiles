@@ -34,15 +34,6 @@ in
       probe-rs-tools
     ];
     services.udev.packages = [ pkgs.segger-jlink ];
-    programs.nixvim.plugins.lsp.servers = {
-      asm_lsp = {
-        enable = true;
-        filetypes = [
-          "asm"
-          "s"
-          "S"
-        ];
-      };
-    };
+    programs.nvf.settings.vim.languages.assembly.enable = true;
   };
 }

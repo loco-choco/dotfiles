@@ -40,7 +40,6 @@ in
     environment.sessionVariables = {
       DOTNET_ROOT = "${dotnet}";
     };
-
-    programs.nixvim.plugins.lsp.servers.csharp_ls.enable = true;
+    programs.nvf.settings.vim.languages.csharp.enable = true;
   };
 }

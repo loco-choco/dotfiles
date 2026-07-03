@@ -26,5 +26,6 @@ in
     environment.systemPackages = with pkgs; [
       arduino-cli
     ];
+    programs.nvf.settings.vim.languages.arduino.enable = true;
   };
 }

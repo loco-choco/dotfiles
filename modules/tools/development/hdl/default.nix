@@ -46,9 +46,6 @@ in
       quartus-prime-lite
     ];
     services.udev.packages = [ d10-udev-rule ];
-    programs.nixvim.plugins.lsp.servers = {
-      vhdl_ls.enable = true;
-      verible.enable = true;
-    };
+    programs.nvf.settings.vim.languages.vhdl.enable = true;
   };
 }
