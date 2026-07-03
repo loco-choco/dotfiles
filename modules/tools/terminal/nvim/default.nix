@@ -62,7 +62,7 @@ in
         #### Spell Checking
         vim.spellcheck = {
           enable = true;
-          vim-dirtytalk.enable = true;
+          #vim-dirtytalk.enable = true;
           languages = [
             "en"
             "fr"
