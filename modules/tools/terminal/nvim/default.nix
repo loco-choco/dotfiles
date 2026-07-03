@@ -66,7 +66,6 @@ in
           languages = [
             "en"
             "fr"
-            "pt-br"
           ];
         };
       };
