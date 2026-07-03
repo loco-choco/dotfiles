@@ -72,6 +72,22 @@
       "url": "https://github.com/nix-community/nixvim/archive/702008d2b3dd1d032a953e3bdd2532531aac0639.tar.gz",
       "hash": "sha256-vVYo8fbgTgXBU47dLmnUcfetOI/MLui+wXU44x3ZeqM="
     },
+    "nvf": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "notashelf",
+        "repo": "nvf"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.8",
+      "revision": "fb552239dd33fef5fd86fb0622cb273854e55b28",
+      "url": "https://api.github.com/repos/notashelf/nvf/tarball/refs/tags/v0.8",
+      "hash": "sha256-EaFYxx2aSuM2xx+l+E55YNMCJOoQBl2tJybxyF0pPqw="
+    },
     "ow-mod-man": {
       "type": "Git",
       "repository": {

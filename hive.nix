@@ -29,6 +29,7 @@ in
         (sources.agenix + "/modules/age.nix")
         (sources.home-manager + "/nixos")
         (import sources.nixvim).nixosModules.nixvim
+        (import sources.nvf).nixosModules.default
         #(import sources.musnix).nixosModules.musnix
         ./modules/default.nix
       ];
