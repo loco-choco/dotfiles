@@ -37,7 +37,8 @@ in
         };
         vim.mini.statusline.enable = true;
         vim.lineNumberMode = "relNumber";
-        #### LSP and Autocomplete
+        #### LSP, Autocomplete and Formatter
+        vim.formatter.conform-nvim.enable = true;
         vim.autocomplete.blink-cmp = {
           enable = true;
           setupOpts.signature.enabled = true;
