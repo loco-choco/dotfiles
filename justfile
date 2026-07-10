@@ -6,6 +6,10 @@ switch:
   @echo 'Switching System'
   nh os switch -a -f system.nix
 
+dry:
+  @echo 'Dry testing config'
+  nh os switch -n -f system.nix
+
 update:
   @echo 'Updating npins references'
   npins update
