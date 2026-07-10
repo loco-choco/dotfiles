@@ -61,7 +61,7 @@ in
             "[](fg:color_yellow bg:color_aqua)"
             "$git_branch"
             "$git_status"
-            "$\{custom.jj}"
+            "\${custom.jj}"
             "[](fg:color_aqua bg:color_blue)"
             "$c"
             "$cpp"
