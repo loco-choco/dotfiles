@@ -2,13 +2,9 @@ set positional-arguments
 
 host-name := shell('hostname')
 
-apply:
-  @echo 'Applying System'
-  colmena apply-local --sudo
-
-deploy-systems:
-  @echo 'Deploying all systems'
-  colmena apply
+switch:
+  @echo 'Switching System'
+  nh os switch -a -f system.nix
 
 update:
   @echo 'Updating npins references'
