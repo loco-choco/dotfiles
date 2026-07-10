@@ -52,12 +52,10 @@ in
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/locochoco/.dotfiles"; # sets NH_OS_FLAKE variable for you
     };
     environment.systemPackages = with pkgs; [
       nix-output-monitor
       npins
-      colmena
     ];
     programs.nix-ld = {
       enable = true;
