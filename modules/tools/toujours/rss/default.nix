@@ -24,16 +24,20 @@ in
 
   config = mkIf cfg.enable {
       home-manager.users.locochoco = {
-    programs.newsboat = {
-      enable = true;
-      autoReload = true;
-      urls = [
-        { url = "https://xeiaso.net/blog.rss"; }
-        { url = "https://www.tamberlanecomic.com/feed.xml"; }
-        { url = "https://weekly.nixos.org/feeds/all.rss.xml"; }
-        { url = "https://rainworldanthroau.thecomicseries.com/rss/"; }
-        { url = "https://outerwildsmods.com/feed.xml"; }
-      ];
-    };};
+        programs.feedr = {
+          enable = true;
+        };
+    #programs.newsboat = {
+    #  enable = true;
+    #  autoReload = true;
+    #  urls = [
+    #    { url = "https://xeiaso.net/blog.rss"; }
+    #    { url = "https://www.tamberlanecomic.com/feed.xml"; }
+    #    { url = "https://weekly.nixos.org/feeds/all.rss.xml"; }
+    #    { url = "https://rainworldanthroau.thecomicseries.com/rss/"; }
+    #    { url = "https://outerwildsmods.com/feed.xml"; }
+    #  ];
+    #};
+    };
   };
 }
