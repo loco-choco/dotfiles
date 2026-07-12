@@ -19,6 +19,7 @@ in import "${nixpkgs}/nixos" {
       };
       overlays = [
         (import (sources.agenix + "/overlay.nix"))
+        (import sources.nh).overlays.default
       ];
     };
     ## Extra modules

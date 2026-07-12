@@ -52,6 +52,22 @@
       "url": "https://github.com/musnix/musnix/archive/8548782f0d1d0928daa3fffde8a008f72219a3f3.tar.gz",
       "hash": "sha256-Dj51C0NWsglqRrCpdmMr2nFiYacFOid1Tor4H9yG2HY="
     },
+    "nh": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nh"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v4.4.1",
+      "revision": "0baaf22c986dd1b0a1c5a141646696056d070304",
+      "url": "https://api.github.com/repos/nix-community/nh/tarball/refs/tags/v4.4.1",
+      "hash": "sha256-4B/32NPGtc07kuT/zTeIrQjxCdiLRN8tmQHahwq/R7g="
+    },
     "nixpkgs": {
       "type": "Channel",
       "name": "nixpkgs-unstable",
