@@ -41,7 +41,11 @@
 
   ## HJEM Configuration ##
   hjem.users.locochoco = {
-    directory = "/home/locochoco";
+    directory = "/home/locochoco"; 
+    files = {
+      ## Niri
+      ".config/niri".source = ./niri;
+    };
   };
 
   ## Terminal Configuration ##
