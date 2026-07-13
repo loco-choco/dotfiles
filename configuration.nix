@@ -45,6 +45,10 @@
     files = {
       ## Niri
       ".config/niri".source = ./niri;
+      ## Wezterm 
+      ".config/wezterm".source = ./wezterm;
+      ## Neovim
+      ".config/nvim".source = ./nvim;
     };
   };
 
