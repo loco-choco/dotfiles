@@ -67,7 +67,10 @@
     nushell
     ## Window Manager Experience
     fuzzel # launcher
+    ## Terminal Apps
+    nix-output-monitor
   ];
+
 
   # TODO:
   ## Tunnerls/SSH Configuration ##
@@ -77,5 +80,16 @@
 
   ## Localization Configurations ## 
   time.timeZone = "Europe/Paris";
+
+  ## Fonts
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      charis
+      noto-fonts
+      nerd-fonts.fira-code
+      maple-mono.NF-unhinted
+    ];
+  };
 }
 
