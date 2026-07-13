@@ -21,12 +21,13 @@
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   ### NVIDIA Prime
+  # TODO Go Back to main finix once the MR gets merged
   # Waiting for github.com/finix-community/finix/pull/128/
-  #hardware.nvidia.prime = {
-  #  sync.enable = true;
-  #  intelBusId =  "PCI:0:2:0";
-  #  nvidiaBusId = "PCI:1:0:0";
-  #};
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId =  "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
 
   ## Desktop Configuration ##
 

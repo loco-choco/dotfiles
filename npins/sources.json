@@ -1,18 +1,5 @@
 {
   "pins": {
-    "agenix": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "ryantm",
-        "repo": "agenix"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "b027ee29d959fda4b60b57566d64c98a202e0feb",
-      "url": "https://github.com/ryantm/agenix/archive/b027ee29d959fda4b60b57566d64c98a202e0feb.tar.gz",
-      "hash": "sha256-9VnK6Oqai65puVJ4WYtCTvlJeXxMzAp/69HhQuTdl/I="
-    },
     "community-modules": {
       "type": "Git",
       "repository": {
@@ -30,14 +17,14 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "finix-community",
+        "owner": "FixeQD",
         "repo": "finix"
       },
-      "branch": "main",
+      "branch": "feat-nvidia",
       "submodules": false,
-      "revision": "8772d4008c6fc27b5c7e8692c5c482ea17164862",
-      "url": "https://github.com/finix-community/finix/archive/8772d4008c6fc27b5c7e8692c5c482ea17164862.tar.gz",
-      "hash": "sha256-Lc1BuKpkzKrdN298T5ePbMewppTnlOEk/+DeY8xt2zQ="
+      "revision": "aebeb98abddc76bef4529371947a454a3f089410",
+      "url": "https://github.com/FixeQD/finix/archive/aebeb98abddc76bef4529371947a454a3f089410.tar.gz",
+      "hash": "sha256-HO4kbaqdwqeQXylBwXEtaS+k61LFzNQoZwyZ1WyOIyI="
     },
     "hjem": {
       "type": "Git",
@@ -51,45 +38,6 @@
       "revision": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
       "url": "https://github.com/feel-co/hjem/archive/dd0ba9e22fb46581f843e6121de33ca7a4a80224.tar.gz",
       "hash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw="
-    },
-    "home-manager": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "nix-community",
-        "repo": "home-manager"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "7566825d4652a1b885bd4ce65bd9e8def432fec9",
-      "url": "https://github.com/nix-community/home-manager/archive/7566825d4652a1b885bd4ce65bd9e8def432fec9.tar.gz",
-      "hash": "sha256-OI4IkRjRXa1e7hYmCGJDPDq5H/kPwhsyoS80cNUF9fI="
-    },
-    "loconix": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "loco-choco",
-        "repo": "loconix"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "170b84dd5631462325ca7ac4d8041ad11e922897",
-      "url": "https://github.com/loco-choco/loconix/archive/170b84dd5631462325ca7ac4d8041ad11e922897.tar.gz",
-      "hash": "sha256-Jp2TA5Uzw++G9ohvwPzt/f0hAIrtDP/dll/JoPSbl98="
-    },
-    "musnix": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "musnix",
-        "repo": "musnix"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "8548782f0d1d0928daa3fffde8a008f72219a3f3",
-      "url": "https://github.com/musnix/musnix/archive/8548782f0d1d0928daa3fffde8a008f72219a3f3.tar.gz",
-      "hash": "sha256-Dj51C0NWsglqRrCpdmMr2nFiYacFOid1Tor4H9yG2HY="
     },
     "nh": {
       "type": "GitRelease",
@@ -113,32 +61,6 @@
       "artifact": "nixexprs.tar.xz",
       "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1033157.3b32825de172/nixexprs.tar.xz",
       "hash": "sha256-M2X3JTJp7ktX73uVDEAm0Rws2A/xljf4Cu1ojd/o8pU="
-    },
-    "nvf": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "notashelf",
-        "repo": "nvf"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "e84c13bfb2a9b242e07b486f67ff925b29338293",
-      "url": "https://github.com/notashelf/nvf/archive/e84c13bfb2a9b242e07b486f67ff925b29338293.tar.gz",
-      "hash": "sha256-pzFTGMkhIzV2kpn8MP/BdAVfSF2hM1YwZOCKEW2AhOw="
-    },
-    "ow-mod-man": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "ow-mods",
-        "repo": "ow-mod-man"
-      },
-      "branch": "dev",
-      "submodules": false,
-      "revision": "e7622de2fdcd67598ff73e83dc40b61191103f50",
-      "url": "https://github.com/ow-mods/ow-mod-man/archive/e7622de2fdcd67598ff73e83dc40b61191103f50.tar.gz",
-      "hash": "sha256-ohCP0VKf2jEtjZsDN5ISZ5c/EGYANvjuCPyKQcNCwyc="
     }
   },
   "version": 8
