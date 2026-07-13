@@ -3,7 +3,11 @@ let
   finix = import sources.finix;
   community-modules = import sources.community-modules;
   ## Overlays and other nixpkgs configs
-  pkgs = import sources.nixpkgs { };
+  pkgs = import sources.nixpkgs { 
+    ## TODO Make all this more generic
+    system = "x86_64-linux";
+    config.allowUnfree = true;
+  };
 in finix.lib.finixSystem {
   lib = pkgs.lib;
   modules = [
@@ -16,22 +20,6 @@ in finix.lib.finixSystem {
       networking.hostName = "harpia";
       ## Nixpkgs local pinning
       nixpkgs.pkgs = pkgs;
-      #environment.etc.nixpkgs.source = pkgs;
-      #nix.nixPath = [ 
-      #  "nixos-config=${toString ./machines/harpia/configuration.nix}"
-      #  "nixpkgs=/etc/nixpkgs"
-      #];
-      ### Extra cachix caching
-      #nix.settings = {
-      #  extra-substituters = [
-      #    "https://ow-mods.cachix.org"
-      #    "https://nix-community.cachix.org"
-      #  ];
-      #  extra-trusted-public-keys = [
-      #    "ow-mods.cachix.org-1:6RTOd1dSRibA2W0MpZHxzT0tw1RzyhKObTPKQJpcrZo="
-      #    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      #  ];
-      #};
     }
   ] ++ builtins.attrValues finix.nixosModules;
 }
