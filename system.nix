@@ -2,34 +2,9 @@ let
   sources = import ./npins;
   finix = import sources.finix;
   ## Overlays and other nixpkgs configs
-  pkgs = import sources.nixpkgs {
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "openssl-1.1.1w"
-          "electron-36.9.5"
-          "libxml2-2.13.8"
-          "dotnet-sdk-6.0.428"
-          "dotnet-sdk-7.0.410"
-          "segger-jlink-qt4-874"
-        ];
-        segger-jlink.acceptLicense = true;
-      };
-      overlays = [
-        (import (sources.agenix + "/overlay.nix"))
-        (final: _: { nh = final.callPackage (sources.nh + "/package.nix") { }; })
-      ];
-    };
+  pkgs = import sources.nixpkgs { };
 in finix.lib.finixSystem {
-  lib = pkgs.lib;
   modules = [
-    ## Extra Modules
-    (sources.agenix + "/modules/age.nix")
-    (sources.home-manager + "/nixos")
-    (import sources.nvf).nixosModules.default
-    #(import sources.musnix).nixosModules.musnix
-    ## Local Modules 
-    ./modules/default.nix
     ## Actual machine configuration
     ./machines/harpia/configuration.nix
     ## Base Nix/Nixpkgs Configuration
@@ -54,6 +29,5 @@ in finix.lib.finixSystem {
         ];
       };
     }
-  ] ## Fenix Modules
-  ++ builtins.attrValues finix.nixosModules;
+  ];
 }
