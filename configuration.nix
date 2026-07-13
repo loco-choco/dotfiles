@@ -39,6 +39,7 @@
   users.users.locochoco = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" config.services.seatd.group ];
+    shell = pkgs.nushell;
   };
 
   ## HJEM Configuration ##
