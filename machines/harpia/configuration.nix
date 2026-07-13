@@ -33,6 +33,12 @@
   ### Niri 
   programs.niri.enable = true;
 
+  ## Users Configuration ##
+  users.users.locochoco = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "video" "audio" config.services.seatd.group ];
+  };
+
   ## Terminal Configuration ##
 
   ## Neovim Configuration ##
@@ -45,6 +51,6 @@
 
   ## Gaming Configuration ##
 
-  ## 
+  ##  
 }
 
