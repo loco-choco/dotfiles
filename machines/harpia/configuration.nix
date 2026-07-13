@@ -1,6 +1,8 @@
 { modules, config, lib, pkgs, ... }:
 {
   imports = [
+    modules.niri
+
     ./hardware-configuration.nix
   ];
   
@@ -29,7 +31,7 @@
   ## Desktop Configuration ##
 
   ### Niri 
-
+  programs.niri.enable = true;
 
   ## Terminal Configuration ##
 

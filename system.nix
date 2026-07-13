@@ -21,5 +21,5 @@ in finix.lib.finixSystem {
       ## Nixpkgs local pinning
       nixpkgs.pkgs = pkgs;
     }
-  ] ++ builtins.attrValues finix.nixosModules;
+  ];
 }
