@@ -51,6 +51,7 @@
 
   ## Gaming Configuration ##
 
-  ##  
+  ## Localization Configurations ## 
+  time.timeZone = "Europe/Paris";
 }
 
