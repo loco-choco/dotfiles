@@ -18,6 +18,7 @@
   hardware.nvidia = {
     enable = true;
     modesetting.enable = true;
+    nvidiaSettings = false;
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   ### NVIDIA Prime
@@ -53,16 +54,24 @@
     };
   };
 
-  ## Terminal Configuration ##
+  ## Packages ##
+  environment.systemPackages = with pkgs; [
+    ## Browser
+    firefox
+    ## Gaming
+    steam
+    ## Terminal
+    wezterm        
+    tmux
+    nushell
+    ## Window Manager Experience
+    fuzzel # launcher
+  ];
 
-  ## Neovim Configuration ##
-
+  # TODO:
   ## Tunnerls/SSH Configuration ##
-
   ### Tailscape
-
   ## Webbrowsing Configuration ##
-
   ## Gaming Configuration ##
 
   ## Localization Configurations ## 
