@@ -14,7 +14,7 @@ in finix.lib.finixSystem {
     ## Base Laptop Profile
     community-modules.nixosModules.laptop
     ## Actual machine configuration
-    ./machines/harpia/configuration.nix
+    ./configuration.nix
     ## Base Nix/Nixpkgs Configuration
     {
       networking.hostName = "harpia";
