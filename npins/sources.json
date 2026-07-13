@@ -39,6 +39,19 @@
       "url": "https://github.com/finix-community/finix/archive/8772d4008c6fc27b5c7e8692c5c482ea17164862.tar.gz",
       "hash": "sha256-Lc1BuKpkzKrdN298T5ePbMewppTnlOEk/+DeY8xt2zQ="
     },
+    "hjem": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "feel-co",
+        "repo": "hjem"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "dd0ba9e22fb46581f843e6121de33ca7a4a80224",
+      "url": "https://github.com/feel-co/hjem/archive/dd0ba9e22fb46581f843e6121de33ca7a4a80224.tar.gz",
+      "hash": "sha256-so1hIImuLtTKTVUokJ/6C2D2b2D4znCx+/PAjMSAnpw="
+    },
     "home-manager": {
       "type": "Git",
       "repository": {

@@ -7,10 +7,18 @@ let
     ## TODO Make all this more generic
     system = "x86_64-linux";
     config.allowUnfree = true;
+  }; 
+  ## HJEM Initialization
+  hjem = import sources.hjem { 
+    pkgs = pkgs; 
+    finix = finix;
   };
+
 in finix.lib.finixSystem {
   lib = pkgs.lib;
   modules = [
+    ## HJEM Module 
+    hjem.finixModules.default
     ## Base Laptop Profile
     community-modules.nixosModules.laptop
     ## Actual machine configuration

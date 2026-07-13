@@ -39,6 +39,11 @@
     extraGroups = [ "wheel" "video" "audio" config.services.seatd.group ];
   };
 
+  ## HJEM Configuration ##
+  hjem.users.locochoco = {
+    directory = "/home/locochoco";
+  };
+
   ## Terminal Configuration ##
 
   ## Neovim Configuration ##
