@@ -59,6 +59,8 @@
   environment.systemPackages = with pkgs; [
     ## Browser
     firefox
+    ## Communication
+    vesktop
     ## Gaming
     steam
     ## Terminal
