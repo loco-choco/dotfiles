@@ -1,10 +1,13 @@
 let
   sources = import ./npins;
   finix = import sources.finix;
+  community-modules = import sources.community-modules;
   ## Overlays and other nixpkgs configs
   pkgs = import sources.nixpkgs { };
 in finix.lib.finixSystem {
   modules = [
+    ## Base Laptop Profile
+    community-modules.nixosModules.laptop
     ## Actual machine configuration
     ./machines/harpia/configuration.nix
     ## Base Nix/Nixpkgs Configuration
