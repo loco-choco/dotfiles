@@ -10,6 +10,7 @@
   ##              Device Manager = mdevd
   ##              Seat   Manager = seatd
   ##              Wifi   Manager = iwd
+  profiles.laptop.enable = true;
   profiles.laptop.hardwareSupport = "minimal";
   boot.loader.efi.canTouchEfiVariables = true;
 
