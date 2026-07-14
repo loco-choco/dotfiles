@@ -11,7 +11,7 @@
   ##              Seat   Manager = seatd
   ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
-  profiles.laptop.hardwareSupport = "minimal";
+  profiles.laptop.hardwareSupport = "standard"; # TODO go back to minimal
   boot.loader.efi.canTouchEfiVariables = true;
 
   ## Hardware Specifics Configuration ##
