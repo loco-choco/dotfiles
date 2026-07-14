@@ -21,6 +21,7 @@
     enable = true;
     modesetting.enable = true;
     nvidiaSettings = false;
+    kernelModule = "closed";
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   ### NVIDIA Prime
