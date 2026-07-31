@@ -2,6 +2,7 @@
 {
   imports = [
     modules.niri
+    modules.hyprland
 
     ./hardware-configuration.nix
   ];
@@ -37,6 +38,7 @@
 
   ### Niri 
   programs.niri.enable = true;
+  programs.hyprland.enable = true;
 
   ## Users Configuration ##
   users.users.locochoco = {
