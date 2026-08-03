@@ -28,9 +28,22 @@
   # TODO Go Back to main finix once the MR gets merged
   # Waiting for github.com/finix-community/finix/pull/128/
   hardware.nvidia.prime = {
-    sync.enable = true;
+    offload.enable = true;
+    power.runtime.enable = true;
     intelBusId =  "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
+  };
+
+  hardware.graphics = {
+    enable    = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      libva-vdpau-driver
+      libvdpau-va-gl
+      nvidia-vaapi-driver
+    ];
   };
 
   ## Desktop Configuration ##
