@@ -25,14 +25,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
   ### NVIDIA Prime
-  # TODO Go Back to main finix once the MR gets merged
-  # Waiting for github.com/finix-community/finix/pull/128/
   hardware.nvidia.prime = {
     offload.enable = true;
-    power.runtime.enable = true;
     intelBusId =  "PCI:0:2:0";
     nvidiaBusId = "PCI:1:0:0";
   };
+  hardware.nvidia.power.runtime.enable = true;
 
   hardware.graphics = {
     enable    = true;
