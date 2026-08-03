@@ -92,7 +92,6 @@
     ## Terminal Apps
     nix-output-monitor
   ];
-  hardware.graphics.enable32Bit = true; # Enabled for Steam
 
 
   # TODO:
