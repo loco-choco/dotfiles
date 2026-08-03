@@ -3,6 +3,7 @@
   imports = [
     modules.niri
     modules.hyprland
+    modules.ly
 
     ./hardware-configuration.nix
   ];
