@@ -47,6 +47,10 @@
   ## Desktop Configuration ##
 
   ### Niri 
+
+  programs.regreet.enable = false;
+  services.ly.enable = true;
+
   programs.niri.enable = true;
   programs.hyprland.enable = true;
 
