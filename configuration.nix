@@ -4,6 +4,7 @@
     modules.niri
     modules.hyprland
     modules.ly
+    modules.xwayland-satellite
 
     ./hardware-configuration.nix
   ];
@@ -53,7 +54,8 @@
   services.ly.enable = true;
 
   programs.niri.enable = true;
-  programs.hyprland.enable = true;
+  ##### XWayland
+  programs.xwayland-satellite.enable = true;
 
   ## Users Configuration ##
   users.users.locochoco = {

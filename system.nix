@@ -29,7 +29,9 @@ in finix.lib.finixSystem {
       networking.hostName = "harpia";
       ## Nixpkgs local pinning
       nixpkgs.pkgs = pkgs;
-      environment.variables.NIX_PATH = "nixpkgs=${nixpkgs}";
+      environment.variables = {
+      	NIX_PATH = "nixpkgs=${nixpkgs}";
+      };
     }
   ];
 }
