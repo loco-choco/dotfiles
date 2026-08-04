@@ -101,6 +101,8 @@
     fuzzel # launcher
     ## Terminal Apps
     nix-output-monitor
+    ## Bluetooth Client
+    bluetui
   ];
 
 
@@ -110,6 +112,9 @@
   ## Webbrowsing Configuration ##
   ## Gaming Configuration ##
 
+	
+  ## Bluetooth ##
+  services.bluetooth.enable = true;
   ## Localization Configurations ## 
   time.timeZone = "Europe/Paris";
 
