@@ -13,7 +13,6 @@ boot:
 switch:
   @echo 'Switching System'
   nixos-rebuild --sudo switch --file system.nix --log-format internal-json -v |& nom --json
-  nh os switch -a -f system.nix
 
 update:
   @echo 'Updating npins references'
