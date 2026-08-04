@@ -2,8 +2,9 @@ let
   sources = import ./npins;
   finix = import sources.finix;
   community-modules = import sources.community-modules;
+  nixpkgs = sources.nixpkgs;
   ## Overlays and other nixpkgs configs
-  pkgs = import sources.nixpkgs { 
+  pkgs = import nixpkgs { 
     ## TODO Make all this more generic
     system = "x86_64-linux";
     config.allowUnfree = true;
@@ -28,6 +29,7 @@ in finix.lib.finixSystem {
       networking.hostName = "harpia";
       ## Nixpkgs local pinning
       nixpkgs.pkgs = pkgs;
+      environment.variables.NIX_PATH = "nixpkgs=${nixpkgs}";
     }
   ];
 }
