@@ -96,6 +96,7 @@
     busybox
     just
     jujutsu
+    npins
     neovim
     ## Window Manager Experience
     fuzzel # launcher
