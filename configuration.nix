@@ -1,6 +1,7 @@
 { modules, config, lib, pkgs, ... }:
 {
   imports = [
+    modules.dhcpcd
     modules.niri
     modules.hyprland
     modules.ly
@@ -18,6 +19,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   ## Hardware Specifics Configuration ##
+  services.dhcpcd.enable = true; ## Ethernet
+  boot.kernelModules = [ "uhid" ]; ## BLE Mouse Connection
 
   ### NVIDIA Drivers (GTX1070)
   hardware.nvidia = {
