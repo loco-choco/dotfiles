@@ -91,6 +91,7 @@
     tmux
     nushell
     ## Shell
+    busybox
     just
     jujutsu
     neovim
