@@ -2,6 +2,7 @@ let
   sources = import ./npins;
   finix = import sources.finix;
   community-modules = import sources.community-modules;
+  laptop-profile = import sources.laptop-profile;
   nixpkgs = sources.nixpkgs;
   ## Overlays and other nixpkgs configs
   pkgs = import nixpkgs { 
@@ -21,7 +22,7 @@ in finix.lib.finixSystem {
     ## HJEM Module 
     hjem.finixModules.default
     ## Base Laptop Profile
-    community-modules.nixosModules.laptop
+    laptop-profile.nixosModules.laptop
     ## Actual machine configuration
     ./configuration.nix
     ## Base Nix/Nixpkgs Configuration
