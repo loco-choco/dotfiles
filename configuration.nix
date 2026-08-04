@@ -111,10 +111,7 @@
   ### Tailscape
   ## Webbrowsing Configuration ##
   ## Gaming Configuration ##
-
 	
-  ## Bluetooth ##
-  services.bluetooth.enable = true;
   ## Localization Configurations ## 
   time.timeZone = "Europe/Paris";
 
