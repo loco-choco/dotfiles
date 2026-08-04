@@ -59,7 +59,7 @@
   users.users.locochoco = {
     isNormalUser = true;
     extraGroups =    
-      [ "wheel" "video" "audio" ]
+      [ "wheel" "video" "audio" "render" ]
       ++ lib.optionals config.services.networkmanager.enable [ "networkmanager" ]
       ++ lib.optionals config.services.seatd.enable [ config.services.seatd.group ];
     shell = pkgs.nushell;
