@@ -90,6 +90,10 @@
     wezterm        
     tmux
     nushell
+    ## Shell
+    just
+    jujutsu
+    neovim
     ## Window Manager Experience
     fuzzel # launcher
     ## Terminal Apps
