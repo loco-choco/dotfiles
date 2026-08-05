@@ -81,6 +81,8 @@
       ".config/wezterm".source = ./wezterm;
       ## Neovim
       ".config/nvim".source = ./nvim;
+      ## Quickshell 
+      #".config/quickshell".source = ./quickshell;
     };
   };
 
@@ -104,6 +106,7 @@
     neovim
     ## Window Manager Experience
     fuzzel # launcher
+    quickshell # Quickshell
     ## Terminal Apps
     nix-output-monitor
     ## Bluetooth Client
