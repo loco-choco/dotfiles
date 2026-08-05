@@ -96,6 +96,8 @@
   environment.systemPackages = with pkgs; [
     ## Browser
     firefox
+    ## File Browser
+    nautilus
     ## Communication
     vesktop
     ## Gaming
