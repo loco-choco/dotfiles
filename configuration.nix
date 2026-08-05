@@ -2,6 +2,7 @@
 {
   imports = [
     modules.dhcpcd
+    modules.openssh
     modules.niri
     modules.hyprland
     modules.ly
@@ -107,11 +108,14 @@
     nix-output-monitor
     ## Bluetooth Client
     bluetui
+    ## SSH
+    sshfs ## Fuse SSH mount
   ];
 
 
   # TODO:
   ## Tunnerls/SSH Configuration ##
+  services.openssh.enable = true;
   ### Tailscape
   ## Webbrowsing Configuration ##
   ## Gaming Configuration ##
