@@ -105,6 +105,7 @@
     jujutsu
     npins
     neovim
+    timg
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
