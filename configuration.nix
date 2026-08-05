@@ -61,6 +61,12 @@
   ##### XWayland
   programs.xwayland-satellite.enable = true;
 
+  #### XDG Portals
+  xdg.portal.portals = with pkgs; [
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+  ];
+
   ## Users Configuration ##
   users.users.locochoco = {
     isNormalUser = true;
