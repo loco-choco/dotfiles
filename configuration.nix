@@ -101,6 +101,7 @@
     ## Shell
     busybox
     just
+    git
     jujutsu
     npins
     neovim
