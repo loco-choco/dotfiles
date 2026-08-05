@@ -1,5 +1,7 @@
 /*
 	AUTOSTART SCRIPTS
 */
+// Quickshell
+spawn-at-startup "qs"
 // Pipewire
 spawn-sh-at-startup "pipewire 2>&1 & sleep 0.5; wireplumber 2>&1 & sleep 0.5; pipewire-pulse 2>&1 &"

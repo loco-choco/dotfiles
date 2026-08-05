@@ -91,7 +91,7 @@ in
       ## Neovim
       ".config/nvim".source = ./nvim;
       ## Quickshell 
-      #".config/quickshell".source = ./quickshell;
+      ".config/quickshell".source = ./quickshell;
     };
   };
 
@@ -148,6 +148,7 @@ in
       noto-fonts
       nerd-fonts.fira-code
       maple-mono.NF-unhinted
+      ### Beastieball fonts
       (callPackage mkFont { 
         src = fetchzip {
 	  url = "https://dl.dafont.com/dl/?f=hauser";
@@ -156,6 +157,33 @@ in
 	  stripRoot = false;
 	}; 
 	pname = "hauser" ;
+      })
+      (callPackage mkFont { 
+        src = fetchzip {
+	  url = "https://dl.dafont.com/dl/?f=sports_jersey";
+	  hash = "sha256-BLxipGxwkkzrPueSSizHEVmCV6lSPM0x5Nfnc8CqofU="; 
+	  extension = "zip";
+	  stripRoot = false;
+	}; 
+	pname = "sports-jersey" ;
+      })
+      (callPackage mkFont { 
+        src = fetchzip {
+	  url = "https://dl.dafont.com/dl/?f=sf_sports_night";
+	  hash = "sha256-7oeMTrxuzWCqbykYWYPD5s/a503osQfEn/+KVfEf72k="; 
+	  extension = "zip";
+	  stripRoot = false;
+	}; 
+	pname = "sf-sports-night" ;
+      })
+      (callPackage mkFont { 
+        src = fetchzip {
+	  url = "https://dl.dafont.com/dl/?f=go_banana";
+	  hash = "sha256-pLODlJUfB1Dqae/pKM4W6sSpUuxy+ZlkP0OBcOwJTbo="; 
+	  extension = "zip";
+	  stripRoot = false;
+	}; 
+	pname = "go-banana" ;
       })
     ];
   };
