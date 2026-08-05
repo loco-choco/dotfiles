@@ -1,3 +1,6 @@
+let
+  mkFont = import ./mkFont.nix;
+in
 { modules, config, lib, pkgs, ... }:
 {
   imports = [
@@ -114,6 +117,7 @@
     npins
     neovim
     timg
+    #wl-screenrec
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
@@ -144,6 +148,15 @@
       noto-fonts
       nerd-fonts.fira-code
       maple-mono.NF-unhinted
+      (callPackage mkFont { 
+        src = fetchzip {
+	  url = "https://dl.dafont.com/dl/?f=hauser";
+	  hash = "sha256-tV+v2geQyJiC2I1hsMjIbMBKDiv0Gou1ixIRSdke37s="; 
+	  extension = "zip";
+	  stripRoot = false;
+	}; 
+	pname = "hauser" ;
+      })
     ];
   };
 }
