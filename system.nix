@@ -4,11 +4,18 @@ let
   community-modules = import sources.community-modules;
   laptop-profile = import sources.laptop-profile;
   nixpkgs = sources.nixpkgs;
+  ## QS Niri Integration Plugin
+  qml-niri = sources.qml-niri;
   ## Overlays and other nixpkgs configs
   pkgs = import nixpkgs { 
     ## TODO Make all this more generic
     system = "x86_64-linux";
     config.allowUnfree = true;
+    overlays = [ (final: _: { 
+      qml-niri = final.callPackage (import qml-niri) { 
+        version = qml-niri.version; 
+      }; 
+    }) ];
   }; 
   ## HJEM Initialization
   hjem = import sources.hjem { 

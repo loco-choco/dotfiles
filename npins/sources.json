@@ -74,6 +74,22 @@
       "artifact": "nixexprs.tar.xz",
       "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1046984.104240a77242/nixexprs.tar.xz",
       "hash": "sha256-NqaCaIITVSDaBYdcWcfCyEu1erL7paTPEQbISQp9xwQ="
+    },
+    "qml-niri": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "imiric",
+        "repo": "qml-niri"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.2.1",
+      "revision": "f6af20b1da399435a1b5279d260b9f05f5c5eafc",
+      "url": "https://api.github.com/repos/imiric/qml-niri/tarball/refs/tags/v0.2.1",
+      "hash": "sha256-YrLCrtDX8UDbRV/vvyWdMEf6dqIo5hnVAOuZ5mjM12Y="
     }
   },
   "version": 8

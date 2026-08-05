@@ -107,7 +107,7 @@
     neovim
     ## Window Manager Experience
     fuzzel # launcher
-    quickshell # Quickshell
+    (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
     ## Terminal Apps
     nix-output-monitor
     ## Bluetooth Client
