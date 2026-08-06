@@ -7,6 +7,12 @@ include "autostart.kdl"
 
 debug {
     render-drm-device "/dev/dri/renderD128"
+    disable-cursor-plane
+}
+
+cursor {
+    xcursor-theme "ComixCursors-White"
+    xcursor-size 48
 }
 
 // Input device configuration.

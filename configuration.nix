@@ -92,6 +92,9 @@ in
       ".config/nvim".source = ./nvim;
       ## Quickshell 
       ".config/quickshell".source = ./quickshell;
+      # Custom Cursor Theme
+      ".icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
+      ".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
     };
   };
 
