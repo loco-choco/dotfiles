@@ -95,6 +95,11 @@ in
       # Custom Cursor Theme
       ".icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
       ".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
+      # Wallpaper
+      ".wallpaper.png".source = pkgs.fetchurl {
+	  url = "https://64.media.tumblr.com/7b2a35edb112458d08e35ca325a0ff44/d00014da2c3e6563-37/s2048x3072/1f535d63af44413c3fefc6d070a2830675b47634.pnj";
+	  hash = "sha256-gr1lYMwKbGiKfG9KeLFmrdPI24THElMMZDTemQJOUXc=";
+      };
     };
   };
 
@@ -124,6 +129,7 @@ in
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
+    awww # Wallpaper
     ## Terminal Apps
     nix-output-monitor
     ## Bluetooth Client
