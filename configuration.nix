@@ -117,7 +117,7 @@ in
     npins
     neovim
     timg
-    #wl-screenrec
+    gpu-screen-recorder
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
