@@ -12,25 +12,33 @@ Item {
 	property int tray_height: 40 
 	property int tray_width:  systemTray.screen.width / 2
 	property int tray_angle: 15
-	
-	readonly property LinearGradient has_menu_gradient : LinearGradient {
-		x2: 10
-		y2: 10
-		spread: ShapeGradient.RepeatSpread
-		GradientStop { position: 0.0; color: "#2e2e2e" }
-		GradientStop { position: 0.49; color: "#2e2e2e" }
-		GradientStop { position: 0.5; color: "black" }
-		GradientStop { position: 1.0; color: "black" }
+
+	readonly property LinearGradient has_menu_gradient : ColorStripGradient {
+		SequentialAnimation on progress {
+        		loops: Animation.Infinite
+        		PropertyAnimation { to: 1.00; duration: 2000 }
+		}
+		strip1_color: "#2e2e2e"
+		strip2_color: "#black"
 	}
 	
-	readonly property LinearGradient hovered_menu_gradient : LinearGradient {
-		x2: 10
-		y2: 10
-		spread: ShapeGradient.RepeatSpread
-		GradientStop { position: 0.0; color: "#767676" }
-		GradientStop { position: 0.49; color: "#767676" }
-		GradientStop { position: 0.5; color: "#4d4d4d" }
-		GradientStop { position: 1.0; color: "#4d4d4d" }
+	readonly property LinearGradient hovered_menu_gradient : ColorStripGradient {
+		SequentialAnimation on progress {
+        		loops: Animation.Infinite
+        		PropertyAnimation { to: 1.00; duration: 2000 }
+		}
+		strip1_color: "#2e2e2e"
+		SequentialAnimation on strip1_color {
+        		loops: Animation.Infinite
+        		ColorAnimation { to: "#6f6f6f"; duration: 1000 }
+        		ColorAnimation { to: Qt.lighter("#6f6f6f"); duration: 1000 }
+		}
+		strip2_color: "#black"
+		SequentialAnimation on strip2_color {
+        		loops: Animation.Infinite
+        		ColorAnimation { to: "#4f4f4f";   duration: 1000 }
+        		ColorAnimation { to: Qt.lighter("#4f4f4f"); duration: 1000 }
+		}
 	}
 	
 
@@ -79,6 +87,7 @@ Item {
 							strokeColor: "transparent"
 
 							fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
+							//fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
 
 	    						startX: 0; startY: 0
 	    						PathLine { x: tray_angle; y: tray_height }
