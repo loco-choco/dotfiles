@@ -70,6 +70,19 @@ in
     xdg-desktop-portal-gnome
   ];
 
+  #### XDG Icons
+  xdg.icons.enable = true;
+  #### XDG Mime
+  xdg.mime.enable = true;
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "firefox.desktop";
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+  }; 
+
   ## Users Configuration ##
   users.users.locochoco = {
     isNormalUser = true;
@@ -93,8 +106,8 @@ in
       ## Quickshell 
       ".config/quickshell".source = ./quickshell;
       # Custom Cursor Theme
-      ".icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
-      ".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
+      #".icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
+      #".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
       # Wallpaper
       ".wallpaper.png".source = pkgs.fetchurl {
 	  url = "https://64.media.tumblr.com/7b2a35edb112458d08e35ca325a0ff44/d00014da2c3e6563-37/s2048x3072/1f535d63af44413c3fefc6d070a2830675b47634.pnj";
@@ -125,11 +138,13 @@ in
     npins
     neovim
     timg
+    mpv
     gpu-screen-recorder
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
     awww # Wallpaper
+    comixcursors.White # Cursor Theme
     ## Terminal Apps
     nix-output-monitor
     ## Bluetooth Client
