@@ -34,6 +34,8 @@ Item {
 		Shape {
 			id: background
 			anchors.left: parent.left
+			preferredRendererType: Shape.CurveRenderer
+
 			ShapePath {
 				id: background_path
 				fillColor: black 

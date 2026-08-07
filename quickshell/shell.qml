@@ -40,6 +40,8 @@ ShellRoot {
 
 	 		tray_height: 40 
 	 		tray_angle: 15
+			
+			fontFamily: "Go Banana"
 		}
 	}
 }
