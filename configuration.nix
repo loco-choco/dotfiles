@@ -53,6 +53,12 @@ in
     ];
   };
 
+  ## Pipewire Extras
+  programs.pipewire = {
+    alsa.enable = true;
+    jack.enable = true;
+  };
+
   ## Desktop Configuration ##
 
   ### Niri 
