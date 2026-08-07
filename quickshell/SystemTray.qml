@@ -9,39 +9,36 @@ Item {
 	id: root
 	property string black: "black"
 	property string white: "white"
+
+	property string menu_stripe1: "#2e2e2e"
+	property string menu_stripe2: "black"
+
+	property string hovered_stripe1: "#6f6f6f"
+	property string hovered_stripe2: "#4f4f4f"
+
+	property int           stripe_animation_duration: 2000
+	property int    hovered_pulse_animation_duration: 2000
+	property real hovered_pulse_animation_lightening: 1.5
+
 	property int tray_height: 40 
 	property int tray_width:  systemTray.screen.width / 2
 	property int tray_angle: 15
-
-	readonly property LinearGradient has_menu_gradient : ColorStripGradient {
-		SequentialAnimation on progress {
-        		loops: Animation.Infinite
-        		PropertyAnimation { to: 1.00; duration: 2000 }
-		}
-		strip1_color: "#2e2e2e"
-		strip2_color: "#black"
+	
+	readonly property LinearGradient has_menu_gradient : AnimatedColorStripeGradient {
+		period: 2000
+		stripe1: menu_stripe1
+		stripe2: menu_stripe2 
 	}
 	
-	readonly property LinearGradient hovered_menu_gradient : ColorStripGradient {
-		SequentialAnimation on progress {
-        		loops: Animation.Infinite
-        		PropertyAnimation { to: 1.00; duration: 2000 }
-		}
-		strip1_color: "#2e2e2e"
-		SequentialAnimation on strip1_color {
-        		loops: Animation.Infinite
-        		ColorAnimation { to: "#6f6f6f"; duration: 1000 }
-        		ColorAnimation { to: Qt.lighter("#6f6f6f"); duration: 1000 }
-		}
-		strip2_color: "#black"
-		SequentialAnimation on strip2_color {
-        		loops: Animation.Infinite
-        		ColorAnimation { to: "#4f4f4f";   duration: 1000 }
-        		ColorAnimation { to: Qt.lighter("#4f4f4f"); duration: 1000 }
-		}
+	readonly property LinearGradient hovered_menu_gradient : AnimatedPulsatingStripeGradient {
+		stripe_period: 2000
+		pulse_period: 2000
+
+		stripe1: hovered_stripe1
+		stripe2: hovered_stripe2
+		lightening: hovered_pulse_animation_lightening
 	}
 	
-
 	PanelWindow {
 		id: systemTray
 		anchors.bottom: true
@@ -87,7 +84,6 @@ Item {
 							strokeColor: "transparent"
 
 							fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
-							//fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
 
 	    						startX: 0; startY: 0
 	    						PathLine { x: tray_angle; y: tray_height }
