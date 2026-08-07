@@ -23,4 +23,21 @@ const clock = {
 	angle: 15
 }
 
+const systray = {
+	height: 40,
+	angle: 15,
+	animation: {
+		stripe_period: 2000,
+		pulse_period: 2000,
+		pulse_factor: 1.5,
+	},
+	fontFamily: "Go Banana",
+	fontSize: 16,
+	options: {
+		max: 10,
+		width: 120,
+		spacing: 5,
+	},
+} 
+
 

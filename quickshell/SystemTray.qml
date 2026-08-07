@@ -16,6 +16,9 @@ Item {
 	property string hovered_stripe1: "#6f6f6f"
 	property string hovered_stripe2: "#4f4f4f"
 
+	property string option_stripe1: "#ff904c"
+	property string option_stripe2: "#ffb25d"
+
 	property int           stripe_animation_duration: 2000
 	property int    hovered_pulse_animation_duration: 2000
 	property real hovered_pulse_animation_lightening: 1.5
@@ -25,6 +28,11 @@ Item {
 	property int tray_angle: 15
 
 	property string fontFamily
+	property int fontSize: 16
+
+	property int max_amount_of_options : 10
+	property int option_width   : 120
+	property int option_spacing : 5
 	
 	readonly property LinearGradient has_menu_gradient : AnimatedColorStripeGradient {
 		period: 2000
@@ -117,89 +125,33 @@ Item {
 							onTapped: (eventPoint, button) => trayItemMenu.visible = !trayItemMenu.visible
 
 						}
-						
-						PopupWindow {
+
+						SystemTrayPopup {
 							id: trayItemMenu
-  							anchor.window: systemTray
-  							anchor.rect.x: 0
-  							anchor.rect.y: 0
+							parentWindow: systemTray
+							menu: trayItemMenuOpener
 
-  							visible: false 
-							color: "transparent"
-							
-    							grabFocus: true
-    							implicitWidth: systemTray.screen.width
-							implicitHeight: systemTray.screen.height
-
-							MouseArea {
-    								anchors.fill: parent
-    								onClicked: () => trayItemMenu.visible = false;
-    							}
-							
-							ColumnLayout {
-								id: menuItems
-								layoutDirection: Qt.LeftToRight
-
-								x:  systemTray.screen.width - trayItem.width * (index + 1) - width - tray_angle * trayItemMenuOpener.children.values.filter((entry) => !entry.isSeparator).length
-								y: systemTray.screen.height - systemTray.height - height
-
-								Layout.fillWidth: true
-								Layout.maximumHeight: 100 
-								spacing: 5	
-								Repeater {
-									model: trayItemMenuOpener.children.values.filter((entry) => !entry.isSeparator)
-									delegate: Shape {
-										id: trayItem
-										required property var modelData 
-										required property int index
-										Layout.fillHeight: true
-										Layout.preferredHeight: tray_height
-										Layout.preferredWidth: 120
-										containsMode: Shape.FillContains
-										preferredRendererType: Shape.CurveRenderer
-										transform: Translate { x: tray_angle * index }
-
-										ShapePath {
-											id: trayItembg 
-											fillColor: white 
-											fillGradient: hoverHandler.hovered ? hovered_option_gradient : null
-											strokeColor: "transparent"
-	    										startX: 0; startY: 0
-	    										PathLine { x: tray_angle; y: tray_height }
-	    										PathLine { x: 120 + tray_angle; y: tray_height }
-	    										PathLine { x: 120; y: 0 }
-										}
-										HoverHandler { id: hoverHandler }
-										TapHandler { 
-											id: tapHandler
-											onTapped: (eventPoint, button) => {
-												modelData.triggered();
-												trayItemMenu.visible = false;
-											}
-
-										}
-
-										Text {
-											anchors.right: parent.right
-											anchors.verticalCenter: parent.verticalCenter
-											text: modelData.text
-											color: black
-											font.family: fontFamily
-											font.pixelSize: 16
-										}
-									}
-								}
-							}
-
-  						}
-						//Rectangle {
-						//	anchors.right: parent.left
-						//	anchors.bottom: parent.verticalCenter
-						//	visible: false
-						//	width: 100
-						//	height: 100
-						//}
-
+							posX: systemTray.screen.width - trayItem.width * (index + 1)
+							posY: systemTray.screen.height - systemTray.height
+						
+							black: black
+							white: white
+						
+							hovered_stripe1: option_stripe1
+							hovered_stripe2: option_stripe2
+							stripe_animation_duration: stripe_animation_duration
+						
+							max_amount_of_options: root.max_amount_of_options
+						
+						
+							option_height:  tray_height 
+							option_width:   root.option_width
+							option_angle:   tray_angle
+							option_spacing: root.option_spacing
+						
+							fontFamily: root.fontFamily
+							fontSize :  root.fontSize
+						}
 					}
 				}
 			}
