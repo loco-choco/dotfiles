@@ -14,15 +14,23 @@ in
     ./hardware-configuration.nix
   ];
   
-  ## Minimal === 
-  ##              Device Manager = mdevd
-  ##              Seat   Manager = seatd
-  ##              Wifi   Manager = iwd
+  ## Full === 
+  ##              Device Manager = gardendevd
+  ##              Seat   Manager = elogind
+  ##              Wifi   Manager = ~~networkmanager~~ iwd
   profiles.laptop.enable = true;
-  profiles.laptop.hardwareSupport = "standard"; # TODO go back to minimal
+  profiles.laptop.hardwareSupport = "full";
+
+
+
+  ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
 
   ## Hardware Specifics Configuration ##
+  ### Wifi Management
+  services.networkmanager.enable = false;
+  services.iwd.enable = true;
+  ### Ethernet Management
   services.dhcpcd.enable = true; ## Ethernet
   boot.kernelModules = [ "uhid" ]; ## BLE Mouse Connection
 
@@ -90,14 +98,15 @@ in
   }; 
 
   ## Users Configuration ##
+  profiles.laptop.user = "locochoco"; # Default user Config
   users.users.locochoco = {
-    isNormalUser = true;
-    extraGroups =    
-      [ "wheel" "video" "audio" "render" "input" ]
-      ++ lib.optionals config.services.networkmanager.enable [ "networkmanager" ]
-      ++ lib.optionals config.services.seatd.enable [ config.services.seatd.group ];
+    extraGroups = [ "render" ]; ## render - use gpu guy
     shell = pkgs.nushell;
   };
+
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
 
   ## HJEM Configuration ##
   hjem.users.locochoco = {
