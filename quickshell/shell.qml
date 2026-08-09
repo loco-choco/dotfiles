@@ -25,6 +25,11 @@ ShellRoot {
 	}
 	LazyLoader {
 		active: true
+		component: NotificationPopup {
+		}
+	}
+	LazyLoader {
+		active: true
 		component: SystemTray {
 			black:            Config.colors.black	
 			white:            Config.colors.white	
