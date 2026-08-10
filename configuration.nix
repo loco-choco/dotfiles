@@ -154,6 +154,7 @@ in
     npins
     neovim
     timg
+    numbat
     mpv
     gpu-screen-recorder
     ## Window Manager Experience
