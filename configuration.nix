@@ -108,18 +108,6 @@ in
   users.groups.plugdev = { };
 
   hardware.uinput.enable = true;
-  services.udev.packages = with pkgs; [
-    #game-devices-udev
-    ## TODO Find a way to not rely on plugdev, and actually use the uaccess TAG 
-    (writeTextFile {
-      name = "70-hidraw-plugdev.rules";
-      destination = "/etc/udev/rules.d/99-controller-hidraw-plugdev.rules";
-      text = ''
-        # KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
-	KERNEL=="hidraw*", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="6006", GROUP="plugdev", MODE="0660"
-      '';
-    })
-  ];
 
   ## HJEM Configuration ##
   hjem.users.locochoco = {
