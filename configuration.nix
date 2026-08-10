@@ -142,6 +142,8 @@ in
     vesktop
     ## Gaming
     steam
+    ## Art
+    inkscape
     ## Terminal
     wezterm        
     tmux
