@@ -32,6 +32,7 @@ in
   services.iwd.enable = true;
   ### Ethernet Management
   services.dhcpcd.enable = true; ## Ethernet
+  ### Kernel Modules for specific hardware
   boot.kernelModules = [ "uhid" ]; ## BLE Mouse Connection
 
   ### NVIDIA Drivers (GTX1070)
@@ -70,11 +71,11 @@ in
   ## Desktop Configuration ##
 
   ### Niri 
+  programs.niri.enable = true;
 
   programs.regreet.enable = false;
   services.ly.enable = true;
 
-  programs.niri.enable = true;
   ##### XWayland
   programs.xwayland-satellite.enable = true;
 
@@ -100,12 +101,24 @@ in
   ## Users Configuration ##
   profiles.laptop.user = "locochoco"; # Default user Config
   users.users.locochoco = {
-    extraGroups = [ "render" ]; ## render - use gpu guy
+    extraGroups = [ "video" "audio" "render" "input" "uinput" "plugdev" ]; ## render - use gpu guy
     shell = pkgs.nushell;
   };
 
+  users.groups.plugdev = { };
+
+  hardware.uinput.enable = true;
   services.udev.packages = with pkgs; [
-    game-devices-udev-rules
+    #game-devices-udev
+    ## TODO Find a way to not rely on plugdev, and actually use the uaccess TAG 
+    (writeTextFile {
+      name = "70-hidraw-plugdev.rules";
+      destination = "/etc/udev/rules.d/99-controller-hidraw-plugdev.rules";
+      text = ''
+        # KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="plugdev"
+	KERNEL=="hidraw*", ATTRS{idVendor}=="2dc8", ATTRS{idProduct}=="6006", GROUP="plugdev", MODE="0660"
+      '';
+    })
   ];
 
   ## HJEM Configuration ##

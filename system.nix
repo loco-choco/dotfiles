@@ -11,7 +11,8 @@ let
     ## TODO Make all this more generic
     system = "x86_64-linux";
     config.allowUnfree = true;
-    overlays = [ (final: _: { 
+    overlays = [ (final: _: {
+      game-devices-udev = final.callPackage ./game-devices-udev.nix { }; 
       qml-niri = final.callPackage (import qml-niri) { 
         version = qml-niri.version; 
       }; 
