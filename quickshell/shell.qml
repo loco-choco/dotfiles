@@ -28,6 +28,11 @@ ShellRoot {
 		component: NotificationPopup {
 		}
 	}
+	//LazyLoader {
+	//	active: true
+	//	component: StartMenu {
+	//	}
+	//}
 	LazyLoader {
 		active: true
 		component: SystemTray {
