@@ -14,12 +14,13 @@ in
     ./hardware-configuration.nix
   ];
   
-  ## Full === 
-  ##              Device Manager = gardendevd
-  ##              Seat   Manager = elogind
-  ##              Wifi   Manager = ~~networkmanager~~ iwd
+  ## standard === 
+  ##              Device Manager = keventd
+  ##              Seat   Manager = seatd
+  ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
-  profiles.laptop.hardwareSupport = "full";
+  profiles.laptop.hardwareSupport = "standard";
+  services.keventd.enable = false;
 
 
 
