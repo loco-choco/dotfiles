@@ -137,6 +137,7 @@ in
   environment.systemPackages = with pkgs; [
     ## Browser
     firefox
+    thunderbird
     ## File Browser
     nautilus
     ## Communication
