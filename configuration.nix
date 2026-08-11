@@ -20,9 +20,6 @@ in
   ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
   profiles.laptop.hardwareSupport = "standard";
-  services.keventd.enable = false;
-
-
 
   ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
