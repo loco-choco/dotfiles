@@ -28,11 +28,13 @@ ShellRoot {
 		component: NotificationPopup {
 		}
 	}
-	//LazyLoader {
-	//	active: true
-	//	component: StartMenu {
-	//	}
-	//}
+	LazyLoader {
+		active: true
+		component: StartMenu {
+			fontFamily: Config.clock.fontFamily
+			fontSize: Config.clock.fontSize
+		}
+	}
 	LazyLoader {
 		active: true
 		component: SystemTray {
