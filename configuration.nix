@@ -135,6 +135,8 @@ in
     ## Browser
     firefox
     thunderbird
+    ## Maps
+    comaps
     ## File Browser
     nautilus
     ## Communication
