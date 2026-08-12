@@ -165,7 +165,6 @@ in
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
     awww # Wallpaper
-    swaylock # Temp Lock
     comixcursors.White # Cursor Theme
     ## Terminal Apps
     nix-output-monitor
