@@ -1,9 +1,10 @@
 import QtQuick
 import QtQuick.Shapes
 import QtQuick.Layouts
+
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Services.SystemTray
+import Quickshell.Io
 
 			
 PanelWindow {
@@ -24,16 +25,59 @@ PanelWindow {
 	property string fontFamily
 	property int fontSize : 16 
 
-	readonly property LinearGradient hovered_option_gradient : AnimatedColorStripeGradient {
+	readonly property LinearGradient hovered_button_gradient : AnimatedColorStripeGradient {
 		pixel_size : 20
 		period: stripe_animation_duration
 		stripe1: hovered_stripe1 
 		stripe2: hovered_stripe2 
 	}
 
+	
+	component ButtonContent: QtObject {
+		required property string text
+		property list<string> command : []
+		property bool close_menu_on_pressed : true
+	}
+    	Component {
+    	    id: buttonContentComponent
+    	    ButtonContent {}
+    	}
+	
+
+	property list<ButtonContent> first_menu_section_buttons
+	property list<ButtonContent> second_menu_section_buttons
+
+	property bool completed: false
+        Component.onCompleted: {
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Beastiepedia 󰂾", command: [] }));
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Map 󰍍", command: [] }));
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Items 󰸐", command: ["fuzzel"] }));
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "SportNet ", command: [] }));
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Contacts ", command: [], close_menu_on_pressed: false }));
+
+        	second_menu_section_buttons.push(buttonContentComponent.createObject(root, {text:  "Info 🛈", command:["wezterm", "-e", "btop"] }));
+        	second_menu_section_buttons.push(buttonContentComponent.createObject(root, {text:  "Monitors Off 󰶐", command:["niri", "msg", "action", "power-off-monitors" ] }));
+        	second_menu_section_buttons.push(buttonContentComponent.createObject(root, {text:  "Sleep 󰒲", command:[] }));
+		second_menu_section_buttons.push(buttonContentComponent.createObject(root, {text:  "Exit 󰩈", command:["niri", "msg", "action", "quit"] }));
+
+        	completed = true;
+        }
+
+	
+
+	IpcHandler {
+		target: "start-menu"
+		
+		function show(): void { root.visible = true; }
+		function hide(): void { root.visible = false; }
+		function toggle(): void { root.visible = !root.visible; }
+	}
+
+
 	id: root
 	
-	visible: true 
+	visible: true
+
 	color: "transparent"
 	
 	implicitWidth: screen.width
@@ -44,207 +88,126 @@ PanelWindow {
 	anchors.left: true
 	
 	exclusionMode: ExclusionMode.Ignore
-
-	property var colored_dots: AnimatedPolkaDotsPattern { 
-		texture_size: menu_option_height * density
-	}
-
-	property var colored_squares: AnimatedColoredSquaresPattern { }
 	
 	MouseArea {
 		anchors.fill: parent
 		onClicked: () => root.visible = false;
 	}
 	ColumnLayout {
+		x: 150
+		y: 40 
 		Layout.fillWidth: true
-		spacing: 0 
-		Shape {
-			id: menubg 
-			Layout.fillHeight: true
-			Layout.preferredHeight: root.menu_option_height * 5
-			Layout.preferredWidth: root.menu_option_width 
-			containsMode: Shape.FillContains
-			preferredRendererType: Shape.CurveRenderer
-		
-			ShapePath {
-				readonly property real menu_bg_offset: Math.tan(root.menu_option_angle) *  menuItems.height
-				id: menuItembg 
-				fillColor: white
-				fillItem: ShaderEffectSource {
-					width: 100; height: 100
-					hideSource: true
-					wrapMode: ShaderEffectSource.Repeat
-					sourceItem: colored_dots
-					live: true
-        			}
-				//fillGradient: hoverHandler.hovered ? hovered_option_gradient : null
-				strokeColor: "transparent"
-				startX: 0; startY: 0
-				PathLine { x: menuItembg.menu_bg_offset; y: menuItems.height }
-				PathLine { x: root.menu_option_width + menuItembg.menu_bg_offset; y: menuItems.height }
-				PathLine { x: root.menu_option_width; y: 0 }
+		spacing: 0
+		StartMenuSectionBg { id: menu1; section_height: menuItems.height; section_width: menu_option_width; section_angle: menu_option_angle
+			animation_source: AnimatedPolkaDotsPattern { 
+				texture_size: menu_option_height * density
 			}
 			ColumnLayout {
 				id: menuItems
 				layoutDirection: Qt.LeftToRight
-		
-				//x: posX - width - option_angle * menu_options.length
-				//y: posY - height
-		
 				Layout.fillWidth: true
+
 				spacing: 0 
 				Repeater {
-					model: 5
-					delegate: Shape {
+					model: first_menu_section_buttons
+					delegate: StartMenuButton {
 						id: menuItem 
+
 						required property int index
+						required property var modelData
+
 						Layout.fillHeight: true
 						Layout.preferredHeight: root.menu_option_height
 						Layout.preferredWidth: root.menu_option_width 
-						containsMode: Shape.FillContains
-						preferredRendererType: Shape.CurveRenderer
 						transform: Translate { x: menu_option_angle_offset * index }
+
+						hovered_gradient: hovered_button_gradient
 						
-		
-						ShapePath {
-							id: menuItembg 
-							fillColor: "transparent" 
-							fillGradient: hoverHandler.hovered ? hovered_option_gradient : null
-							strokeColor: "transparent" 
-							startX: 0; startY: 0
-							PathLine { x: menu_option_angle_offset; y: root.menu_option_height }
-							PathLine { x: root.menu_option_width + menu_option_angle_offset; y: root.menu_option_height }
-							PathLine { x: root.menu_option_width; y: 0 }
-						}
-						HoverHandler { id: hoverHandler }
-						TapHandler { 
-							id: tapHandler
-							onTapped: (eventPoint, button) => root.visible = false;
+						angle_offset: menu_option_angle_offset
+						button_width: root.menu_option_width
+						button_height: root.menu_option_height
+						
+						textColor: white 
+						text: modelData.text
+						fontFamily: "Hauser"
+						fontSize: 42 
+						
+						shadowOffsetX: -5
+						shadowOffsetY:  5
+
+						Process {
+							id: button_command
+							running: false 
+							command: modelData.command
 						}
 
-						Text {
-							anchors.right: parent.right
-							anchors.verticalCenter: parent.verticalCenter
-							text: "Beastiepedia 󱓷"
-							font.letterSpacing: 1
-							color: "#80000000" 
-							font.family: "Hauser" 
-							font.bold: true
-							font.pixelSize:  42
-							transform: Translate {x: -5; y: 5}
-						}
-		
-						Text {
-							anchors.right: parent.right
-							anchors.verticalCenter: parent.verticalCenter
-							text: "Beastiepedia 󱓷"
-							font.letterSpacing: 1
-							color: white 
-							font.family: "Hauser" 
-							font.bold: true
-							font.pixelSize:  42
+						TapHandler { 
+							id: tapHandler
+							onTapped: (eventPoint, button) => {
+								if(modelData.close_menu_on_pressed) root.visible = false;
+								if(modelData.command.length > 0) button_command.startDetached();
+							}
 						}
 					}
 				}
 			}
 
 		}
-		Shape {
-			id: menu2bg 
-			Layout.fillHeight: true
-			Layout.preferredHeight: root.menu_option_height * 5
-			Layout.preferredWidth: root.menu_option_width 
-			containsMode: Shape.FillContains
-			preferredRendererType: Shape.CurveRenderer
-
-			transform: Translate { x: menuItembg.menu_bg_offset }
-		
-			ShapePath {
-				id: menu2Itembg 
-				fillColor: white
-				fillItem: ShaderEffectSource {
-					width: 100; height: 100
-					hideSource: true
-					wrapMode: ShaderEffectSource.Repeat
-					sourceItem: colored_squares
-					live: true
-        			}
-				//fillGradient: hoverHandler.hovered ? hovered_option_gradient : null
-				strokeColor: "transparent"
-				startX: 0; startY: 0
-				PathLine { x: menu_option_angle_offset*3; y: root.menu_option_height*3 }
-				PathLine { x: root.menu_option_width + menu_option_angle_offset*3; y: root.menu_option_height*3 }
-				PathLine { x: root.menu_option_width; y: 0 }
-			}
+		StartMenuSectionBg { id:menu2; section_height: menu2Items.height; section_width: menu_option_width; section_angle: menu_option_angle
+			animation_source: AnimatedColoredSquaresPattern { }
+			transform: Translate { x: menu1.offset }
+			
 			ColumnLayout {
 				id: menu2Items
 				layoutDirection: Qt.LeftToRight
 		
-				//x: posX - width - option_angle * menu_options.length
-				//y: posY - height
-		
 				Layout.fillWidth: true
 				spacing: 0 
 				Repeater {
-					model: 3
-					delegate: Item { 
+					model: second_menu_section_buttons
+					delegate: StartMenuButton { 
 						id: menu2Item 
 						required property int index
+						required property var modelData
+
 						Layout.fillHeight: true
 						Layout.preferredHeight: root.menu_option_height
 						Layout.preferredWidth: root.menu_option_width 
 						transform: Translate { x: menu_option_angle_offset * index }
-		
-						Shape {
-							id: menu2Itembg 
-							containsMode: Shape.FillContains
-							preferredRendererType: Shape.CurveRenderer
 
-							ShapePath {
-								fillColor: "transparent" 
-								fillGradient: hoverHandler.hovered ? hovered_option_gradient : null
-								strokeColor: "transparent"
-								startX: 0; startY: 0
-								PathLine { x: menu_option_angle_offset; y: root.menu_option_height }
-								PathLine { x: root.menu_option_width + menu_option_angle_offset; y: root.menu_option_height }
-								PathLine { x: root.menu_option_width; y: 0 }
-							}
+						hovered_gradient: hovered_button_gradient
+						
+						angle_offset: menu_option_angle_offset
+						button_width: root.menu_option_width
+						button_height: root.menu_option_height
+						
+						textColor: white 
+						text: modelData.text
+						fontFamily: "Hauser"
+						fontSize: 42 
+						
+						shadowOffsetX: -5
+						shadowOffsetY:  5
+
+						Process {
+							id: button_command
+							running: false 
+							command: modelData.command
 						}
-						HoverHandler { id: hoverHandler }
+
 						TapHandler { 
 							id: tapHandler
-							onTapped: (eventPoint, button) => root.visible = false;
-						}
-
-						Text {
-							anchors.right: parent.right
-							anchors.verticalCenter: parent.verticalCenter
-							text: "Info 🛈"
-							font.letterSpacing: 1
-							color: "#80000000" 
-							font.family: "Hauser" 
-							font.bold: true
-							font.pixelSize:  42
-							transform: Translate {x: -5; y: 5}
-						}
-		
-						Text {
-							anchors.right: parent.right
-							anchors.verticalCenter: parent.verticalCenter
-							text: "Info 🛈"
-							font.letterSpacing: 1
-							color: white 
-							font.family: "Hauser" 
-							font.bold: true
-							font.pixelSize:  42
+							onTapped: (eventPoint, button) => {
+								if(modelData.close_menu_on_pressed) root.visible = false;
+								if(modelData.command.length > 0) button_command.startDetached();
+							}
 						}
 					}
 				}
+
 			}
-
-		}
-
 		
+		}
 	}
 }
 
