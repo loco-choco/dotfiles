@@ -159,12 +159,14 @@ in
     timg
     numbat
     mpv
+    kdePackages.kompare
     gpu-screen-recorder
     btop-cuda
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
     awww # Wallpaper
+    dragon-drop
     comixcursors.White # Cursor Theme
     ## Terminal Apps
     nix-output-monitor
