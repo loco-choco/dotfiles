@@ -13,7 +13,9 @@ Item {
 	property int spacerMargin: 30
 	property string fontFamily: "" 
 	property int fontSize: 30
-	property string spacerFontFamily: "" 
+	property string spacerFontFamily: ""
+
+	signal pressed()
 
 	PanelWindow {
 		anchors.top: true
@@ -45,6 +47,12 @@ Item {
 	    			PathLine { x: clock_width; y: 0 }
 	    			PathLine { x:   0; y: 0 }
 			}
+
+			TapHandler { 
+				id: tapHandler
+				onTapped: (eventPoint, button) => root.pressed()
+			}
+
 			Item {
 				id: clock_display 
 				anchors.verticalCenter: background.verticalCenter

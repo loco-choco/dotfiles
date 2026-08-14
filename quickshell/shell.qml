@@ -10,6 +10,7 @@ import "config.js" as Config
 
 ShellRoot {
 	LazyLoader {
+		id: clock_loader
 		active: true
 		component: Clock {
 			black:            Config.colors.black	
@@ -21,6 +22,8 @@ ShellRoot {
 			fontFamily:       Config.clock.fontFamily
 			fontSize:         Config.clock.fontSize
 			spacerFontFamily: Config.clock.spacerFontFamily
+
+			onPressed: start_menu_loader.item.visible = true;
 		}
 	}
 	LazyLoader {
@@ -29,6 +32,7 @@ ShellRoot {
 		}
 	}
 	LazyLoader {
+		id: start_menu_loader
 		active: true
 		component: StartMenu {
 			fontFamily: Config.clock.fontFamily
