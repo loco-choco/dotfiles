@@ -151,6 +151,8 @@ in
     nushell
     ## Shell
     busybox
+    gnumake # make
+    gcc # cc
     just
     git
     jujutsu
@@ -162,6 +164,9 @@ in
     kdePackages.kompare
     gpu-screen-recorder
     btop-cuda
+    ## Fstar
+    fstar
+    z3
     ## Window Manager Experience
     fuzzel # launcher
     (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
@@ -174,6 +179,15 @@ in
     bluetui
     ## SSH
     sshfs ## Fuse SSH mount
+    ## Neovim Plugins External Dependencies
+    ### Telescope
+    ripgrep # rg
+    fd # fd
+    ### Treesitter
+    tree-sitter
+    # (tree-sitter.withPlugins (p: [ p.tree-sitter-c p.tree-sitter-lua p.tree-sitter-fstar ]))
+    ### FStar.nvim
+    nodejs-slim
   ];
 
 

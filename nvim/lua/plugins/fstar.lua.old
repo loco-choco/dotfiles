@@ -1,0 +1,9 @@
+--return {
+--  {
+--    "funemy/fstar.nvim",
+--    ft = "fstar",
+--    config = function()
+--      require("fstar").setup()
+--    end,
+--  }
+--}
