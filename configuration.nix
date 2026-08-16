@@ -1,7 +1,14 @@
+{ modules, config, lib, pkgs, ... }:
 let
   mkFont = import ./mkFont.nix;
+  dotnet = (
+    with pkgs.dotnetCorePackages;
+    combinePackages [
+      sdk_9_0
+      sdk_10_0
+    ]
+  );
 in
-{ modules, config, lib, pkgs, ... }:
 {
   imports = [
     modules.dhcpcd
@@ -188,6 +195,9 @@ in
     # (tree-sitter.withPlugins (p: [ p.tree-sitter-c p.tree-sitter-lua p.tree-sitter-fstar ]))
     ### FStar.nvim
     nodejs-slim
+    ### Dotnet and dotnet lsp
+    dotnet
+    csharp-ls
   ];
 
 
