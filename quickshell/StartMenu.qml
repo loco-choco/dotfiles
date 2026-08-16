@@ -50,7 +50,7 @@ PanelWindow {
 	property bool completed: false
         Component.onCompleted: {
         	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Beastiepedia 󰂾", command: [] }));
-        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Map 󰍍", command: [] }));
+        	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Map 󰍍", command: ["CoMaps"] }));
         	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Items 󰸐", command: ["fuzzel"] }));
         	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "SportNet ", command: [] }));
         	first_menu_section_buttons.push(buttonContentComponent.createObject(root, {text: "Contacts ", command: [], close_menu_on_pressed: false }));
