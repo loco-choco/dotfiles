@@ -1,8 +1,8 @@
 require('mini.snippets').setup({})
 require('mini.completion').setup({})
 
-vim.lsp.enable({'rust_analyzer', 'csharp_ls', 'fstar'})
+vim.lsp.enable({'rust_analyzer', 'csharp_ls'})
 
-vim.lsp.config['fstar'] = {
-  cmd - {'fstar.exe', '--ide'}
-})
+-- vim.lsp.config['fstar'] = {
+--   cmd = {'fstar.exe', '--ide'},
+-- }

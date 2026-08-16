@@ -194,7 +194,6 @@ in
     tree-sitter
     # (tree-sitter.withPlugins (p: [ p.tree-sitter-c p.tree-sitter-lua p.tree-sitter-fstar ]))
     ### FStar.nvim
-    nodejs-slim
     ### Dotnet and dotnet lsp
     dotnet
     csharp-ls
