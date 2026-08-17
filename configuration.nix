@@ -160,6 +160,7 @@ in
     busybox
     gnumake # make
     gcc # cc
+    rustup
     just
     git
     jujutsu
@@ -197,6 +198,8 @@ in
     ### Dotnet and dotnet lsp
     dotnet
     csharp-ls
+    ### Rust
+    # rustup
   ];
 
 
