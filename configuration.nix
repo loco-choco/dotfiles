@@ -150,6 +150,7 @@ in
     vesktop
     ## Gaming
     steam
+	 owmods-cli
     ## Art
     inkscape
     ## Terminal
