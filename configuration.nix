@@ -153,6 +153,8 @@ in
 	 owmods-cli
     ## Art
     inkscape
+	 ## Music
+	 musescore
     ## Terminal
     wezterm        
     tmux
