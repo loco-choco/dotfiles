@@ -62,100 +62,83 @@ Item {
 		anchors.right: true
 		anchors.left: true
 	
-		implicitWidth: background.width
-		implicitHeight: background.height
+		implicitWidth: sys_tray_items.width
+		implicitHeight: tray_height
 	
 		color: "transparent"
 	
-		Shape {
-			id: background
+		RowLayout {
+			id: sys_tray_items
+			layoutDirection: Qt.RightToLeft
 			anchors.right: parent.right
-			preferredRendererType: Shape.CurveRenderer
-			
-			property int tray_width:  sys_tray_items.width 
-			
-			ShapePath {
-				id: background_path
-				fillColor: black 
-				strokeColor: "transparent"
-	    			startX: 0; startY: tray_height
-	    			PathLine { x: -background.tray_width + tray_angle; y: tray_height }
-	    			PathLine { x: -background.tray_width; y: 0 }
-	    			PathLine { x:   0; y: 0 }
-			}
-			RowLayout {
-				id: sys_tray_items
-				layoutDirection: Qt.RightToLeft
-				anchors.right: parent.right
-				Layout.fillHeight: true
-				spacing: 0	
-				Repeater {
-					model: SystemTray.items.values
-					delegate: Shape {
-						id: trayItem
-						required property var modelData
-						required property int index
-						Layout.fillHeight: true
-						Layout.preferredHeight: tray_height
-						Layout.preferredWidth: tray_item_width
-						containsMode: Shape.FillContains
-						preferredRendererType: Shape.CurveRenderer
+			Layout.fillHeight: true
+			spacing: 0	
+			Repeater {
+				model: SystemTray.items.values
+				delegate: Shape {
+					id: trayItem
+					required property var modelData
+					required property int index
+					Layout.fillHeight: true
+					Layout.preferredHeight: tray_height
+					Layout.preferredWidth: tray_item_width
+					containsMode: Shape.FillContains
+					preferredRendererType: Shape.CurveRenderer
 
-						ShapePath {
-							id: trayItembg 
-							fillColor: black
-							strokeColor: "transparent"
+					ShapePath {
+						id: trayItembg 
+						fillColor: black
+						strokeColor: "transparent"
 
-							fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
+						fillGradient: !modelData.hasMenu ? null : !hoverHandler.hovered ? has_menu_gradient : hovered_menu_gradient
 
-	    						startX: 0; startY: 0
-	    						PathLine { x: tray_angle; y: tray_height }
-	    						PathLine { x: tray_item_width + tray_angle; y: tray_height }
-	    						PathLine { x: tray_item_width; y: 0 }
-						}
-						Image {
-							anchors.fill: parent
-							fillMode: Image.PreserveAspectFit
-							source: modelData.icon
-							
-						}
-						QsMenuOpener {
-							id: trayItemMenuOpener
-							menu: modelData.menu
-						}
-						HoverHandler { id: hoverHandler }
-						TapHandler { 
-							id: tapHandler
-							onTapped: (eventPoint, button) => trayItemMenu.visible = !trayItemMenu.visible
+	   					startX: 0; startY: 0
+	   					PathLine { x: tray_angle; y: tray_height }
+	   					PathLine { x: tray_item_width + tray_angle; y: tray_height }
+	   					PathLine { x: tray_item_width; y: 0 }
+					}
+					Image {
+						anchors.fill: parent
+						fillMode: Image.PreserveAspectFit
+						source: modelData.icon
+						
+					}
+					QsMenuOpener {
+						id: trayItemMenuOpener
+						menu: modelData.menu
+					}
+					HoverHandler { id: hoverHandler }
+					TapHandler { 
+						id: tapHandler
+						onTapped: (eventPoint, button) => trayItemMenu.visible = !trayItemMenu.visible
 
-						}
+					}
 
-						SystemTrayPopup {
-							id: trayItemMenu
-							parentWindow: systemTray
-							menu: trayItemMenuOpener
+					SystemTrayPopup {
+						id: trayItemMenu
+						parentWindow: systemTray
+						menu: trayItemMenuOpener
 
-							posX: systemTray.screen.width - trayItem.width * (index + 1)
-							posY: systemTray.screen.height - systemTray.height
-						
-							black: black
-							white: white
-						
-							hovered_stripe1: option_stripe1
-							hovered_stripe2: option_stripe2
-							stripe_animation_duration: stripe_animation_duration
-						
-							max_amount_of_options: root.max_amount_of_options
-						
-						
-							option_height:  tray_height 
-							option_width:   root.option_width
-							option_angle:   tray_angle
-							option_spacing: root.option_spacing
-						
-							fontFamily: root.fontFamily
-							fontSize :  root.fontSize
-						}
+						posX: systemTray.screen.width - trayItem.width * (index + 1)
+						posY: systemTray.screen.height - systemTray.height
+					
+						black: black
+						white: white
+					
+						hovered_stripe1: option_stripe1
+						hovered_stripe2: option_stripe2
+						stripe_animation_duration: stripe_animation_duration
+					
+						max_amount_of_options: root.max_amount_of_options
+					
+					
+						option_height:  tray_height 
+						option_width:   root.option_width
+						option_angle:   tray_angle
+						option_spacing: root.option_spacing
+					
+						fontFamily: root.fontFamily
+						fontSize :  root.fontSize
 					}
 				}
 			}
