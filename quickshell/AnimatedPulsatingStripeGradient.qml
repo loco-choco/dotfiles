@@ -15,13 +15,13 @@ ColorStripeGradient {
 		loops: Animation.Infinite
 		PropertyAnimation { to: 1.00; duration: stripe_period }
 	}
-	stripe1_color: hovered_stripe1
+	stripe1_color: stripe1
 	SequentialAnimation on stripe1_color {
 		loops: Animation.Infinite
 		ColorAnimation { to: stripe1; duration: pulse_period / 2 }
 		ColorAnimation { to: Qt.lighter(stripe1, lightening); duration: pulse_period / 2 }
 	}
-	stripe2_color: hovered_stripe2
+	stripe2_color: stripe2
 	SequentialAnimation on stripe2_color {
 		loops: Animation.Infinite
 		ColorAnimation { to: stripe2;   duration: pulse_period / 2 }

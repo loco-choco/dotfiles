@@ -24,8 +24,9 @@ Item {
 	property real hovered_pulse_animation_lightening: 1.5
 
 	property int tray_height: 40 
-	property int tray_width:  systemTray.screen.width / 2
 	property int tray_angle: 15
+
+	property int tray_item_width: 60 
 
 	property string fontFamily
 	property int fontSize: 16
@@ -70,19 +71,22 @@ Item {
 			id: background
 			anchors.right: parent.right
 			preferredRendererType: Shape.CurveRenderer
+			
+			property int tray_width:  sys_tray_items.width 
+			
 			ShapePath {
 				id: background_path
 				fillColor: black 
 				strokeColor: "transparent"
 	    			startX: 0; startY: tray_height
-	    			PathLine { x: -tray_width + tray_angle; y: tray_height }
-	    			PathLine { x: -tray_width; y: 0 }
+	    			PathLine { x: -background.tray_width + tray_angle; y: tray_height }
+	    			PathLine { x: -background.tray_width; y: 0 }
 	    			PathLine { x:   0; y: 0 }
 			}
 			RowLayout {
+				id: sys_tray_items
 				layoutDirection: Qt.RightToLeft
 				anchors.right: parent.right
-				Layout.maximumWidth: tray_width
 				Layout.fillHeight: true
 				spacing: 0	
 				Repeater {
@@ -93,7 +97,7 @@ Item {
 						required property int index
 						Layout.fillHeight: true
 						Layout.preferredHeight: tray_height
-						Layout.preferredWidth: 60
+						Layout.preferredWidth: tray_item_width
 						containsMode: Shape.FillContains
 						preferredRendererType: Shape.CurveRenderer
 
@@ -106,8 +110,8 @@ Item {
 
 	    						startX: 0; startY: 0
 	    						PathLine { x: tray_angle; y: tray_height }
-	    						PathLine { x: 60 + tray_angle; y: tray_height }
-	    						PathLine { x: 60; y: 0 }
+	    						PathLine { x: tray_item_width + tray_angle; y: tray_height }
+	    						PathLine { x: tray_item_width; y: 0 }
 						}
 						Image {
 							anchors.fill: parent
