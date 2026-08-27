@@ -15,6 +15,28 @@ Item {
 	property int fontSize: 30
 	property string spacerFontFamily: ""
 
+	property string clock_stripe1: "#2e2e2e"
+	property string clock_stripe2: "black"
+
+	property int           stripe_animation_duration: 2000
+	property int    hovered_pulse_animation_duration: 2000
+	property real hovered_pulse_animation_lightening: 2
+	
+	readonly property LinearGradient clock_gradient : AnimatedColorStripeGradient {
+		period: 2000
+		stripe1: clock_stripe1
+		stripe2: clock_stripe2 
+	}
+	
+	readonly property LinearGradient hovered_clock_gradient : AnimatedPulsatingStripeGradient {
+		stripe_period: 2000
+		pulse_period: 2000
+
+		stripe1: clock_stripe1
+		stripe2: clock_stripe2
+		lightening: hovered_pulse_animation_lightening
+	}
+
 	signal pressed()
 
 	PanelWindow {
@@ -41,11 +63,16 @@ Item {
 			ShapePath {
 				id: background_path
 				fillColor: black 
+				fillGradient: hoverHandler.hovered ? hovered_clock_gradient : clock_gradient
 				strokeColor: "transparent"
 	    			startX: 0; startY: clock_height
 	    			PathLine { x: clock_width - clock_angle; y: clock_height }
 	    			PathLine { x: clock_width; y: 0 }
 	    			PathLine { x:   0; y: 0 }
+			}
+
+			HoverHandler { 
+				id: hoverHandler
 			}
 
 			TapHandler { 
