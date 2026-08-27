@@ -32,7 +32,6 @@ PanelWindow {
 		stripe2: hovered_stripe2 
 	}
 
-	
 	component ButtonContent: QtObject {
 		required property string text
 		property list<string> command : []
@@ -68,9 +67,9 @@ PanelWindow {
 	IpcHandler {
 		target: "start-menu"
 		
-		function show(): void { root.visible = true; }
-		function hide(): void { root.visible = false; }
-		function toggle(): void { root.visible = !root.visible; }
+		function open(): void { root.open(); }
+		function close(): void { root.close(); }
+		function toggle(): void { root.toggle(); }
 	}
 
 
@@ -88,10 +87,36 @@ PanelWindow {
 	anchors.left: true
 	
 	exclusionMode: ExclusionMode.Ignore
-	
+
+	function open(): void {
+		root.visible = true;
+		open_menu_sfx.startDetached();
+	}
+
+	function close(): void {
+		root.visible = false;
+		close_menu_sfx.startDetached();
+	}
+
+	function toggle(): void {
+		root.visible ? root.close() : root.open();
+	}
+
+	Process {
+		id: open_menu_sfx
+		running: false 
+		command: [ "play", "./audio/sfx/ui_menu_in.wav" ]
+	}
+
+	Process {
+		id: close_menu_sfx
+		running: false 
+		command: [ "play", "./audio/sfx/ui_menu_out.wav" ]
+	}
+
 	MouseArea {
 		anchors.fill: parent
-		onClicked: () => root.visible = false;
+		onClicked: () => root.close();
 	}
 	ColumnLayout {
 		x: 150
@@ -195,12 +220,9 @@ PanelWindow {
 							command: modelData.command
 						}
 
-						TapHandler { 
-							id: tapHandler
-							onTapped: (eventPoint, button) => {
-								if(modelData.close_menu_on_pressed) root.visible = false;
-								if(modelData.command.length > 0) button_command.startDetached();
-							}
+						onTapped: () => {
+							if(modelData.close_menu_on_pressed) root.close();
+							if(modelData.command.length > 0) button_command.startDetached();
 						}
 					}
 				}

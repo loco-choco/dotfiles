@@ -3,6 +3,8 @@ import QtQuick.Shapes
 import QtQuick.Layouts
 import QtQuick.Effects
 
+import Quickshell.Io
+
 Shape {
 	id: root 
 	containsMode: Shape.FillContains
@@ -23,6 +25,8 @@ Shape {
 	property int shadowOffsetX : -5
 	property int shadowOffsetY :  5
 
+	signal tapped()
+
 	ShapePath {
 		fillColor: "transparent" 
 		fillGradient: hoverHandler.hovered ? hovered_gradient : null
@@ -33,12 +37,34 @@ Shape {
 		PathLine { x: root.button_width; y: 0 }
 	}
 
+	MouseArea {
+		hoverEnabled: true
+		anchors.fill: parent
+		onEntered: () => { selected_sfx.running = true; }
+		onPressed: () => { 
+			tapped_sfx.startDetached();
+			root.tapped();
+		}
+	}
+
 	HoverHandler { id: hoverHandler }
 
-    	MultiEffect {
+	Process {
+		id: selected_sfx 
+		running: false 
+		command: [ "sh", "./scripts/play_random_from_folder.sh", "./audio/sfx/ui_menu_hover" ]
+	}
+
+	Process {
+		id: tapped_sfx 
+		running: false 
+		command: [ "play", "./audio/sfx/ui_menu_select.wav" ]
+	}
+
+   MultiEffect {
 		source: textContent; anchors.fill: textContent;
 		shadowEnabled: true; shadowBlur: 0; shadowOpacity: root.shadowOpacity; shadowHorizontalOffset: root.shadowOffsetX; shadowVerticalOffset: shadowOffsetY;
-    	}
+   }
 	
 	Text {
 		id: textContent

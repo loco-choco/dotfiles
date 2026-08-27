@@ -54,7 +54,6 @@ Item {
 	  		precision: SystemClock.Seconds
 		}
 	
-	
 		Shape {
 			id: background
 			anchors.left: parent.left

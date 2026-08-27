@@ -23,7 +23,7 @@ ShellRoot {
 			fontSize:         Config.clock.fontSize
 			spacerFontFamily: Config.clock.spacerFontFamily
 
-			onPressed: start_menu_loader.item.visible = true;
+			onPressed: start_menu_loader.item.open();
 		}
 	}
 	LazyLoader {
@@ -48,7 +48,7 @@ ShellRoot {
 			menu_stripe1: "#2e2e2e"
 			menu_stripe2: "black"
 
-			hovered_stripe1: "#6f6f6f"
+			hovered_stripe1: "#6f6f6f" 
 			hovered_stripe2: "#4f4f4f"
 			
 			option_stripe1: "#ff904c"
