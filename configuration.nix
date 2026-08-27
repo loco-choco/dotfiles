@@ -123,7 +123,7 @@ in
       ## Wezterm 
       ".config/wezterm".source = ./wezterm;
       ## Neovim
-      ".config/nvim".source = ./nvim;
+      # ".config/nvim".source = ./nvim;
       ## Quickshell 
       ".config/quickshell".source = ./quickshell;
       # Custom Cursor Theme
@@ -131,8 +131,8 @@ in
       #".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
       # Wallpaper
       ".wallpaper.png".source = pkgs.fetchurl {
-	  url = "https://64.media.tumblr.com/7b2a35edb112458d08e35ca325a0ff44/d00014da2c3e6563-37/s2048x3072/1f535d63af44413c3fefc6d070a2830675b47634.pnj";
-	  hash = "sha256-gr1lYMwKbGiKfG9KeLFmrdPI24THElMMZDTemQJOUXc=";
+	      url = "https://64.media.tumblr.com/7b2a35edb112458d08e35ca325a0ff44/d00014da2c3e6563-37/s2048x3072/1f535d63af44413c3fefc6d070a2830675b47634.pnj";
+	      hash = "sha256-gr1lYMwKbGiKfG9KeLFmrdPI24THElMMZDTemQJOUXc=";
       };
     };
   };
@@ -176,6 +176,8 @@ in
     kdePackages.kompare
     gpu-screen-recorder
     btop-cuda
+	 ## Video Recording
+	 obs-studio
     ## Fstar
     fstar
     z3
@@ -185,6 +187,7 @@ in
     awww # Wallpaper
     dragon-drop
     comixcursors.White # Cursor Theme
+	 sox # play - sfx
     ## Terminal Apps
     nix-output-monitor
     ## Bluetooth Client
