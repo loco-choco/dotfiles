@@ -174,10 +174,10 @@ in
     numbat
     mpv
     kdePackages.kompare
-    gpu-screen-recorder
+    (gpu-screen-recorder.override { ffmpeg = ffmpeg_8; })
     btop-cuda
 	 ## Video Recording
-	 obs-studio
+	 (obs-studio.override { ffmpeg = ffmpeg_8; })
     ## Fstar
     fstar
     z3
