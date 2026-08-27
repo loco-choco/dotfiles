@@ -141,6 +141,7 @@ in
   environment.systemPackages = with pkgs; [
     ## Browser
     firefox
+	 ungoogled-chromium
     thunderbird
     ## Maps
     comaps
