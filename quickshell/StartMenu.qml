@@ -105,13 +105,13 @@ PanelWindow {
 	Process {
 		id: open_menu_sfx
 		running: false 
-		command: [ "play", "./audio/sfx/ui_menu_in.wav" ]
+		command: [ "play", "~/.config/quickshell/audio/sfx/ui_menu_in.wav" ]
 	}
 
 	Process {
 		id: close_menu_sfx
 		running: false 
-		command: [ "play", "./audio/sfx/ui_menu_out.wav" ]
+		command: [ "play", "~/.config/quickshell/audio/sfx/ui_menu_out.wav" ]
 	}
 
 	MouseArea {
@@ -166,12 +166,9 @@ PanelWindow {
 							command: modelData.command
 						}
 
-						TapHandler { 
-							id: tapHandler
-							onTapped: (eventPoint, button) => {
-								if(modelData.close_menu_on_pressed) root.visible = false;
-								if(modelData.command.length > 0) button_command.startDetached();
-							}
+						onTapped: (eventPoint, button) => {
+							if(modelData.close_menu_on_pressed) root.close();
+							if(modelData.command.length > 0) button_command.startDetached();
 						}
 					}
 				}

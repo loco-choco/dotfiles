@@ -52,13 +52,13 @@ Shape {
 	Process {
 		id: selected_sfx 
 		running: false 
-		command: [ "sh", "./scripts/play_random_from_folder.sh", "./audio/sfx/ui_menu_hover" ]
+		command: [ "sh", "/home/locochoco/.config/quickshell/scripts/play_random_from_folder.sh", "/home/locochoco/.config/quickshell/audio/sfx/ui_menu_hover/" ]
 	}
 
 	Process {
 		id: tapped_sfx 
 		running: false 
-		command: [ "play", "./audio/sfx/ui_menu_select.wav" ]
+		command: [ "play", "~/.config/quickshell/audio/sfx/ui_menu_select.wav" ]
 	}
 
    MultiEffect {
