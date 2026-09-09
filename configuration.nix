@@ -175,6 +175,8 @@ in
     mpv
     kdePackages.kompare
     (gpu-screen-recorder.override { ffmpeg = ffmpeg_8; })
+	 ## Modelsim
+	 quartus-prime-lite
     btop-cuda
 	 ## Video Recording
 	 (obs-studio.override { ffmpeg = ffmpeg_8; })
