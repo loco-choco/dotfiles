@@ -3,8 +3,6 @@ let
   finix = import sources.finix;
   community-modules = import sources.community-modules;
   nixpkgs = sources.nixpkgs;
-  ## QS Niri Integration Plugin
-  qml-niri = sources.qml-niri;
   ## Overlays and other nixpkgs configs
   pkgs = import nixpkgs { 
     ## TODO Make all this more generic
@@ -12,9 +10,6 @@ let
     config.allowUnfree = true;
     overlays = [ (final: _: {
       game-devices-udev = final.callPackage ./game-devices-udev.nix { }; 
-      qml-niri = final.callPackage (import qml-niri) { 
-        version = qml-niri.version; 
-      }; 
     }) ];
   }; 
   ## HJEM Initialization

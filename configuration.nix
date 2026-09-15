@@ -193,7 +193,7 @@ in
     z3
     ## Window Manager Experience
     fuzzel # launcher
-    (quickshell.overrideAttrs (prev: { buildInputs = prev.buildInputs ++ [qml-niri]; })) # Quickshell
+    quickshell # Quickshell
     awww # Wallpaper
     dragon-drop
     comixcursors.White # Cursor Theme
