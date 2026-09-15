@@ -39,19 +39,6 @@
       "url": "https://github.com/feel-co/hjem/archive/e5e30b4320a8cbcd6cdfc65f044763669a8f0363.tar.gz",
       "hash": "sha256-0nvWuRbgL4GEKpR8Y4wsB3kmsVgyd0cW8kLHc2BqlTc="
     },
-    "laptop-profile": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "finix-community",
-        "repo": "community-modules"
-      },
-      "branch": "profiles/laptop",
-      "submodules": false,
-      "revision": "6f9f0882b0d8dd51db325a86ccda6f3da1d9d216",
-      "url": "https://github.com/finix-community/community-modules/archive/6f9f0882b0d8dd51db325a86ccda6f3da1d9d216.tar.gz",
-      "hash": "sha256-ja8Yl1xAAQAXAMqN9S6BGQIQF3IYwiqLjO/F5GW9nls="
-    },
     "nh": {
       "type": "GitRelease",
       "repository": {

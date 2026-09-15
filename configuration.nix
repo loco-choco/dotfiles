@@ -21,20 +21,23 @@ in
     ./hardware-configuration.nix
   ];
   
-  ## standard === 
-  ##              Device Manager = keventd
+  ## minimal === 
+  ##              Device Manager = (mdevd) keventd
   ##              Seat   Manager = seatd
   ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
-  profiles.laptop.hardwareSupport = "standard";
+  profiles.laptop.hardwareSupport = "minimal";
 
   ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
 
   ## Hardware Specifics Configuration ##
+  ### Device Management
+  services.mdevd.enable = lib.mkForce false;
+  services.keventd.enable = true;
   ### Wifi Management
-  services.networkmanager.enable = false;
-  services.iwd.enable = true;
+  ## services.networkmanager.enable = false;
+  ## services.iwd.enable = true;
   ### Ethernet Management
   services.dhcpcd.enable = true; ## Ethernet
   ### Kernel Modules for specific hardware
@@ -104,10 +107,15 @@ in
   }; 
 
   ## Users Configuration ##
-  profiles.laptop.user = "locochoco"; # Default user Config
-  users.users.locochoco = {
-    extraGroups = [ "video" "audio" "render" "input" "uinput" "plugdev" ]; ## render - use gpu guy
-    shell = pkgs.nushell;
+  users.users =  {
+    locochoco = {
+      isNormalUser = lib.mkDefault true;
+      extraGroups = [ 
+        "video" "audio" "render" "input" "uinput" "plugdev" 
+    	 "wheel" config.services.seatd.group 
+      ]; ## render - use gpu guy 
+      shell = pkgs.nushell;
+    };
   };
 
   users.groups.plugdev = { };

@@ -2,7 +2,6 @@ let
   sources = import ./npins;
   finix = import sources.finix;
   community-modules = import sources.community-modules;
-  laptop-profile = import sources.laptop-profile;
   nixpkgs = sources.nixpkgs;
   ## QS Niri Integration Plugin
   qml-niri = sources.qml-niri;
@@ -30,7 +29,7 @@ in finix.lib.finixSystem {
     ## HJEM Module 
     hjem.finixModules.default
     ## Base Laptop Profile
-    laptop-profile.nixosModules.laptop
+    community-modules.nixosModules.laptop
     ## Actual machine configuration
     ./configuration.nix
     ## Base Nix/Nixpkgs Configuration
