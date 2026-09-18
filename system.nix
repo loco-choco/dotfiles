@@ -18,44 +18,43 @@ let
     finix = finix;
   };
 
-in finix.lib.finixSystem {
-  lib = pkgs.lib;
-  modules = [
-    ## HJEM Module 
-    hjem.finixModules.default
-    ## Base Laptop Profile
-    community-modules.nixosModules.laptop
-    ## Actual machine configuration
-    ./configuration.nix
-    ## Base Nix/Nixpkgs Configuration
-    {
-      networking.hostName = "harpia";
-      ## Nixpkgs local pinning
-      nixpkgs.pkgs = pkgs;
-      environment.variables = {
-      	NIX_PATH = "nixpkgs=${nixpkgs}";
-      };
-      finit.package = pkgs.finit.overrideAttrs (o: {
-        version = "5.0";
-        src = pkgs.fetchFromGitHub {
-          owner = "finit-project";
-          repo = "finit";
-          rev = "ad8ed05d64a4e274e39ac2d061fe8c3aa8a87c22";
-          sha256 = "sha256-SJTnrcgRx/M07pOQAnm+LeiXSq9YGCON2yHLaKCMyJw=";
-        };
-
-        buildInputs = o.buildInputs ++ [ pkgs.util-linuxMinimal.dev ];
-
-        postPatch = (o.postPatch or "") + ''
-          substituteInPlace keventd/uevent.c \
-            --replace-fail '"/sbin/modprobe", "modprobe"' '"${pkgs.kmod}/bin/modprobe", "modprobe"' \
-            --replace-fail '"/usr/lib/firmware/' '"/run/current-system/firmware/lib/firmware/'
-
-          substituteInPlace keventd/builtin.c \
-            --replace-fail  '"/lib/udev/hwdb.d"' '"/run/current-system/sw/lib/udev/hwdb.d"' \
-            --replace-fail  '"/usr/share/hwdata/usb.ids"' '"${pkgs.hwdata}/share/hwdata/usb.ids"'
-        '';
-      });
-    }
-  ];
+  mkMachine = ({name, modules}: finix.lib.finixSystem {
+		  lib = pkgs.lib;
+		  modules = [
+		    ## Base Nix/Nixpkgs Configuration
+		    {
+		      networking.hostName = name;
+		      ## Nixpkgs local pinning
+		      nixpkgs.pkgs = pkgs;
+		      environment.variables = {
+		      	NIX_PATH = "nixpkgs=${nixpkgs}";
+		      };
+		    }
+		  ] ++ modules;
+		}
+	);
+in {
+	cabure = mkMachine {
+		name = "cabure";
+		modules = [
+	   	## HJEM Module 
+	   	hjem.finixModules.default
+	   	## Base Laptop Profile
+	   	community-modules.nixosModules.laptop
+	   	## Actual machine configuration
+	   	./machines/cabure/configuration.nix
+	  	];
+	};
+	harpia = mkMachine {
+		name = "harpia";
+		modules = [
+	   	## HJEM Module 
+	   	hjem.finixModules.default
+	   	## Base Laptop Profile
+	   	community-modules.nixosModules.laptop
+	   	## Actual machine configuration
+	   	./machines/harpia/configuration.nix
+	  	];
+	};
 }
+
