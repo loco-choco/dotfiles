@@ -6,4 +6,4 @@ spawn-at-startup "qs"
 // Pipewire
 spawn-sh-at-startup "pipewire 2>&1 & sleep 0.5; wireplumber 2>&1 & sleep 0.5; pipewire-pulse 2>&1 &"
 // Awwww
-spawn-sh-at-startup "awww-daemon; awww img ~/.wallpaper.png"
+spawn-sh-at-startup "awww-daemon & sleep 0.5; awww img ~/.wallpaper.png"
