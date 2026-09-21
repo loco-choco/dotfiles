@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "31ba0adf47877c5e47e212892620dc64089e6672",
-      "url": "https://github.com/finix-community/community-modules/archive/31ba0adf47877c5e47e212892620dc64089e6672.tar.gz",
-      "hash": "sha256-EAIc41I23LN3Asbn2qOW+/owbZLzXODZpgOJCh0RIgI="
+      "revision": "fde0284678c6ddda9641d963ddbb367c825f5696",
+      "url": "https://github.com/finix-community/community-modules/archive/fde0284678c6ddda9641d963ddbb367c825f5696.tar.gz",
+      "hash": "sha256-HLR4jtriTaLp3Re/CW1zVk9rMe3m4+r/69WNYp1e6Ek="
     },
     "finix": {
       "type": "Git",
@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f98843e9b54a7abeeb6b80886f637a3135d319e8",
-      "url": "https://github.com/finix-community/finix/archive/f98843e9b54a7abeeb6b80886f637a3135d319e8.tar.gz",
-      "hash": "sha256-kZN9Zsx46Cvk3JqyCsaLM0K0KyDmFB0mRH1iVKlO88o="
+      "revision": "bb5965afe646b8c1055be3646b6df39e754d03a3",
+      "url": "https://github.com/finix-community/finix/archive/bb5965afe646b8c1055be3646b6df39e754d03a3.tar.gz",
+      "hash": "sha256-zz+eqC+AhSIDSSToDcAZp6bZyGtSs9D59K6Jjh+82n4="
     },
     "hjem": {
       "type": "Git",
@@ -35,9 +35,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e5e30b4320a8cbcd6cdfc65f044763669a8f0363",
-      "url": "https://github.com/feel-co/hjem/archive/e5e30b4320a8cbcd6cdfc65f044763669a8f0363.tar.gz",
-      "hash": "sha256-0nvWuRbgL4GEKpR8Y4wsB3kmsVgyd0cW8kLHc2BqlTc="
+      "revision": "b7db95216a7160391cdd0a2d49c7332963733311",
+      "url": "https://github.com/feel-co/hjem/archive/b7db95216a7160391cdd0a2d49c7332963733311.tar.gz",
+      "hash": "sha256-J/Rh2uL5gG3g1KU4z4QdyOqJ6d5HIy/fc/94Yn1fBVc="
     },
     "nh": {
       "type": "GitRelease",
@@ -59,8 +59,8 @@
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1073483.c7def046b9a8/nixexprs.tar.xz",
-      "hash": "sha256-obwZbWHP7htCIoq2Z0g/uTMcEgN6yqcMNIcOMe6P2qI="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1076565.79b35bf0bda5/nixexprs.tar.xz",
+      "hash": "sha256-eaRzSAxpJwnr2Imug6prPsN7xhtnk4cj3ZTopGJOgiY="
     }
   },
   "version": 8
