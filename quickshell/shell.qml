@@ -4,8 +4,6 @@ import Quickshell.Wayland
 import QtQuick
 import QtQuick.Shapes
 
-import Niri 
-
 import "config.js" as Config
 
 ShellRoot {

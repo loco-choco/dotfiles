@@ -22,9 +22,9 @@ in
     ./hardware-configuration.nix
   ];
   
-  ## standard === 
-  ##              Device Manager = keventd
-  ##              Seat   Manager = seatd
+  ## minimal === 
+  ##              Device Manager = (mdevd) keventd
+  ##              Seat   Manager = seatd & elogind
   ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
   profiles.laptop.hardwareSupport = "standard";
@@ -32,12 +32,18 @@ in
   ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.console.keyMap = "fr";
+
   ## Hardware Specifics Configuration ##
+  ### Device Management
+  # services.mdevd.enable = lib.mkForce false;
+  # services.keventd.enable = true;
   ### Wifi Management
-  services.networkmanager.enable = false;
-  services.iwd.enable = true;
+  services.networkmanager.enable = lib.mkForce false;
+  services.iwd.enable = lib.mkForce true;
+  ### Session Management
+  # services.elogind.enable = lib.mkForce true;
   ### Ethernet Management
-  services.dhcpcd.enable = true; ## Ethernet
+  # services.dhcpcd.enable = true; ## Ethernet
   ### Kernel Modules for specific hardware
   boot.kernelModules = [ "uhid" ]; ## BLE Mouse Connection
 
@@ -90,10 +96,15 @@ in
   }; 
 
   ## Users Configuration ##
-  profiles.laptop.user = "locochoco"; # Default user Config
-  users.users.locochoco = {
-    extraGroups = [ "video" "audio" "render" "input" "uinput" "plugdev" ]; ## render - use gpu guy
-    shell = pkgs.nushell;
+  users.users =  {
+    locochoco = {
+      isNormalUser = lib.mkDefault true;
+      extraGroups = [ 
+        "video" "audio" "render" "input" "uinput" "plugdev" 
+    	 "wheel" config.services.seatd.group 
+      ]; ## render - use gpu guy 
+      shell = pkgs.nushell;
+    };
   };
 
   users.groups.plugdev = { };
@@ -173,6 +184,7 @@ obs-studio
 	 sox # play - sfx
     ## Terminal Apps
     nix-output-monitor
+	 nh
     ## Bluetooth Client
     bluetui
     ## SSH
