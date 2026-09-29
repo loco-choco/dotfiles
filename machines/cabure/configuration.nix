@@ -101,7 +101,8 @@ in
       isNormalUser = lib.mkDefault true;
       extraGroups = [ 
         "video" "audio" "render" "input" "uinput" "plugdev" 
-    	 "wheel" config.services.seatd.group 
+    	  "wheel" config.services.seatd.group 
+		  "vboxusers" # virtual box group
       ]; ## render - use gpu guy 
       shell = pkgs.nushell;
     };
@@ -169,6 +170,7 @@ in
     neovim
     timg
     numbat
+	 ffmpeg
     mpv
     kdePackages.kompare
     gpu-screen-recorder
@@ -187,6 +189,7 @@ obs-studio
 	 nh
     ## Bluetooth Client
     bluetui
+	 bluez-tools
     ## SSH
     sshfs ## Fuse SSH mount
     ## Neovim Plugins External Dependencies
