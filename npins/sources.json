@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "fde0284678c6ddda9641d963ddbb367c825f5696",
-      "url": "https://github.com/finix-community/community-modules/archive/fde0284678c6ddda9641d963ddbb367c825f5696.tar.gz",
-      "hash": "sha256-HLR4jtriTaLp3Re/CW1zVk9rMe3m4+r/69WNYp1e6Ek="
+      "revision": "a7044553cb714c295f238cbbed5692ddce6a2af6",
+      "url": "https://github.com/finix-community/community-modules/archive/a7044553cb714c295f238cbbed5692ddce6a2af6.tar.gz",
+      "hash": "sha256-5cwpBTWagVd9olx6HmnYoaZFqh0JFTWh5lCzKJFFlU4="
     },
     "finix": {
       "type": "Git",
@@ -22,9 +22,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "37c6c49aac1ba686fc7b4def599e6a0a7e3ef0bc",
-      "url": "https://github.com/finix-community/finix/archive/37c6c49aac1ba686fc7b4def599e6a0a7e3ef0bc.tar.gz",
-      "hash": "sha256-0Js5CxesLCEriPZaNBGW84Cz0BODBVR7ZKlEqZZ5ayE="
+      "revision": "a743669d9b54455c964377d21c517f8174e542c8",
+      "url": "https://github.com/finix-community/finix/archive/a743669d9b54455c964377d21c517f8174e542c8.tar.gz",
+      "hash": "sha256-Uv6x0Ey3J0LS2uBxaQsr3tiTgkzf8z/5vljN/XLe8Ik="
     },
     "hjem": {
       "type": "Git",
@@ -59,8 +59,8 @@
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1081052.f45c6f04c2f0/nixexprs.tar.xz",
-      "hash": "sha256-k0ouG9zZIYS9D2B6yADfOoMbcUDSBrFg+tfHuUgbHDU="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1085727.8c6b39505383/nixexprs.tar.xz",
+      "hash": "sha256-FlkIecEaptr60mewZ/3SWP1CPKa1CpAwD3Xd8pL1bPk="
     }
   },
   "version": 8
