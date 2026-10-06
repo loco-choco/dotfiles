@@ -158,6 +158,8 @@ in
     wezterm        
     tmux
     nushell
+	 # Java JARs
+	 jdk
     ## Shell
     busybox
     gnumake # make
