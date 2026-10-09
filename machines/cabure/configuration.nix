@@ -174,6 +174,7 @@ in
     numbat
 	 ffmpeg
     mpv
+	 typst
     kdePackages.kompare
     gpu-screen-recorder
     btop
