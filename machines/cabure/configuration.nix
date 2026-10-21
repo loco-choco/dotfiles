@@ -16,7 +16,6 @@ in
     modules.niri
     modules.hyprland
     modules.ly
-    modules.virtualbox
     modules.xwayland-satellite
 
     ./hardware-configuration.nix
@@ -102,7 +101,6 @@ in
       extraGroups = [ 
         "video" "audio" "render" "input" "uinput" "plugdev" 
     	  "wheel" config.services.seatd.group 
-		  "vboxusers" # virtual box group
       ]; ## render - use gpu guy 
       shell = pkgs.nushell;
     };
@@ -221,9 +219,6 @@ obs-studio
   ### Tailscape
   ## Webbrowsing Configuration ##
   ## Gaming Configuration ##
-
-  ## Virtualization
-  programs.virtualbox.enable = true;
 	
   ## Localization Configurations ## 
   time.timeZone = "Europe/Paris";
