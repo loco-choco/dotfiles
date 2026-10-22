@@ -31,7 +31,15 @@ in
   ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
   hardware.console.keyMap = "fr";
-
+  programs.limine.settings = {
+    wallpaper = [
+      (pkgs.fetchurl {
+        url = "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3960600/bc8e7cdc4964f03e61c427b91efd357e2e677825/library_hero_2x.jpg";
+        hash = "sha256-F5ULSTHimUM/LAMxsW8UmPV9FkOPMfqe5Fe452pAyho=";
+      })
+    ];
+	 wallpaper_style = "centered";
+  };
   ## Hardware Specifics Configuration ##
   ### Device Management
   # services.mdevd.enable = lib.mkForce false;
