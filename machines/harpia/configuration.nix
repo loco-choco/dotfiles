@@ -1,6 +1,6 @@
 { modules, config, lib, pkgs, ... }:
 let
-  mkFont = import ./mkFont.nix;
+  mkFont = import ../../lib/mkFont.nix;
   dotnet = (
     with pkgs.dotnetCorePackages;
     combinePackages [
@@ -26,20 +26,23 @@ in
   ##              Seat   Manager = seatd
   ##              Wifi   Manager = iwd
   profiles.laptop.enable = true;
-  profiles.laptop.hardwareSupport = "minimal";
+  profiles.laptop.hardwareSupport = "standard";
+
 
   ## Boot Stuff
   boot.loader.efi.canTouchEfiVariables = true;
 
   ## Hardware Specifics Configuration ##
   ### Device Management
-  services.mdevd.enable = lib.mkForce false;
-  services.keventd.enable = true;
+  # services.mdevd.enable = lib.mkForce false;
+  # services.keventd.enable = true;
   ### Wifi Management
-  ## services.networkmanager.enable = false;
-  ## services.iwd.enable = true;
+  services.networkmanager.enable = lib.mkForce false;
+  services.iwd.enable = lib.mkForce true;
+  ### Session Management
+  # services.elogind.enable = lib.mkForce true;
   ### Ethernet Management
-  services.dhcpcd.enable = true; ## Ethernet
+  # services.dhcpcd.enable = true; ## Ethernet
   ### Kernel Modules for specific hardware
   boot.kernelModules = [ "uhid" ]; ## BLE Mouse Connection
 
@@ -112,7 +115,7 @@ in
       isNormalUser = lib.mkDefault true;
       extraGroups = [ 
         "video" "audio" "render" "input" "uinput" "plugdev" 
-    	 "wheel" config.services.seatd.group 
+        "wheel" config.services.seatd.group 
       ]; ## render - use gpu guy 
       shell = pkgs.nushell;
     };
@@ -127,13 +130,13 @@ in
     directory = "/home/locochoco"; 
     files = {
       ## Niri
-      ".config/niri".source = ./niri;
+      ".config/niri".source = ../../niri;
       ## Wezterm 
-      ".config/wezterm".source = ./wezterm;
+      ".config/wezterm".source = ../../wezterm;
       ## Neovim
-      # ".config/nvim".source = ./nvim;
+      ".config/nvim".source = ../../nvim;
       ## Quickshell 
-      ".config/quickshell".source = ./quickshell;
+      ".config/quickshell".source = ../../quickshell;
       # Custom Cursor Theme
       #".icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
       #".local/share/icons/default".source = "${pkgs.comixcursors.White}/share/icons/ComixCursors-White"; 
