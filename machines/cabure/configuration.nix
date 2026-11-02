@@ -181,11 +181,12 @@ in
 	 ffmpeg
     mpv
 	 typst
+	 libreoffice
     kdePackages.kompare
     gpu-screen-recorder
     btop
 	 ## Video Recording
-obs-studio
+    obs-studio
     ## Window Manager Experience
     fuzzel # launcher
     quickshell
