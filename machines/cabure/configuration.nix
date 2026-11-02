@@ -34,8 +34,8 @@ in
   programs.limine.settings = {
     wallpaper = [
       (pkgs.fetchurl {
-        url = "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3960600/bc8e7cdc4964f03e61c427b91efd357e2e677825/library_hero_2x.jpg";
-        hash = "sha256-F5ULSTHimUM/LAMxsW8UmPV9FkOPMfqe5Fe452pAyho=";
+        url = "https://wallpapercave.com/wp/wp11395102.png";
+        hash = "sha256-sqiwKUoVlkHA2CNnWhaHrtUlsM4BX98CvmBjz652pus=";
       })
     ];
 	 wallpaper_style = "centered";
