@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "a23be2c6a777fc0be1a0a857f6a5296db1eb054a",
-      "url": "https://github.com/finix-community/community-modules/archive/a23be2c6a777fc0be1a0a857f6a5296db1eb054a.tar.gz",
-      "hash": "sha256-6gcFYf4BFHaApP+sB7N4alek0CJ+opNYBDNyl5MFQfE="
+      "revision": "a37b714f32ea83cbda2cba6e369dbfb08790418f",
+      "url": "https://github.com/finix-community/community-modules/archive/a37b714f32ea83cbda2cba6e369dbfb08790418f.tar.gz",
+      "hash": "sha256-Dhow+/xyA81KV0DO/p37VcaZH7x9C0NfSNj28tFHfjc="
     },
     "finix": {
       "type": "Git",
@@ -36,9 +36,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7fec35f695f1d8784d2485be6871f85dc0d0f522",
-      "url": "https://github.com/feel-co/hjem/archive/7fec35f695f1d8784d2485be6871f85dc0d0f522.tar.gz",
-      "hash": "sha256-E3vrGA6k5Suh2NDP18PO+HTaL5zCQMfGW5toKoVqcQ8="
+      "revision": "8408642aa3035135fa6d70269dc93e0814e2a4f6",
+      "url": "https://github.com/feel-co/hjem/archive/8408642aa3035135fa6d70269dc93e0814e2a4f6.tar.gz",
+      "hash": "sha256-hmlUXxCk6On7Hrop/TyS3//dgI2BLvaN4TEsOq1ma+Y="
     },
     "nh": {
       "type": "GitRelease",
@@ -60,8 +60,8 @@
       "type": "Channel",
       "name": "nixpkgs-unstable",
       "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1093421.f20cd90e28fe/nixexprs.tar.xz",
-      "hash": "sha256-MTJCMrhDFb+GRbLxBPTp8kB4dDlO+egmQ5qsJgYuaWw="
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1106677.5c9de89ec55b/nixexprs.tar.xz",
+      "hash": "sha256-TmjnoezEMTuSmEjtCa9gTaK6hLOFJv+ZvIDCu5s9vec="
     }
   },
   "version": 8
