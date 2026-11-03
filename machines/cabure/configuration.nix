@@ -157,6 +157,7 @@ in
     steam
 	 owmods-cli
     ## Art
+	 gimp
     inkscape
 	 ## Music
 	 musescore
