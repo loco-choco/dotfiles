@@ -192,6 +192,8 @@ in
     fuzzel # launcher
     quickshell
     awww # Wallpaper
+	 wl-mirror # Screen Mirror
+	 jq # Niri json parsing
     dragon-drop
     comixcursors.White # Cursor Theme
 	 sox # play - sfx
